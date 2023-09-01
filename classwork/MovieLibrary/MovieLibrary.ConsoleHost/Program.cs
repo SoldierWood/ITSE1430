@@ -13,20 +13,61 @@ int length = 0, releaseYear = 1900;
 decimal budget = 125.45M;
 bool isBlackAndWhite = false;
 
-// Get title
-Console.WriteLine("Enter a title: ");
-title = Console.ReadLine();
+GetMovie();
+DisplayMovie();
 
-Console.WriteLine("Enter a description: ");
-description = Console.ReadLine();
+void GetMovie ()
+{
+    title = ReadString("Enter a title: ", true);
+    description = ReadString("Enter a description: ", false);
 
-//TODO: Fix length
-Console.WriteLine("Enter run length (in mins): ");
-string lengthString = Console.ReadLine();
+    length = ReadInt("Enter the run length (in mins): ", 0);
+    releaseYear = ReadInt("Enter the release year: ", 1900);
 
-Console.WriteLine(title);
-Console.WriteLine(description);
-Console.WriteLine(lengthString);
+    //TODO: Fix length
+    
+}
+
+void DisplayMovie ()
+{
+    Console.WriteLine(title);
+    Console.WriteLine(description);
+    Console.WriteLine(length);
+}
+
+int ReadInt ( string message, int minimumValue )
+{
+    Console.WriteLine(message);
+
+    string value = Console.ReadLine();
+
+    //int result = Int32.Parse(value);
+
+    int result;
+    if (Int32.TryParse(value, out result))
+        if (result < minimumValue)
+            return result;
+        return result;
+
+    return 0;
+}
+
+
+string ReadString(string message, bool isRequired)
+{
+    Console.WriteLine(message);
+    
+    string value = Console.ReadLine();
+
+    if (!isRequired)
+        return value;
+    //else
+    //    return "";
+
+    //TODO: Input validation for required
+    return value;
+    //    return Console.ReadLine();
+}
 
 //double someFloatingValue = 3.14159;
 //char letterGrade = 'A';
