@@ -4,7 +4,7 @@
 
 
 DisplayIntro();
-
+GetUserSelection();
 
 void DisplayIntro ()
 {
@@ -25,9 +25,42 @@ void DisplayIntro ()
     Console.WriteLine("in the car, and you had not taken it with you. You go back into the store and ask the clerk to");
     Console.WriteLine("call the police on your behalf for help. The clerk refuses because they sell illegal items in the");
     Console.WriteLine("store and cannot risk having the police there. An old man approaches you and offers to give");
-    Console.WriteLine("you a ride to the police station if you will help him run a few errands first.");
-    Console.WriteLine("He appears very kind, old, and feeble, so you feel safe taking him up on his offer.");
+    Console.WriteLine("you a ride to the police station if you will help him run a few errands along the way.");
+    Console.WriteLine("He appears very kind, old, and feeble, so you feel safe and take him up on his offer.");
     Console.WriteLine("Will your street smarts allow you to successfully navigate through the hood without");
     Console.WriteLine("endangering yourself unnecessarily, or has life not properly prepared you for how to stay");
-    Console.WriteLine("safe in the hood?");
+    Console.WriteLine("safe in the hood?\n");
+}
+
+void GetUserSelection()
+{
+    Console.WriteLine("What do you want to do?");
+    Console.WriteLine("-----------------------");
+    Console.WriteLine("N) Move North");
+    Console.WriteLine("S) Move South");
+    Console.WriteLine("E) Move East");
+    Console.WriteLine("W) Move West");
+    Console.WriteLine("Q) Quit");
+
+    char choice = Console.ReadKey().KeyChar;
+    bool choiceExists = true;
+
+    do
+    {
+        Console.WriteLine("\n\nWhat do you want to do?");
+        Console.WriteLine("-----------------------");
+        Console.WriteLine("N) Move North");
+        Console.WriteLine("S) Move South");
+        Console.WriteLine("E) Move East");
+        Console.WriteLine("W) Move West");
+        Console.WriteLine("Q) Quit");
+
+        choice = Console.ReadKey().KeyChar;
+        choiceExists = true;
+
+        if (!((choice.Equals('N')) || (choice.Equals('S')) || (choice.Equals('E')) || (choice.Equals('W')) || (choice.Equals('Q'))))
+        {
+            Console.WriteLine("\nInvalid input. Please try again.");
+        }
+    } while (choiceExists == true);
 }
