@@ -60,7 +60,7 @@ void GetUserSelection()
 
         if (!((choice.Equals('N')) || (choice.Equals('S')) || (choice.Equals('E')) || (choice.Equals('W')) || (choice.Equals('Q'))))
         {
-            Console.WriteLine("\nInvalid input. Please try again.");
+            Console.WriteLine("\n\nInvalid input. Please try again.");
         }
     } while (choiceExists == true);
 }
