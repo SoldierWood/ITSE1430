@@ -1,4 +1,4 @@
-﻿// Lab 1
+﻿// Lab 1 Adventure Game
 // Written by Chris Wood
 // Fall 2023
 
