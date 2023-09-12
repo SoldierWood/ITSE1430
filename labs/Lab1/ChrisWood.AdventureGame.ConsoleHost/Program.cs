@@ -17,8 +17,7 @@ do
         case 3: MoveEast(); break;
         case 4: MoveWest(); break;
         case 0: done = true; break;
-
-        default: Console.WriteLine("Unknown option"); break;
+        case 5: Console.WriteLine("\n"); break;
     };
 } while (!done);
 
@@ -58,7 +57,7 @@ int GetUserSelection()
     Console.WriteLine("S) Move South");
     Console.WriteLine("E) Move East");
     Console.WriteLine("W) Move West");
-    Console.WriteLine("Q) Quit");
+    Console.WriteLine("Q) Quit\n");
 
     //char choice = Console.ReadKey().KeyChar;
     //bool choiceExists = true;
@@ -72,6 +71,8 @@ int GetUserSelection()
             case ConsoleKey.E: return 3;
             case ConsoleKey.W: return 4;
             case ConsoleKey.Q: return 0;
+
+            default: Console.WriteLine("Unknown option"); return 5;
         };
     } while (true);
 }
