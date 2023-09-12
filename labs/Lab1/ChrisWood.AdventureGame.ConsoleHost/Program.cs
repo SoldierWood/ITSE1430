@@ -2,9 +2,27 @@
 // Written by Chris Wood
 // Fall 2023
 
-//cha cha cha changes turn and face the strange changes
+
+// Entry point
 DisplayIntro();
-GetUserSelection();
+
+var done = false;
+
+do
+{
+    switch (GetUserSelection())
+    {
+        case 1: MoveNorth(); break;
+        case 2: MoveSouth(); break;
+        case 3: MoveEast(); break;
+        case 4: MoveWest(); break;
+        case 0: done = true; break;
+
+        default: Console.WriteLine("Unknown option"); break;
+    };
+} while (!done);
+
+
 
 void DisplayIntro ()
 {
@@ -32,7 +50,7 @@ void DisplayIntro ()
     Console.WriteLine("safe in the hood?\n");
 }
 
-void GetUserSelection()
+int GetUserSelection()
 {
     Console.WriteLine("What do you want to do?");
     Console.WriteLine("-----------------------");
@@ -42,25 +60,49 @@ void GetUserSelection()
     Console.WriteLine("W) Move West");
     Console.WriteLine("Q) Quit");
 
-    char choice = Console.ReadKey().KeyChar;
-    bool choiceExists = true;
+    //char choice = Console.ReadKey().KeyChar;
+    //bool choiceExists = true;
 
     do
     {
-        Console.WriteLine("\n\nWhat do you want to do?");
-        Console.WriteLine("-----------------------");
-        Console.WriteLine("N) Move North");
-        Console.WriteLine("S) Move South");
-        Console.WriteLine("E) Move East");
-        Console.WriteLine("W) Move West");
-        Console.WriteLine("Q) Quit");
-
-        choice = Console.ReadKey().KeyChar;
-        choiceExists = true;
-
-        if (!((choice.Equals('N')) || (choice.Equals('S')) || (choice.Equals('E')) || (choice.Equals('W')) || (choice.Equals('Q'))))
+        switch (Console.ReadKey(true).Key)
         {
-            Console.WriteLine("\n\nInvalid input. Please try again.");
-        }
-    } while (choiceExists == true);
+            case ConsoleKey.N: return 1;
+            case ConsoleKey.S: return 2;
+            case ConsoleKey.E: return 3;
+            case ConsoleKey.W: return 4;
+            case ConsoleKey.Q: return 0;
+        };
+    } while (true);
 }
+
+void MoveNorth ()
+{
+
+}
+
+void MoveSouth ()
+{
+
+}
+
+void MoveEast ()
+{
+
+}
+
+void MoveWest ()
+{
+
+}
+
+
+//        choice = Console.ReadKey().KeyChar;
+//        choiceExists = true;
+
+//        if (!((choice.Equals('N')) || (choice.Equals('S')) || (choice.Equals('E')) || (choice.Equals('W')) || (choice.Equals('Q'))))
+//        {
+//            Console.WriteLine("\n\nInvalid input. Please try again.");
+//        }
+//    } while (choiceExists == true);
+//}
