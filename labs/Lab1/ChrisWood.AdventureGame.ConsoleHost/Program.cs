@@ -16,11 +16,34 @@ do
         case 2: MoveSouth(); break;
         case 3: MoveEast(); break;
         case 4: MoveWest(); break;
-        case 0: done = true; break;
+        case 0:
+        if (!Confirmation("Are you sure you want to quit the game (Y/N/?"))
+        {
+            done = true;
+        }
+        break;
         case 5: Console.WriteLine("\n"); break;
     };
 } while (!done);
 
+bool Confirmation ( string message )
+{
+    return ReadBoolean(message);
+}
+
+bool ReadBoolean ( string message )
+{
+    Console.WriteLine(message);
+
+    while (true)
+    {
+        switch (Console.ReadKey(true).Key)
+        {
+            case ConsoleKey.Y: return false;
+            case ConsoleKey.N: return true;
+        };
+    }
+}
 
 
 void DisplayIntro ()
@@ -49,7 +72,7 @@ void DisplayIntro ()
     Console.WriteLine("safe in the hood?\n");
 }
 
-int GetUserSelection()
+int GetUserSelection ()
 {
     Console.WriteLine("What do you want to do?");
     Console.WriteLine("-----------------------");
@@ -93,4 +116,3 @@ void MoveWest ()
 {
 
 }
-
