@@ -59,9 +59,6 @@ int GetUserSelection()
     Console.WriteLine("W) Move West");
     Console.WriteLine("Q) Quit\n");
 
-    //char choice = Console.ReadKey().KeyChar;
-    //bool choiceExists = true;
-
     do
     {
         switch (Console.ReadKey(true).Key)
@@ -97,13 +94,3 @@ void MoveWest ()
 
 }
 
-
-//        choice = Console.ReadKey().KeyChar;
-//        choiceExists = true;
-
-//        if (!((choice.Equals('N')) || (choice.Equals('S')) || (choice.Equals('E')) || (choice.Equals('W')) || (choice.Equals('Q'))))
-//        {
-//            Console.WriteLine("\n\nInvalid input. Please try again.");
-//        }
-//    } while (choiceExists == true);
-//}
