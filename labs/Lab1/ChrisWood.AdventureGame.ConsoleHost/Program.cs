@@ -2,7 +2,7 @@
 // Written by Chris Wood
 // Fall 2023
 
-//cha cha cha changes
+//cha cha cha changes turn and face the strange changes
 DisplayIntro();
 GetUserSelection();
 
