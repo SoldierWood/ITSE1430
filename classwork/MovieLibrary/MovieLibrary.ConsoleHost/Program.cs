@@ -8,9 +8,10 @@ string title = "", description = "";
 //title = "";
 string genre = "", rating = "";
 
+Int32 len;
 int length = 0, releaseYear = 1900;
 
-decimal budget = 125.45M;
+//decimal budget = 125.45M;
 bool isBlackAndWhite = false;
 //Entry point
 var done = false;
@@ -100,10 +101,13 @@ void EditMovie()
 
 void DeleteMovie()
 {
-    if (!Confirm("Are you sure you want to delete the movie (Y/N)?"))
+    if (String.IsNullOrEmpty(title))
         return;
 
-    Console.WriteLine("Not implemented yet");
+    if (!Confirm($"Are you sure you want to delete the movie '{title}' (Y/N)?"))
+        return;
+
+    title = "";
 }
 
 void AddMovie ()
@@ -125,24 +129,49 @@ void AddMovie ()
 
 void ViewMovie ()
 {
-    //Console.WriteLine();
-    //Console.WriteLine("----------------");
-    Console.WriteLine("\n----------------");
+    //length of string
+    int len = title.Length;
 
+    if (String.IsNullOrEmpty(title))
+    {
+        Console.WriteLine("No movies available");
+        return;
+    }
+
+    Console.WriteLine();
+    Console.WriteLine("".PadLeft(15, '-'));
+    //Console.WriteLine("----------------");
+    //Console.WriteLine("\n----------------");
 
     Console.WriteLine(title);
-    
-    // Run Length: ## mins
-    Console.WriteLine("Run Length: " + length + " mins");
 
+    // String formatting
+
+    // Run Length: ## mins
+
+    //Console.WriteLine("Run Length: " + length + " mins");
+    //var message = String.Concat("Run Length: ", length.ToString(), " mins");
+    //Console.WriteLine(message);
+    //var message2 = String.Join(" ", "Run Length:", length, "mins");
+
+    // String.Format
+    //string message = String.Format("Run Length: {0} mins", length);
+    //Console.WriteLine(message);
+    // decimal price = 45.45252;
+    //String.Format("{0:C}, price);
+    //Console.WriteLine("Run Length: {0} mins", length);
+
+    //Approach to use: String interpolation
+    string message = $"Run Length: {length} mins";
+    Console.WriteLine(message);
 
     // Released yyyy
-    Console.WriteLine("Released " + releaseYear);
+    Console.WriteLine($"Released {releaseYear}");
 
     Console.WriteLine(genre);
 
     // MPAA Rating:
-    Console.WriteLine("MPAA Rating: " + rating);
+    Console.WriteLine($"MPAA Rating: {rating}");
 
     //Black and White?
     //string format = "Color";
@@ -151,12 +180,23 @@ void ViewMovie ()
 
     //V2
     string format = isBlackAndWhite ? "Black and White" : "Color";
-    Console.WriteLine("Format: " + format);
+    Console.WriteLine("Format: ".PadLeft(10) + format);
 
     //V3
     //Console.WriteLine("Format: " + (isBlackAndWhite ? "Black and White" : "Color"));
 
     Console.WriteLine(description);
+
+    //More string functions
+    //string path1 = @"C:\temp";
+    //string path2 = @"Windows";
+    //if (!path1.EndsWith("\\"))
+    //    path1 = path1 + "\\";
+    //if (path2.StartsWith("\\"))
+    //    path2 = path2.Substring(1);
+    //    path2 = path2.Trim('\\');
+    //string path3 = path1 + "\\" + path2;
+        
 }
 
 bool Confirm ( string message )
@@ -229,7 +269,7 @@ string ReadString(string message, bool isRequired)
 
     do
     {
-        string value = Console.ReadLine();
+        string value = Console.ReadLine().Trim();
 
         if (!isRequired || !String.IsNullOrEmpty(value))
             return value;
@@ -252,13 +292,17 @@ string ReadRating ( string message )
     do
     {
         string value = Console.ReadLine();
-        if (value == "PG")
+        //if (value == "PG")
+        //value = value.ToLower();
+        //if (value == "pg")
+        //if (String.Compare(value, "PG", true) == 0) // 3rd parameter -> ignore case     String.Compare(value, "PG", StringComparison.CurrentCultureIgnoreCase)
+        if (String.Equals(value, "PG", StringComparison.CurrentCultureIgnoreCase))
             return "PG";
-        else if (value == "G")
+        else if (String.Equals(value, "G", StringComparison.CurrentCultureIgnoreCase))
             return "G";
-        else if (value == "PG-13")
+        else if (String.Equals(value, "PG-13", StringComparison.CurrentCultureIgnoreCase))
             return "PG-13";
-        else if (value == "R")
+        else if (String.Equals(value, "R", StringComparison.CurrentCultureIgnoreCase))
             return "R";
         else if (String.IsNullOrEmpty(value))           //(value == "") // else if (value == String.Empty
             return "";
