@@ -3,8 +3,48 @@
 // Fall 2023
 
 
+// Entry point
 DisplayIntro();
-GetUserSelection();
+
+var done = false;
+
+do
+{
+    switch (GetUserSelection())
+    {
+        case 1: MoveNorth(); break;
+        case 2: MoveSouth(); break;
+        case 3: MoveEast(); break;
+        case 4: MoveWest(); break;
+        case 0:
+        if (!Confirmation("Are you sure you want to quit the game (Y/N/?"))
+        {
+            done = true;
+        }
+        break;
+        case 5: Console.WriteLine("\n"); break;
+    };
+} while (!done);
+
+bool Confirmation ( string message )
+{
+    return ReadBoolean(message);
+}
+
+bool ReadBoolean ( string message )
+{
+    Console.WriteLine(message);
+
+    while (true)
+    {
+        switch (Console.ReadKey(true).Key)
+        {
+            case ConsoleKey.Y: return false;
+            case ConsoleKey.N: return true;
+        };
+    }
+}
+
 
 void DisplayIntro ()
 {
@@ -32,7 +72,7 @@ void DisplayIntro ()
     Console.WriteLine("safe in the hood?\n");
 }
 
-void GetUserSelection()
+int GetUserSelection ()
 {
     Console.WriteLine("What do you want to do?");
     Console.WriteLine("-----------------------");
@@ -40,27 +80,39 @@ void GetUserSelection()
     Console.WriteLine("S) Move South");
     Console.WriteLine("E) Move East");
     Console.WriteLine("W) Move West");
-    Console.WriteLine("Q) Quit");
-
-    char choice = Console.ReadKey().KeyChar;
-    bool choiceExists = true;
+    Console.WriteLine("Q) Quit\n");
 
     do
     {
-        Console.WriteLine("\n\nWhat do you want to do?");
-        Console.WriteLine("-----------------------");
-        Console.WriteLine("N) Move North");
-        Console.WriteLine("S) Move South");
-        Console.WriteLine("E) Move East");
-        Console.WriteLine("W) Move West");
-        Console.WriteLine("Q) Quit");
-
-        choice = Console.ReadKey().KeyChar;
-        choiceExists = true;
-
-        if (!((choice.Equals('N')) || (choice.Equals('S')) || (choice.Equals('E')) || (choice.Equals('W')) || (choice.Equals('Q'))))
+        switch (Console.ReadKey(true).Key)
         {
-            Console.WriteLine("\n\nInvalid input. Please try again.");
-        }
-    } while (choiceExists == true);
+            case ConsoleKey.N: return 1;
+            case ConsoleKey.S: return 2;
+            case ConsoleKey.E: return 3;
+            case ConsoleKey.W: return 4;
+            case ConsoleKey.Q: return 0;
+
+            default: Console.WriteLine("Unknown option"); return 5;
+        };
+    } while (true);
+}
+
+void MoveNorth ()
+{
+
+}
+
+void MoveSouth ()
+{
+
+}
+
+void MoveEast ()
+{
+
+}
+
+void MoveWest ()
+{
+
 }
