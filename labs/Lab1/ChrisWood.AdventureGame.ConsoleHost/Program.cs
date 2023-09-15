@@ -5,6 +5,7 @@
 
 // Entry point
 int currentRoom = 1;
+//int newRoom = 0;
 
 DisplayIntro();
 
@@ -14,10 +15,18 @@ do
 {
     switch (GetUserSelection())
     {
-        case 1: MoveNorth(currentRoom); break;
-        case 2: MoveSouth(currentRoom); break;
-        case 3: MoveEast(); break;
-        case 4: MoveWest(); break;
+        case 1:
+            currentRoom = MoveNorth(currentRoom);
+            break;
+        case 2: 
+            currentRoom = MoveSouth(currentRoom);
+            break;
+        case 3:
+            currentRoom = MoveEast(currentRoom);
+            break;
+        case 4:
+            currentRoom = MoveWest(currentRoom);
+            break;
         case 0:
         if (!Confirmation("Are you sure you want to quit the game (Y/N/?"))
         {
@@ -100,42 +109,64 @@ int GetUserSelection ()
     } while (true);
 }
 
-void MoveNorth ( int currentRoom )
+int MoveNorth ( int currentRoom )
 {
     if (currentRoom == 1)
     {
         Console.WriteLine("You cannot move North from the gas station. Please try a different direction.\n");
     }
+
+    return currentRoom;
 }
 
-void MoveSouth ( int currentRoom )
-{   
-    
-
-}
-
-void MoveEast ()
+int MoveSouth ( int currentRoom )
 {
+
+    return currentRoom;
+}
+
+int MoveEast (int currentRoom)
+{
+    //int roomNew = currentRoom;
+
     if (currentRoom == 1)
     {
         currentRoom = 2;
         room2Scenario();
+     }
+    
+    else if (currentRoom == 2)
+    {
+        currentRoom = 3;
+        room3Scenario();
     }
+
+    return currentRoom;
+
 }
 
-void MoveWest ()
+int MoveWest (int currentRoom)
 {
     if (currentRoom == 1)
     {
         Console.WriteLine("You cannot move West from the gas station. Please try a different direction.\n");
     }
 
+    return currentRoom;
 }
 
 void room2Scenario ()
 {
-    Console.WriteLine("You have pulled in front of a run down looking house. The old man acompanying you wants you to go to the front door to get his pain medication.");
-    Console.WriteLine("He hands you a $20 bill to purchase the medication with. You accept the $20, get out of the car, and head to the front door. The transaction ");
-    Console.WriteLine("goes down without incident.");
+    Console.WriteLine("You have pulled in front of a run down looking house. The old man acompanying you wants you to go ");
+    Console.WriteLine("to the front door to get his pain medication. He hands you a $20 bill to purchase the medication with. ");
+    Console.WriteLine("You accept the $20, get out of the car, and head to the front door. The transaction goes down without incident.\n");
+}
 
+void room3Scenario()
+{
+    Console.WriteLine("You are in front of an abandoned church. A few women in scant clothing are sitting on the steps. ");
+    Console.WriteLine("The old man asks you to see if one of the women will get him more pain medicine.");
+    Console.WriteLine("With great trepidation, you approach the women and make your request.");
+    Console.WriteLine("One of the women agrees to help and takes the money. After what seems like a long time,");
+    Console.WriteLine("the woman returns with some medicine to give to the old man.");
 }
