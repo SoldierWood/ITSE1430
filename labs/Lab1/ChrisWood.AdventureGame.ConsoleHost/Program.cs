@@ -4,6 +4,8 @@
 
 
 // Entry point
+int currentRoom = 1;
+
 DisplayIntro();
 
 var done = false;
@@ -12,8 +14,8 @@ do
 {
     switch (GetUserSelection())
     {
-        case 1: MoveNorth(); break;
-        case 2: MoveSouth(); break;
+        case 1: MoveNorth(currentRoom); break;
+        case 2: MoveSouth(currentRoom); break;
         case 3: MoveEast(); break;
         case 4: MoveWest(); break;
         case 0:
@@ -25,6 +27,7 @@ do
         case 5: Console.WriteLine("\n"); break;
     };
 } while (!done);
+
 
 bool Confirmation ( string message )
 {
@@ -97,22 +100,42 @@ int GetUserSelection ()
     } while (true);
 }
 
-void MoveNorth ()
+void MoveNorth ( int currentRoom )
 {
-
+    if (currentRoom == 1)
+    {
+        Console.WriteLine("You cannot move North from the gas station. Please try a different direction.\n");
+    }
 }
 
-void MoveSouth ()
-{
+void MoveSouth ( int currentRoom )
+{   
+    
 
 }
 
 void MoveEast ()
 {
-
+    if (currentRoom == 1)
+    {
+        currentRoom = 2;
+        room2Scenario();
+    }
 }
 
 void MoveWest ()
 {
+    if (currentRoom == 1)
+    {
+        Console.WriteLine("You cannot move West from the gas station. Please try a different direction.\n");
+    }
+
+}
+
+void room2Scenario ()
+{
+    Console.WriteLine("You have pulled in front of a run down looking house. The old man acompanying you wants you to go to the front door to get his pain medication.");
+    Console.WriteLine("He hands you a $20 bill to purchase the medication with. You accept the $20, get out of the car, and head to the front door. The transaction ");
+    Console.WriteLine("goes down without incident.");
 
 }
