@@ -133,6 +133,10 @@ int MoveNorth ( int currentRoom )
     {
         currentRoom = 5;
         room5Scenario();
+    } else if (currentRoom == 9)
+    {
+        currentRoom = 6;
+        room6Scenario();
     }
 
     return currentRoom;
@@ -255,12 +259,20 @@ void room1Scenario()
     Console.WriteLine("This is the run-down gas station you were abandoned at. It is in desperate need of repair");
     Console.WriteLine("Illegal items are sold in this store, so the clerk is afraid of calling the police unless ");
     Console.WriteLine("it is a dire emergency.\n");
+    if (GeneratePercentage() <= 5)
+    {
+        RandomEvent();
+    }
 }
 void room2Scenario ()
 {
     Console.WriteLine("You have pulled in front of a run down looking house. The old man acompanying you wants you to go ");
     Console.WriteLine("to the front door to get his pain medication. He hands you a $20 bill to purchase the medication with. ");
     Console.WriteLine("You accept the $20, get out of the car, and head to the front door. The transaction goes down without incident.\n");
+    if (GeneratePercentage() <= 5)
+    {
+        RandomEvent();
+    }
 }
 
 void room3Scenario()
@@ -270,6 +282,10 @@ void room3Scenario()
     Console.WriteLine("With great trepidation, you approach the women and make your request.");
     Console.WriteLine("One of the women agrees to help and takes the money. After what seems like a long time,");
     Console.WriteLine("the woman returns with some medicine to give to the old man.\n");
+    if (GeneratePercentage() <= 5)
+    {
+        RandomEvent();
+    }
 }
 
 void room4Scenario()
@@ -286,6 +302,10 @@ void room5Scenario()
     Console.WriteLine("You tell him that he has not given you enough money. The old man educates you that this liquor store ");
     Console.WriteLine("sells small bottles of liquor for $1 each. He would like three small bottle of liquor. You go in ");
     Console.WriteLine("and purchase the alcohol on the old man's behalf.\n");
+    if (GeneratePercentage() <= 5)
+    {
+        RandomEvent();
+    }
 }
 void room6Scenario()
 {
@@ -293,6 +313,10 @@ void room6Scenario()
     Console.WriteLine("inside to retrieve something. You notice the dome light in the car does not turn on when the car ");
     Console.WriteLine("door opens, as if the man does not want anyone to see inside the car. The man leaves you alone, goes ");
     Console.WriteLine("inside the house, and comes back out carrying a small brown bag.\n");
+    if (GeneratePercentage() <= 5)
+    {
+        RandomEvent();
+    }
 }
 
 void room7Scenario()
@@ -301,6 +325,10 @@ void room7Scenario()
     Console.WriteLine("and the store is closed. The old man makes a phone call, and a few minutes later, a loud car ");
     Console.WriteLine("pulls up next to your car. The old man says he will just be a minute. He gets out of the car, ");
     Console.WriteLine("goes to the loud car and gets in. A few minutes later, he returns to your car.\n");
+    if (GeneratePercentage() <= 5)
+    {
+        RandomEvent();
+    }
 }
 
 void room8Scenario()
@@ -309,6 +337,10 @@ void room8Scenario()
     Console.WriteLine("to have made it here. He tells you he would like a few moments of silence while he takes his ");
     Console.WriteLine("pain meds. He asks you to let him know if someone pulls into the park. He then enjoys getting ");
     Console.WriteLine("some relief to his pain.\n");
+    if (GeneratePercentage() <= 5)
+    {
+        RandomEvent();
+    }
 }
 void room9Scenario()
 {
@@ -316,4 +348,19 @@ void room9Scenario()
     Console.WriteLine("at this particular location. He nods his head, and you look in the direction he is nodding towards. ");
     Console.WriteLine("You see police cars and realize you have finally made it to the Police Station. Making it home safe and sound will is ");
     Console.WriteLine("a possibility for you.\n");
+    if (GeneratePercentage() <= 5)
+    {
+        RandomEvent();
+    }
+}
+
+int GeneratePercentage()
+{
+    return Random.Shared.Next(1, 101);
+}
+
+void RandomEvent()
+{
+    Console.WriteLine("A police car turns onto the road right next to you. The old man becomes visibly nervous and stays that way ");
+    Console.WriteLine("until the police turns off onto a side road.\n");
 }
