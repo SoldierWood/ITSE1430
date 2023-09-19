@@ -27,7 +27,7 @@ do
             currentRoom = MoveWest(currentRoom);
             break;
         case 0:
-        if (!Confirmation("Are you sure you want to quit the game (Y/N/?"))
+        if (!Confirmation("Are you sure you want to quit the game (Y/N/)?"))
         {
             done = true;
         }
@@ -346,7 +346,7 @@ void room9Scenario()
 {
     Console.WriteLine("The car suddenly stops in the middle of the street. You look around, wondering why the old man stopped ");
     Console.WriteLine("at this particular location. He nods his head, and you look in the direction he is nodding towards. ");
-    Console.WriteLine("You see police cars and realize you have finally made it to the Police Station. Making it home safe and sound will is ");
+    Console.WriteLine("You see police cars and realize you have finally made it to the Police Station. Making it home safe and sound is ");
     Console.WriteLine("a possibility for you.\n");
     if (GeneratePercentage() <= 5)
     {
