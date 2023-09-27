@@ -17,6 +17,14 @@ namespace MovieLibrary
         private string _title;
 
         //Properties - data with functionality
+
+        /// <summary> Gets or sets the unique identifier of movie. </summary>
+        public int Id { 
+            //mixed accessibility - getter/setter has diffferent access than property
+            get;
+            /*set;*/
+            private set;
+        }
         public string Title
         {
             //string get()
@@ -60,14 +68,8 @@ namespace MovieLibrary
 
         private string _rating = "";
 
-        public string Rating
-        {
-            get {
-                if (String.IsNullOrEmpty(_rating))
-                    return ""; 
-                return _rating; }
-            set { _rating = value; }
-        }
+        public Rating Rating { get; set; }
+
         ////full property syntax
         //private int _length;
 
@@ -88,7 +90,7 @@ namespace MovieLibrary
         //    set { _releaseYear = value; }
         //}
 
-        public int ReleaseYear { get; set; } = 1900;
+        public int ReleaseYear { get; set; } = MinimumReleaseYear;
 
         private bool _isBlackAndWhite;
 
@@ -108,12 +110,19 @@ namespace MovieLibrary
             //set { }
         }
 
-        
+
 
         ///  <summary>Dowload metadata from Internet.</summary>summary></summary>
         /// <remarks>
         /// Searches
         /// </remarks>
+        /// 
+
+        /// <summary> Minimum release year.</summary>
+        public const int MinimumReleaseYear = 1900;
+
+        public readonly string DefaultRating = "PG";
+
         private void DownloadMetadata ()
         { }
 
@@ -127,7 +136,7 @@ namespace MovieLibrary
                 return "Title is required";
 
             //Release Year >= 1900
-            if (ReleaseYear < 1900)
+            if (ReleaseYear < MinimumReleaseYear)
                 return "Release Year must be >= 1900";
 
             //Length >= 0
