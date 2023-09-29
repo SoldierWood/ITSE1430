@@ -92,7 +92,9 @@ partial class Program
 
     Movie AddMovie ()
     {
-        var movie = new Movie();
+        var movie = new Movie(10);
+        movie.Title = "Something";
+        movie.Description = "Something";
 
         do
         {
@@ -108,9 +110,11 @@ partial class Program
               //  movie.Rating.Name = "Whatever";
 
             movie.IsBlackAndWhite = ReadBoolean("Black and White (Y/N)?");
-           //movie.NeedsIntermission = true;
+            //movie.NeedsIntermission = true;
 
             //Validate
+            ValidatableObject validInstance = movie;
+
             var error = movie.Validate();
             if (String.IsNullOrEmpty(error))
                 return movie;

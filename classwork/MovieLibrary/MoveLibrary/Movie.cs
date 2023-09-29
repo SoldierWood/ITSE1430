@@ -10,8 +10,36 @@ namespace MovieLibrary
     /// <remarks>
     /// Paragraphs of descriptions.
     /// </remarks>
-    public class Movie
+    public class Movie : ValidatableObject
     {
+        //ctors - initialize instances
+
+        //Default contructor
+        public Movie ()
+        {
+            //init anything that field inits won't work with
+        }
+        /// <summary>
+        /// <summary> Initializes Movie class.</summary>
+        /// </summary>
+        /// <param name="id">Identifier of the movie.</param>
+        public Movie ( int id ) : this(id, "")
+        {
+            //Id = id;
+           
+        }
+        public Movie ( string Title)
+        {
+            Title = title;
+        }
+
+        //private void Initialize ( int id, string title)
+        //{
+        //    Id = id;
+        //    Title = title;
+
+            
+        //}
         //Fields - data
         /// <summary> Title of movie. </summary>
         private string _title;
