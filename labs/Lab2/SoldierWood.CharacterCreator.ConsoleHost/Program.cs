@@ -3,7 +3,9 @@
 // Written by Chris "Soldier" Wood
 // 09 30 23
 
+using SoldierWood.CharacterCreator;
 
+namespace SoldierWood.CharacterCreator;
 internal class Program
 {
     private static void Main ( string[] args )
@@ -44,7 +46,7 @@ internal class Program
             Console.WriteLine("Fall 2023\n");
 
         }
-        
+
         int GetUserSelection ()
         {
             Console.WriteLine("What do you want to do?");

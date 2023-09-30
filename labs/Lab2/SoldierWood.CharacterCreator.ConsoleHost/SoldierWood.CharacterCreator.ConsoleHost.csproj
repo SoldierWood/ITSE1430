@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -10,6 +10,9 @@
   <ItemGroup>
     <Reference Include="SoldierWood.CharacterCreator">
       <HintPath>..\SoldierWood.CharacterCreator\SoldierWood.CharacterCreator\bin\Debug\net6.0\SoldierWood.CharacterCreator.dll</HintPath>
+    </Reference>
+    <Reference Include="SoldierWood.CharacterCreator.ConsoleHost">
+      <HintPath>..\SoldierWood.CharacterCreator\SoldierWood.CharacterCreator\bin\Debug\net6.0\SoldierWood.CharacterCreator.ConsoleHost.dll</HintPath>
     </Reference>
   </ItemGroup>
 
