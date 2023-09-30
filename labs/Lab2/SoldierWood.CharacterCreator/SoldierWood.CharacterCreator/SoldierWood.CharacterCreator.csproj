@@ -6,4 +6,8 @@
     <Nullable>disable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\SoldierWood.CharacterCreator.ConsoleHost\SoldierWood.CharacterCreator.ConsoleHost.csproj" />
+  </ItemGroup>
+
 </Project>

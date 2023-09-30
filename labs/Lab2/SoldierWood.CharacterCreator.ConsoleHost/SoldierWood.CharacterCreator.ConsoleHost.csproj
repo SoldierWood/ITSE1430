@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="SoldierWood.CharacterCreator">
+      <HintPath>..\SoldierWood.CharacterCreator\SoldierWood.CharacterCreator\bin\Debug\net6.0\SoldierWood.CharacterCreator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

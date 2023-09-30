@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoldierWood.CharacterCreator", "SoldierWood.CharacterCreator\SoldierWood.CharacterCreator.csproj", "{AC5A27F2-711B-4A34-B3B1-0C6504E5D1EB}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoldierWood.CharacterCreator.ConsoleHost", "..\SoldierWood.CharacterCreator.ConsoleHost\SoldierWood.CharacterCreator.ConsoleHost.csproj", "{6D3F8CBA-B026-4B69-BA00-8772EA43B3FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AC5A27F2-711B-4A34-B3B1-0C6504E5D1EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC5A27F2-711B-4A34-B3B1-0C6504E5D1EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC5A27F2-711B-4A34-B3B1-0C6504E5D1EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D3F8CBA-B026-4B69-BA00-8772EA43B3FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D3F8CBA-B026-4B69-BA00-8772EA43B3FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D3F8CBA-B026-4B69-BA00-8772EA43B3FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D3F8CBA-B026-4B69-BA00-8772EA43B3FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
