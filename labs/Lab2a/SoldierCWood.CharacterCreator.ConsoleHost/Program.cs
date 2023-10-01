@@ -5,21 +5,26 @@
 // 09 30 23
 
 
-internal class Program
+using SoldierCWood.CharacterCreator;
+
+partial class Program
 {
-    private static void Main ( string[] args )
+    static void Main ( string[] args )
     {
 
         DisplayIntro();
 
         var done = false;
 
+       Character myCharacter = new Character();
+        
         do
         {
             switch (GetUserSelection())
             {
                 case 1:
-                Console.WriteLine("Add\n");
+                createCharacter.AddCharacter(myCharacter);
+                Console.WriteLine(myCharacter.Name);
                 break;
                 case 2:
                 Console.WriteLine("Edit\n");
@@ -90,4 +95,22 @@ internal class Program
 
 
     }
+
+    class createCharacter
+    {
+        public static void AddCharacter ( Character newChar )
+        {
+            
+            
+            newChar.Name = "General";
+            newChar.CharClass = "Fighter";
+            newChar.Race = "Human";
+            
+            /*newChar = new Character();*/
+
+           
+            
+        }
+    }
+   
 }

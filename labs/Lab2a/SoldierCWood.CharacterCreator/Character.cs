@@ -12,6 +12,10 @@ namespace SoldierCWood.CharacterCreator
 
         public string Name
         { get; set; }
+        public string CharClass
+        { get; set; }
+        public string Race
+        { get; set; }
 
     }
 
