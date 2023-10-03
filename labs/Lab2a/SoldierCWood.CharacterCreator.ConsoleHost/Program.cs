@@ -7,6 +7,7 @@
 
 using SoldierCWood.CharacterCreator;
 
+
 partial class Program
 {
     static void Main ( string[] args )
@@ -24,6 +25,7 @@ partial class Program
             {
                 case 1:
                 createCharacter.AddCharacter(myCharacter);
+                /*
                 Console.WriteLine(myCharacter.Name);
                 Console.WriteLine(myCharacter.Profession);
                 Console.WriteLine(myCharacter.Race);
@@ -34,7 +36,7 @@ partial class Program
                 Console.WriteLine("Constitution: " + myCharacter.Constitution);
                 Console.WriteLine("Charisma: " + myCharacter.Charisma);
                 Console.WriteLine();
-                
+                */
                 break;
                 case 2:
                 Console.WriteLine("Edit\n");
@@ -106,21 +108,62 @@ partial class Program
 
     }
 
+   
+
     class createCharacter
     {
-        public static void AddCharacter ( Character newChar )
+            public static void AddCharacter ( Character newChar )
         {
+            Console.WriteLine("Enter character name: ");
+            string value = Console.ReadLine();
+            while ( String.IsNullOrEmpty(value))
+            {
+                Console.WriteLine("Must input at least one character");
+                Console.WriteLine("Enter character name: ");
+                value = Console.ReadLine();
+            }
+            newChar.Name = value;
+
+
+
+            Console.WriteLine("Enter character profession");
+            Console.WriteLine("Available choices: ");
+            Console.WriteLine("F) Fighter");
+            Console.WriteLine("H) Hunter");
+            Console.WriteLine("P) Priest");
+            Console.WriteLine("R) Rogue");
+            Console.WriteLine("W) Wizard");
             
+            do
+            {
+                switch (Console.ReadKey(true).Key)
+                {
+                    case ConsoleKey.F:
+                        newChar.Profession = "Fighter";
+                        break;
+                    case ConsoleKey.H:
+                        newChar.Profession = "Hunter";
+                        break;
+                    case ConsoleKey.P:
+                        newChar.Profession = "Priest";
+                        break;
+                    case ConsoleKey.R:
+                        newChar.Profession = "Rogue";
+                        break;
+                    case ConsoleKey.W:
+                        newChar.Profession = "Wizard";
+                        break;
+                    default: 
+                        Console.WriteLine("Unknown option");
+                        break;
+                };
+            } while (true);
+
             
-            newChar.Name = "General";
-            newChar.Profession = "Fighter";
             newChar.Race = "Human";
             newChar.Bio = "Don't let her gender fool you. She is tough as nails, spent some serious time in the hood. She is as tough, if not tougher, than her male counterparts.";
-            
-
-           
-            
         }
+        
     }
    
 }
