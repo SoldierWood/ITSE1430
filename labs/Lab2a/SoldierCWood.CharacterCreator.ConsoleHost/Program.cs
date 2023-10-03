@@ -12,9 +12,9 @@ partial class Program
     static void Main ( string[] args )
     {
 
-        DisplayIntro();
+       DisplayIntro();
 
-        var done = false;
+       var done = false;
 
        Character myCharacter = new Character();
         
@@ -25,6 +25,16 @@ partial class Program
                 case 1:
                 createCharacter.AddCharacter(myCharacter);
                 Console.WriteLine(myCharacter.Name);
+                Console.WriteLine(myCharacter.Profession);
+                Console.WriteLine(myCharacter.Race);
+                Console.WriteLine(myCharacter.Bio);
+                Console.WriteLine("Strength: " + myCharacter.Strength);
+                Console.WriteLine("Intelligence: " + myCharacter.Intelligence);
+                Console.WriteLine("Agility: " + myCharacter.Agility);
+                Console.WriteLine("Constitution: " + myCharacter.Constitution);
+                Console.WriteLine("Charisma: " + myCharacter.Charisma);
+                Console.WriteLine();
+                
                 break;
                 case 2:
                 Console.WriteLine("Edit\n");
@@ -103,10 +113,10 @@ partial class Program
             
             
             newChar.Name = "General";
-            newChar.CharClass = "Fighter";
+            newChar.Profession = "Fighter";
             newChar.Race = "Human";
+            newChar.Bio = "Don't let her gender fool you. She is tough as nails, spent some serious time in the hood. She is as tough, if not tougher, than her male counterparts.";
             
-            /*newChar = new Character();*/
 
            
             
