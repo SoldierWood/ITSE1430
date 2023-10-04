@@ -64,17 +64,21 @@ namespace MovieLibrary
         {
             //string get()
             get {
-                if (String.IsNullOrEmpty(_title))
-                    return "";
+                return _title ?? "";
+                //return _title != null ? _title : "";
+                //if (_title == null)
+                //if (String.IsNullOrEmpty(_title))
+                //    return "";
 
-                return _title;
+                //return _title;
             }
 
             //void set(string value)
             set {
-                if (value != null)
-                    value = value.Trim();
-                _title = value;
+                _title = value?.Trim() ?? "";
+                //if (value != null)
+                //    value = value.Trim();
+                //_title = value;
             }
         }
 
@@ -82,10 +86,10 @@ namespace MovieLibrary
 
         public string Description
         {
-            get {
-                if (String.IsNullOrEmpty(_description))
-                    return "";
-                return _description; }
+            get { return _description ?? ""; }
+                //if (String.IsNullOrEmpty(_description))
+                //    return "";
+                //return _description; }
             
             set { _description = value; }
         }
@@ -187,5 +191,11 @@ namespace MovieLibrary
             //Valid
             return "";
         }
+
+        public override string ToString ()
+        {
+            return $"{Title} [{ReleaseYear}]";
+        }
     }
+
 }

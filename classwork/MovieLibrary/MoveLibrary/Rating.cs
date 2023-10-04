@@ -15,12 +15,17 @@
         /// <summary> Represents MPAA rating. </summary>
         
         public string Name { get; } //readonly field
-        
-            //public string Name
-            //{
-            //    get { return _name ?? ""; }
-            //    //set { _name = value; }
-            //}
-            //private string _name;
+
+        //public string Name
+        //{
+        //    get { return _name ?? ""; }
+        //    //set { _name = value; }
+        //}
+        //private string _name;
+        public override string ToString ()
+        { return Name; }
+
     }
+
+    
 }
