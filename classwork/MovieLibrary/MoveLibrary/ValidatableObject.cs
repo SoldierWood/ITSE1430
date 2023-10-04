@@ -6,8 +6,7 @@
 
 namespace MovieLibrary
 {
-    public partial class Movie
-    {
+    
         public class ValidatableObject
         {
             public bool IsValid
@@ -20,7 +19,7 @@ namespace MovieLibrary
                 return true;
             }
 
-            public string Validate ()
+            public virtual string Validate ()
             {
                 if (!TryValidate(out var message))
                     return message;
@@ -28,5 +27,5 @@ namespace MovieLibrary
                 return "";
             }
         }
-    }
+    
 }

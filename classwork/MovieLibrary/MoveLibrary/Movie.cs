@@ -28,8 +28,15 @@ namespace MovieLibrary
             //Id = id;
            
         }
-        public Movie ( string Title)
+        public Movie ( string title) : this(0, title)
         {
+            
+        }
+
+        public Movie ( int id, string title ) : this()
+        {
+            //Initialize(id, title);
+            Id = id;
             Title = title;
         }
 
@@ -38,7 +45,7 @@ namespace MovieLibrary
         //    Id = id;
         //    Title = title;
 
-            
+
         //}
         //Fields - data
         /// <summary> Title of movie. </summary>
@@ -157,7 +164,7 @@ namespace MovieLibrary
         
         /// <summary>Validates movie instance.</summary>
         /// <returns> Error message if invalid or empty string otherwise.</returns>
-        public string Validate ()
+        public override string Validate ()
         {
             //Title is required
             if (String.IsNullOrEmpty(_title))
