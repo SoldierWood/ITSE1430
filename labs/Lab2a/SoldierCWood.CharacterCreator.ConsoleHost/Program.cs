@@ -4,9 +4,7 @@
 // Written by Chris "Soldier" Wood
 // 09 30 23
 
-
 using SoldierCWood.CharacterCreator;
-
 
 partial class Program
 {
@@ -111,7 +109,6 @@ partial class Program
     }
 
    
-
     class createCharacter
     {
         public static void AddCharacterName ( Character newChar )
@@ -130,6 +127,45 @@ partial class Program
 
         public static void AddCharacterProfession ( Character newChar )
         {
+            DisplayProfessionChoices();
+            
+            var finish = false;
+
+            do
+            {
+                switch (Console.ReadKey(true).Key)
+                {
+                    case ConsoleKey.F:
+                    newChar.Profession = "Fighter";
+                    finish = true;
+                    break;
+                    case ConsoleKey.H:
+                    newChar.Profession = "Hunter";
+                    finish = true;
+                    break;
+                    case ConsoleKey.P:
+                    newChar.Profession = "Priest";
+                    finish = true;
+                    break;
+                    case ConsoleKey.R:
+                    newChar.Profession = "Rogue";
+                    finish = true;
+                    break;
+                    case ConsoleKey.W:
+                    newChar.Profession = "Wizard";
+                    finish = true;
+                    break;
+                    default:
+                    Console.WriteLine("Unknown option");
+                    DisplayProfessionChoices();
+                    break;
+                };
+            } while (!finish);
+            
+        }
+
+        public static void DisplayProfessionChoices()
+        {
             Console.WriteLine("Enter character profession");
             Console.WriteLine("Available choices: ");
             Console.WriteLine("F) Fighter");
@@ -137,31 +173,47 @@ partial class Program
             Console.WriteLine("P) Priest");
             Console.WriteLine("R) Rogue");
             Console.WriteLine("W) Wizard");
-                        
-            switch (Console.ReadKey(true).Key)
-            {
-                case ConsoleKey.F:
-                newChar.Profession = "Fighter";
-                        break;
-                    case ConsoleKey.H:
-                        newChar.Profession = "Hunter";
-                        break;
-                    case ConsoleKey.P:
-                        newChar.Profession = "Priest";
-                        break;
-                    case ConsoleKey.R:
-                        newChar.Profession = "Rogue";
-                        break;
-                    case ConsoleKey.W:
-                        newChar.Profession = "Wizard";
-                        break;
-                    default: 
-                        Console.WriteLine("Unknown option");
-                        break;
-            };
-            
         }
         public static void AddCharacterRace ( Character newChar )
+        {
+            DisplayRaceChoices();
+
+            var complete = false;
+
+            do
+            {
+                switch (Console.ReadKey(true).Key)
+                {
+                    case ConsoleKey.D:
+                    newChar.Race = "Dwarf";
+                    complete = true;
+                    break;
+                    case ConsoleKey.E:
+                    newChar.Race = "Elf";
+                    complete = true;
+                    break;
+                    case ConsoleKey.G:
+                    newChar.Race = "Gnome";
+                    complete = true;
+                    break;
+                    case ConsoleKey.H:
+                    newChar.Race = "Half Elf";
+                    complete = true;
+                    break;
+                    case ConsoleKey.U:
+                    newChar.Race = "Human";
+                    complete = true;
+                    break;
+                    default:
+                    Console.WriteLine("Unknown option");
+                    DisplayRaceChoices();
+                    break;
+                };
+            } while (!complete);
+
+        }
+
+        public static void DisplayRaceChoices ()
         {
             Console.WriteLine("Enter character race");
             Console.WriteLine("Available choices: ");
@@ -170,32 +222,8 @@ partial class Program
             Console.WriteLine("G) Gnome");
             Console.WriteLine("H) Half Elf");
             Console.WriteLine("U) Human");
-
-            switch (Console.ReadKey(true).Key)
-            {
-                case ConsoleKey.D:
-                    newChar.Race = "Dwarf";
-                    break;
-                case ConsoleKey.E:
-                    newChar.Race = "Elf";
-                    break;
-                case ConsoleKey.G:
-                    newChar.Race = "Gnome";
-                    break;
-                case ConsoleKey.H:
-                    newChar.Race = "Half Elf";
-                    break;
-                case ConsoleKey.U:
-                    newChar.Race = "Human";
-                    break;
-                default:
-                    Console.WriteLine("Unknown option");
-                    break;
-            };
-
-
         }
-        public static void AddCharacterBio ( Character newChar )
+            public static void AddCharacterBio ( Character newChar )
         {
             Console.WriteLine("Enter brief character biography, which is optional: ");
             string value = Console.ReadLine();
