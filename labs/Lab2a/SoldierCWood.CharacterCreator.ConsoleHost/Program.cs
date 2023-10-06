@@ -28,6 +28,11 @@ partial class Program
                 createCharacter.AddCharacterProfession(myCharacter);
                 createCharacter.AddCharacterRace(myCharacter);
                 createCharacter.AddCharacterBio(myCharacter);
+                createCharacter.AssignStrength(myCharacter);
+                createCharacter.AssignIntelligence(myCharacter);
+                createCharacter.AssignAgility(myCharacter);
+                createCharacter.AssignConstitution(myCharacter);
+                createCharacter.AssignCharisma(myCharacter);
                 break;
                 case 2:
                 Console.WriteLine("Edit\n");
@@ -198,6 +203,46 @@ partial class Program
             newChar.Bio = value;
         }
 
+        public static void AssignStrength ( Character newChar )
+        {
+            newChar.Strength = GeneratePercentage();
+
+            Console.WriteLine("Your character's strength level: " + newChar.Strength);
+            
+        }
+        public static void AssignIntelligence ( Character newChar )
+        {
+            newChar.Intelligence = GeneratePercentage();
+
+            Console.WriteLine("Your character's level of intelligence: " + newChar.Intelligence);
+
+        }
+        public static void AssignAgility ( Character newChar )
+        {
+            newChar.Agility = GeneratePercentage();
+
+            Console.WriteLine("Your character's agility: " + newChar.Agility);
+
+        }
+        public static void AssignConstitution ( Character newChar )
+        {
+            newChar.Constitution = GeneratePercentage();
+
+            Console.WriteLine("Your character's constitution: " + newChar.Constitution);
+
+        }
+
+        public static void AssignCharisma ( Character newChar )
+        {
+            newChar.Charisma = GeneratePercentage();
+
+            Console.WriteLine("Your character's charisma: " + newChar.Charisma);
+
+        }
+        public static int GeneratePercentage()
+        {
+            return Random.Shared.Next(1, 101);
+        }
 
     }
    

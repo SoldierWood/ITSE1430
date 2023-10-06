@@ -28,65 +28,29 @@ namespace SoldierCWood.CharacterCreator
         public string Bio
         { get; set; }
 
+       /// <summary>
+       ///  Physical power.
+       /// </summary>
+       public int Strength
+        { get; set; }
        
-       /* private int _strength = 15;
-        /// <summary> Physical strength. </summary>
-        public int Strength
-        {   
-            get => _strength;
-            
-            set {
-                _strength = value;
-            }
-        }
-
-        private int _intelligence = 85;
        /// <summary> Combination of book and street smarts. </summary>
-        public int Intelligence
+       public int Intelligence
             
-        {
-            get => _intelligence;
-      
-            set {
-                _intelligence = value;
-            }
-        }
-
+        { get; set; }
+        
         /// <summary> Ability to "roll with the punches". </summary>
-        private int _agility = 90;
         public int Agility
+        { get; set; }
 
-        {
-            get => _agility;
-
-            set {
-                _agility = value;
-            }
-        }
-        private int _constitution = 99;
-
-        /// <summary> Person's makeup, both inherited and life taught. </summary>
+        /// <summary> Person's psychological makeup, both inherited and life taught. </summary>
         public int Constitution
 
-        {
-            get => _constitution;
+        { get; set; }
 
-            set {
-                _constitution = value;
-            }
-        }
-
-        private int _charisma = 88;
         /// <summary> Ability to make 'em smile, even when they don't want to. </summary>
         public int Charisma
-        {
-            get => _charisma;
-            set {
-                _charisma = value;
-            }
-        }
-       */
+        { get; set; }
     }
-
 
 }
