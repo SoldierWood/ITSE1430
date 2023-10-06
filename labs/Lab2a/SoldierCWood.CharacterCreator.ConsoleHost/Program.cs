@@ -24,19 +24,10 @@ partial class Program
             switch (GetUserSelection())
             {
                 case 1:
-                createCharacter.AddCharacter(myCharacter);
-                /*
-                Console.WriteLine(myCharacter.Name);
-                Console.WriteLine(myCharacter.Profession);
-                Console.WriteLine(myCharacter.Race);
-                Console.WriteLine(myCharacter.Bio);
-                Console.WriteLine("Strength: " + myCharacter.Strength);
-                Console.WriteLine("Intelligence: " + myCharacter.Intelligence);
-                Console.WriteLine("Agility: " + myCharacter.Agility);
-                Console.WriteLine("Constitution: " + myCharacter.Constitution);
-                Console.WriteLine("Charisma: " + myCharacter.Charisma);
-                Console.WriteLine();
-                */
+                createCharacter.AddCharacterName(myCharacter);
+                createCharacter.AddCharacterProfession(myCharacter);
+                createCharacter.AddCharacterRace(myCharacter);
+                createCharacter.AddCharacterBio(myCharacter);
                 break;
                 case 2:
                 Console.WriteLine("Edit\n");
@@ -86,6 +77,12 @@ partial class Program
             } while (true);
         }
 
+        Console.WriteLine(myCharacter.Name);
+        Console.WriteLine(myCharacter.Profession);
+        Console.WriteLine(myCharacter.Race);
+        Console.WriteLine(myCharacter.Bio);
+
+
         bool Confirmation ( string message )
         {
             return ReadBoolean(message);
@@ -112,20 +109,22 @@ partial class Program
 
     class createCharacter
     {
-            public static void AddCharacter ( Character newChar )
+        public static void AddCharacterName ( Character newChar )
         {
             Console.WriteLine("Enter character name: ");
             string value = Console.ReadLine();
-            while ( String.IsNullOrEmpty(value))
+            while (String.IsNullOrEmpty(value))
             {
                 Console.WriteLine("Must input at least one character");
                 Console.WriteLine("Enter character name: ");
                 value = Console.ReadLine();
             }
             newChar.Name = value;
+        }
 
 
-
+        public static void AddCharacterProfession ( Character newChar )
+        {
             Console.WriteLine("Enter character profession");
             Console.WriteLine("Available choices: ");
             Console.WriteLine("F) Fighter");
@@ -133,13 +132,11 @@ partial class Program
             Console.WriteLine("P) Priest");
             Console.WriteLine("R) Rogue");
             Console.WriteLine("W) Wizard");
-            
-            do
+                        
+            switch (Console.ReadKey(true).Key)
             {
-                switch (Console.ReadKey(true).Key)
-                {
-                    case ConsoleKey.F:
-                        newChar.Profession = "Fighter";
+                case ConsoleKey.F:
+                newChar.Profession = "Fighter";
                         break;
                     case ConsoleKey.H:
                         newChar.Profession = "Hunter";
@@ -156,14 +153,52 @@ partial class Program
                     default: 
                         Console.WriteLine("Unknown option");
                         break;
-                };
-            } while (true);
-
+            };
             
-            newChar.Race = "Human";
-            newChar.Bio = "Don't let her gender fool you. She is tough as nails, spent some serious time in the hood. She is as tough, if not tougher, than her male counterparts.";
         }
-        
+        public static void AddCharacterRace ( Character newChar )
+        {
+            Console.WriteLine("Enter character race");
+            Console.WriteLine("Available choices: ");
+            Console.WriteLine("D) Dwarf");
+            Console.WriteLine("E) Elf");
+            Console.WriteLine("G) Gnome");
+            Console.WriteLine("H) Half Elf");
+            Console.WriteLine("U) Human");
+
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.D:
+                    newChar.Race = "Dwarf";
+                    break;
+                case ConsoleKey.E:
+                    newChar.Race = "Elf";
+                    break;
+                case ConsoleKey.G:
+                    newChar.Race = "Gnome";
+                    break;
+                case ConsoleKey.H:
+                    newChar.Race = "Half Elf";
+                    break;
+                case ConsoleKey.U:
+                    newChar.Race = "Human";
+                    break;
+                default:
+                    Console.WriteLine("Unknown option");
+                    break;
+            };
+
+
+        }
+        public static void AddCharacterBio ( Character newChar )
+        {
+            Console.WriteLine("Enter brief character biography, which is optional: ");
+            string value = Console.ReadLine();
+            
+            newChar.Bio = value;
+        }
+
+
     }
    
 }

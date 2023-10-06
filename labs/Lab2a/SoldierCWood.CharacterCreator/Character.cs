@@ -29,7 +29,7 @@ namespace SoldierCWood.CharacterCreator
         { get; set; }
 
        
-        private int _strength = 15;
+       /* private int _strength = 15;
         /// <summary> Physical strength. </summary>
         public int Strength
         {   
@@ -85,6 +85,7 @@ namespace SoldierCWood.CharacterCreator
                 _charisma = value;
             }
         }
+       */
     }
 
 
