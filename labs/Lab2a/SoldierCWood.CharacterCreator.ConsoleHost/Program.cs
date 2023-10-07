@@ -33,9 +33,28 @@ partial class Program
                 createCharacter.AssignCharisma(myCharacter);
                 break;
                 case 2:
-                createCharacter.ViewCharacter(myCharacter);
+                    createCharacter.ViewCharacter(myCharacter);
                 break;
                 case 3:
+                {
+                    if (myCharacter.Name == null)
+                    {
+                        Console.WriteLine("You have not yet created a character.");
+                        createCharacter.AddCharacterName(myCharacter);
+                        createCharacter.AddCharacterProfession(myCharacter);
+                        createCharacter.AddCharacterRace(myCharacter);
+                        createCharacter.AddCharacterBio(myCharacter);
+                        createCharacter.AssignStrength(myCharacter);
+                        createCharacter.AssignIntelligence(myCharacter);
+                        createCharacter.AssignAgility(myCharacter);
+                        createCharacter.AssignConstitution(myCharacter);
+                        createCharacter.AssignCharisma(myCharacter);
+
+                    } else
+                        createCharacter.EditCharacter(myCharacter);
+                }
+                break;
+                case 4:
                 Console.WriteLine("Delete\n");
                 break;
                 case 0:
@@ -63,6 +82,7 @@ partial class Program
             Console.WriteLine("-----------------------");
             Console.WriteLine("A) Add character");
             Console.WriteLine("V) View character");
+            Console.WriteLine("E) Edit character");
             Console.WriteLine("D) Delete Character");
             Console.WriteLine("Q) Quit\n");
 
@@ -72,7 +92,8 @@ partial class Program
                 {
                     case ConsoleKey.A: return 1;
                     case ConsoleKey.V: return 2;
-                    case ConsoleKey.D: return 3;
+                    case ConsoleKey.E: return 3;
+                    case ConsoleKey.D: return 4;
                     case ConsoleKey.Q: return 0;
 
                     default: Console.WriteLine("Unknown option"); return 5;
@@ -122,12 +143,13 @@ partial class Program
                 value = Console.ReadLine();
             }
             newChar.Name = value;
-            Console.WriteLine();
         }
 
 
         public static void AddCharacterProfession ( Character newChar )
         {
+            Console.WriteLine();
+
             DisplayProfessionChoices();
             
             var finish = false;
@@ -163,7 +185,6 @@ partial class Program
                 };
             } while (!finish);
 
-            Console.WriteLine();
         }
 
         public static void DisplayProfessionChoices()
@@ -178,6 +199,8 @@ partial class Program
         }
         public static void AddCharacterRace ( Character newChar )
         {
+            Console.WriteLine();
+
             DisplayRaceChoices();
 
             var complete = false;
@@ -293,7 +316,7 @@ partial class Program
                 DisplayCharacter(newChar);
             }
         }
-        public static void DisplayCharacter ( Character newChar)
+        public static void DisplayCharacter ( Character newChar )
         {
             Console.WriteLine("Character name:" + "\t\t" + newChar.Name);
             Console.WriteLine("Character profession:" + "\t" + newChar.Profession);
@@ -307,6 +330,87 @@ partial class Program
             Console.WriteLine("Character charisma: " + "\t\t" + newChar.Charisma);
             Console.WriteLine();
 
+        }
+
+        public static void EditCharacter ( Character newChar )
+        {
+            EditName(newChar);
+            EditProfession(newChar);
+            EditRace(newChar);
+            
+        }
+        public static void EditName ( Character newChar )
+        {
+            Console.WriteLine($"Your current name is: {newChar.Name}");
+            Console.WriteLine("Do you wish to change your name? Please enter Y or N: ");
+
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.Y:
+                {
+                    Console.WriteLine("Enter new name: ");
+                    newChar.Name = Console.ReadLine();
+                    Console.WriteLine("Your new name is: " + newChar.Name);
+                    Console.WriteLine();
+                }
+                break;
+                case ConsoleKey.N:
+                {
+                    Console.WriteLine("Your name remains as: " + newChar.Name);
+                    Console.WriteLine();
+                }
+                break;
+                default:
+                break;
+            };
+        }
+        public static void EditProfession ( Character newChar )
+        {
+            Console.WriteLine($"Your current profession is: {newChar.Profession}");
+            Console.WriteLine("Do you wish to change your profession? Please enter Y or N: ");
+
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.Y:
+                {
+                    AddCharacterProfession(newChar);
+                    Console.WriteLine("Your new profession is: " + newChar.Profession);
+                    Console.WriteLine();
+                }
+                break;
+                case ConsoleKey.N:
+                {
+                    Console.WriteLine("Your profession remains as: " + newChar.Profession);
+                    Console.WriteLine();
+                }
+                break;
+                default:
+                break;
+            };
+        }
+        public static void EditRace ( Character newChar )
+        {
+            Console.WriteLine($"Your current race is: {newChar.Race}");
+            Console.WriteLine("Do you wish to change your race? Please enter Y or N: ");
+
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.Y:
+                {
+                    AddCharacterRace(newChar);
+                    Console.WriteLine("Your new race is: " + newChar.Race);
+                    Console.WriteLine();
+                }
+                break;
+                case ConsoleKey.N:
+                {
+                    Console.WriteLine("Your race remains as: " + newChar.Race);
+                    Console.WriteLine();
+                }
+                break;
+                default:
+                break;
+            };
         }
 
     }
