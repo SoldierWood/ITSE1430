@@ -33,7 +33,7 @@ partial class Program
                 createCharacter.AssignCharisma(myCharacter);
                 break;
                 case 2:
-                createCharacter.EditCharacter(myCharacter);
+                createCharacter.ViewCharacter(myCharacter);
                 break;
                 case 3:
                 Console.WriteLine("Delete\n");
@@ -62,7 +62,7 @@ partial class Program
             Console.WriteLine("What do you want to do?");
             Console.WriteLine("-----------------------");
             Console.WriteLine("A) Add character");
-            Console.WriteLine("E) Edit character");
+            Console.WriteLine("V) View character");
             Console.WriteLine("D) Delete Character");
             Console.WriteLine("Q) Quit\n");
 
@@ -71,7 +71,7 @@ partial class Program
                 switch (Console.ReadKey(true).Key)
                 {
                     case ConsoleKey.A: return 1;
-                    case ConsoleKey.E: return 2;
+                    case ConsoleKey.V: return 2;
                     case ConsoleKey.D: return 3;
                     case ConsoleKey.Q: return 0;
 
@@ -122,6 +122,7 @@ partial class Program
                 value = Console.ReadLine();
             }
             newChar.Name = value;
+            Console.WriteLine();
         }
 
 
@@ -161,7 +162,8 @@ partial class Program
                     break;
                 };
             } while (!finish);
-            
+
+            Console.WriteLine();
         }
 
         public static void DisplayProfessionChoices()
@@ -211,6 +213,7 @@ partial class Program
                 };
             } while (!complete);
 
+            Console.WriteLine();
         }
 
         public static void DisplayRaceChoices ()
@@ -229,12 +232,15 @@ partial class Program
             string value = Console.ReadLine();
             
             newChar.Bio = value;
+
+            Console.WriteLine();
+            Console.WriteLine("Your character has been created.");
         }
 
         public static void AssignStrength ( Character newChar )
         {
             newChar.Strength = GeneratePercentage();
-
+           
             Console.WriteLine("Your character's strength level: " + newChar.Strength);
             
         }
@@ -266,13 +272,15 @@ partial class Program
 
             Console.WriteLine("Your character's charisma: " + newChar.Charisma);
 
+            Console.WriteLine();
+
         }
         public static int GeneratePercentage()
         {
             return Random.Shared.Next(1, 101);
         }
 
-        public static void EditCharacter ( Character newChar)
+        public static void ViewCharacter ( Character newChar)
         {
             if (String.IsNullOrEmpty(newChar.Name))
             {
@@ -282,9 +290,25 @@ partial class Program
             }
             else
             {
-                Console.WriteLine("character has been done");
+                DisplayCharacter(newChar);
             }
         }
+        public static void DisplayCharacter ( Character newChar)
+        {
+            Console.WriteLine("Character name:" + "\t\t" + newChar.Name);
+            Console.WriteLine("Character profession:" + "\t" + newChar.Profession);
+            Console.WriteLine("Character race:" + "\t\t" + newChar.Race);
+            Console.WriteLine("Character biography: " + "\t" + newChar.Bio);
+            Console.WriteLine();
+            Console.WriteLine("Character strength: " + "\t\t" + newChar.Strength);
+            Console.WriteLine("Character intelligence: " + "\t" + newChar.Intelligence);
+            Console.WriteLine("Character agility: " + "\t\t" + newChar.Agility);
+            Console.WriteLine("Character constitution: " + "\t" + newChar.Constitution);
+            Console.WriteLine("Character charisma: " + "\t\t" + newChar.Charisma);
+            Console.WriteLine();
+
+        }
+
     }
    
 }
