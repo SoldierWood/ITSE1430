@@ -33,7 +33,7 @@ partial class Program
                 createCharacter.AssignCharisma(myCharacter);
                 break;
                 case 2:
-                Console.WriteLine("Edit\n");
+                createCharacter.EditCharacter(myCharacter);
                 break;
                 case 3:
                 Console.WriteLine("Delete\n");
@@ -272,6 +272,19 @@ partial class Program
             return Random.Shared.Next(1, 101);
         }
 
+        public static void EditCharacter ( Character newChar)
+        {
+            if (String.IsNullOrEmpty(newChar.Name))
+            {
+                Console.WriteLine("Character has not yet been created. Please make appropriate selection to create a character.");
+                Console.WriteLine();
+                return;
+            }
+            else
+            {
+                Console.WriteLine("character has been done");
+            }
+        }
     }
    
 }
