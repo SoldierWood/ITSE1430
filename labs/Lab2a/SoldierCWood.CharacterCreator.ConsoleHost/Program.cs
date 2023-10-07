@@ -55,7 +55,7 @@ partial class Program
                 }
                 break;
                 case 4:
-                Console.WriteLine("Delete\n");
+                createCharacter.DeleteCharacter(myCharacter);
                 break;
                 case 0:
                 if (!Confirmation("Are you sure you want to quit the game (Y/N/)?"))
@@ -337,7 +337,10 @@ partial class Program
             EditName(newChar);
             EditProfession(newChar);
             EditRace(newChar);
-            
+
+            Console.WriteLine("Sorry, you cannot edit your strength, intelligence, agility, constitution, or charisma.");
+            Console.WriteLine("You were born with these regardless of other character traits.");
+            Console.WriteLine();
         }
         public static void EditName ( Character newChar )
         {
@@ -411,6 +414,49 @@ partial class Program
                 default:
                 break;
             };
+        }
+        public static void DeleteCharacter ( Character newChar )
+        {
+            if (String.IsNullOrEmpty(newChar.Name))
+            {
+                Console.WriteLine("Character has not yet been created. Please make appropriate selection to create a character.");
+                Console.WriteLine();
+                return;
+            } else
+            {
+                Console.WriteLine("Are you sure you want to delete your character? Please enter Y or N: ");
+
+                switch (Console.ReadKey(true).Key)
+                {
+                    case ConsoleKey.Y:
+                    DeleteSteps(newChar);
+                    break;
+                    case ConsoleKey.N:
+                    {
+                        Console.WriteLine("Your character lives on.");
+                        Console.WriteLine();
+                    }
+                    break;
+                    default:
+                    break;
+                };
+            }
+        }
+        public static void DeleteSteps ( Character newChar )
+        {
+            newChar.Name = null;
+            newChar.Race = null;
+            newChar.Profession = null;
+            newChar.Bio = null;
+            newChar.Strength = 0;
+            newChar.Intelligence = 0;
+            newChar.Agility = 0;
+            newChar.Constitution = 0;
+            newChar.Charisma = 0;
+
+            Console.WriteLine("Your character has been deleted.");
+            Console.WriteLine();
+
         }
 
     }
