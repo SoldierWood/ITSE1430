@@ -24,7 +24,7 @@ partial class Program
                 case 1:
                 //createCharacter.AddCharacterName(myCharacter);
                 Character.AddCharacterName (myCharacter);
-                createCharacter.AddCharacterProfession(myCharacter);
+                Character.AddCharacterProfession(myCharacter);
                 createCharacter.AddCharacterRace(myCharacter);
                 createCharacter.AddCharacterBio(myCharacter);
                 createCharacter.AssignStrength(myCharacter);
@@ -41,8 +41,8 @@ partial class Program
                     if (myCharacter.Name == null)
                     {
                         Console.WriteLine("You have not yet created a character.");
-                        createCharacter.AddCharacterName(myCharacter);
-                        createCharacter.AddCharacterProfession(myCharacter);
+                        Character.AddCharacterName(myCharacter);
+                        Character.AddCharacterProfession(myCharacter);
                         createCharacter.AddCharacterRace(myCharacter);
                         createCharacter.AddCharacterBio(myCharacter);
                         createCharacter.AssignStrength(myCharacter);
@@ -147,57 +147,57 @@ partial class Program
         //}
 
 
-        public static void AddCharacterProfession ( Character newChar )
-        {
-            Console.WriteLine();
+        //public static void AddCharacterProfession ( Character newChar )
+        //{
+        //    Console.WriteLine();
 
-            DisplayProfessionChoices();
+        //    DisplayProfessionChoices();
             
-            var finish = false;
+        //    var finish = false;
 
-            do
-            {
-                switch (Console.ReadKey(true).Key)
-                {
-                    case ConsoleKey.F:
-                    newChar.Profession = "Fighter";
-                    finish = true;
-                    break;
-                    case ConsoleKey.H:
-                    newChar.Profession = "Hunter";
-                    finish = true;
-                    break;
-                    case ConsoleKey.P:
-                    newChar.Profession = "Priest";
-                    finish = true;
-                    break;
-                    case ConsoleKey.R:
-                    newChar.Profession = "Rogue";
-                    finish = true;
-                    break;
-                    case ConsoleKey.W:
-                    newChar.Profession = "Wizard";
-                    finish = true;
-                    break;
-                    default:
-                    Console.WriteLine("Unknown option");
-                    DisplayProfessionChoices();
-                    break;
-                };
-            } while (!finish);
+        //    do
+        //    {
+        //        switch (Console.ReadKey(true).Key)
+        //        {
+        //            case ConsoleKey.F:
+        //            newChar.Profession = "Fighter";
+        //            finish = true;
+        //            break;
+        //            case ConsoleKey.H:
+        //            newChar.Profession = "Hunter";
+        //            finish = true;
+        //            break;
+        //            case ConsoleKey.P:
+        //            newChar.Profession = "Priest";
+        //            finish = true;
+        //            break;
+        //            case ConsoleKey.R:
+        //            newChar.Profession = "Rogue";
+        //            finish = true;
+        //            break;
+        //            case ConsoleKey.W:
+        //            newChar.Profession = "Wizard";
+        //            finish = true;
+        //            break;
+        //            default:
+        //            Console.WriteLine("Unknown option");
+        //            DisplayProfessionChoices();
+        //            break;
+        //        };
+        //    } while (!finish);
 
-        }
+        //}
 
-        public static void DisplayProfessionChoices()
-        {
-            Console.WriteLine("Enter character profession");
-            Console.WriteLine("Available choices: ");
-            Console.WriteLine("F) Fighter");
-            Console.WriteLine("H) Hunter");
-            Console.WriteLine("P) Priest");
-            Console.WriteLine("R) Rogue");
-            Console.WriteLine("W) Wizard");
-        }
+        //public static void DisplayProfessionChoices()
+        //{
+        //    Console.WriteLine("Enter character profession");
+        //    Console.WriteLine("Available choices: ");
+        //    Console.WriteLine("F) Fighter");
+        //    Console.WriteLine("H) Hunter");
+        //    Console.WriteLine("P) Priest");
+        //    Console.WriteLine("R) Rogue");
+        //    Console.WriteLine("W) Wizard");
+        //}
         public static void AddCharacterRace ( Character newChar )
         {
             Console.WriteLine();
@@ -377,7 +377,7 @@ partial class Program
             {
                 case ConsoleKey.Y:
                 {
-                    AddCharacterProfession(newChar);
+                    Character.AddCharacterProfession(newChar);
                     Console.WriteLine("Your new profession is: " + newChar.Profession);
                     Console.WriteLine();
                 }

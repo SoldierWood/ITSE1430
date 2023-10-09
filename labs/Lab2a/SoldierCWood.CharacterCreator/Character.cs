@@ -17,6 +17,14 @@ namespace SoldierCWood.CharacterCreator
         public Character() { }
         /// <summary> Gets or sets character name. </summary>
 
+        private string _name;
+
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+
         public static void AddCharacterName ( Character newChar )
         {
             Console.WriteLine("Enter character name: ");
@@ -30,13 +38,71 @@ namespace SoldierCWood.CharacterCreator
             newChar.Name = value;
         }
 
+        public static void AddCharacterProfession ( Character newChar )
+        {
+            Console.WriteLine();
 
+            DisplayProfessionChoices();
 
-        public string Name
-        { get; set; }
-        /// <summary> Gets or sets character profession. </summary>
+            var finish = false;
+
+            do
+            {
+                switch (Console.ReadKey(true).Key)
+                {
+                    case ConsoleKey.F:
+                    newChar.Profession = "Fighter";
+                    finish = true;
+                    break;
+                    case ConsoleKey.H:
+                    newChar.Profession = "Hunter";
+                    finish = true;
+                    break;
+                    case ConsoleKey.P:
+                    newChar.Profession = "Priest";
+                    finish = true;
+                    break;
+                    case ConsoleKey.R:
+                    newChar.Profession = "Rogue";
+                    finish = true;
+                    break;
+                    case ConsoleKey.W:
+                    newChar.Profession = "Wizard";
+                    finish = true;
+                    break;
+                    default:
+                    Console.WriteLine("Unknown option");
+                    DisplayProfessionChoices();
+                    break;
+                };
+            } while (!finish);
+
+        }
+
+        public static void DisplayProfessionChoices ()
+        {
+            Console.WriteLine("Enter character profession");
+            Console.WriteLine("Available choices: ");
+            Console.WriteLine("F) Fighter");
+            Console.WriteLine("H) Hunter");
+            Console.WriteLine("P) Priest");
+            Console.WriteLine("R) Rogue");
+            Console.WriteLine("W) Wizard");
+        }
+
+        private string _profession;
+
         public string Profession
-        { get; set; }
+        {
+            get { return _profession; }
+            set { _profession = value; }
+        }
+
+        //public string Name
+        //{ get; set; }
+        /// <summary> Gets or sets character profession. </summary>
+        //public string Profession
+        //{ get; set; }
         /// <summary> Gets or sets character race. </summary>
         public string Race
         { get; set; }
