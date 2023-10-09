@@ -20,8 +20,8 @@ namespace SoldierCWood.CharacterCreator
         /// <param name="characterExists">Indicator for if character exists. </param>
         public bool characterExists = false;
 
-        /// <summary> Name of character. </summary>
         private string _name;
+        /// <summary> Name of character. </summary>
         public string Name
         {
             get { return _name; }
@@ -29,7 +29,6 @@ namespace SoldierCWood.CharacterCreator
         }
 
         /// <summary> Adds character name to character. </summary>
-        /// <param name="newChar">Character created by user.</param>
         public static void AddCharacterName ( Character newChar )
         {
             Console.WriteLine("Enter character name: ");
@@ -43,7 +42,7 @@ namespace SoldierCWood.CharacterCreator
             newChar.Name = value;
              
         }
-
+        /// <summary> Adds profession to character. </summary>
         public static void AddCharacterProfession ( Character newChar )
         {
             Console.WriteLine();
@@ -84,7 +83,7 @@ namespace SoldierCWood.CharacterCreator
             } while (!finish);
 
         }
-
+        /// <summary> Displays choices for profession. </summary>
         public static void DisplayProfessionChoices ()
         {
             Console.WriteLine("Enter character profession");
@@ -98,18 +97,13 @@ namespace SoldierCWood.CharacterCreator
 
         private string _profession;
 
+        /// <summary> Professsion for character. </summary>
         public string Profession
         {
             get { return _profession; }
             set { _profession = value; }
         }
-
-        //public string Name
-        //{ get; set; }
-        /// <summary> Gets or sets character profession. </summary>
-        //public string Profession
-        //{ get; set; }
-        /// <summary> Gets or sets character race. </summary>
+        /// <summary> Adds race choice to character. </summary>
         public static void AddCharacterRace ( Character newChar )
         {
             Console.WriteLine();
@@ -152,6 +146,7 @@ namespace SoldierCWood.CharacterCreator
             Console.WriteLine();
         }
 
+        /// <summary> Displays choices for race. </summary>
         public static void DisplayRaceChoices ()
         {
             Console.WriteLine("Enter character race");
@@ -165,16 +160,16 @@ namespace SoldierCWood.CharacterCreator
 
         private string _race;
 
+        /// <summary> Race of character </summary>
+        /// <param> Character race </param>
         public string Race
         {
             get { return _race; }
             set { _race = value; }
         }
 
-        //public string Race
-        //{ get; set; }
-        /// <summary> Gets or sets character biography. </summary>
-
+        
+        /// <summary> Customer defined character biography, which is optional. </summary>
         public static void AddCharacterBio ( Character newChar )
         {
             Console.WriteLine("Enter brief character biography, which is optional: ");
@@ -183,9 +178,9 @@ namespace SoldierCWood.CharacterCreator
             newChar.Bio = value;
 
             Console.WriteLine();
-            //Console.WriteLine("Your character has been created.");
         }
 
+        /// <summary> Confirm whether or not character has been created. </summary>
         public static void ConfirmCreation ( Character newChar )
         {
             if (String.IsNullOrEmpty(newChar.Name))
@@ -201,19 +196,14 @@ namespace SoldierCWood.CharacterCreator
 
         private string _bio;
 
+        /// <summary> User defined character biography. </summary>
         public string Bio
         {
             get { return _bio; }
             set { _bio = value; }
         }
 
-        //public string Bio
-        //{ get; set; }
-
-        /// <summary>
-        ///  Physical power.
-        /// </summary>
-
+        /// <summary> Determine physical power. </summary>
         public static void AssignStrength ( Character newChar )
         {
             newChar.Strength = GeneratePercentage();
@@ -224,20 +214,22 @@ namespace SoldierCWood.CharacterCreator
 
         private int _strength;
 
+        /// <summary> Physical power. </summary>
         public int Strength
         {
             get { return _strength; }
             set {  _strength = value; }
         }
 
-        //public int Strength
-        //{ get; set; }
-
+        /// <summary>
+        /// Randomly generate integer to use for character attribute values.  </summary>
+        /// <returns>Randomly generate number between 1 and 100.</returns>
         public static int GeneratePercentage ()
         {
             return Random.Shared.Next(1, 101);
         }
 
+        /// <summary> Assigns character intelligence level. </summary>
         public static void AssignIntelligence ( Character newChar )
         {
             newChar.Intelligence = GeneratePercentage();
@@ -248,16 +240,13 @@ namespace SoldierCWood.CharacterCreator
 
         private int _intelligence;
 
+        /// <summary> Level of intelligence, which is a combination of book and street smarts. </summary>
         public int Intelligence
         {
             get { return _intelligence; }
             set { _intelligence = value; }
         }
-        /// <summary> Combination of book and street smarts. </summary>
-        //public int Intelligence
-
-        //{ get; set; }
-
+        /// <summary> Assigns amount of agility character possesses. </summary>
         public static void AssignAgility ( Character newChar )
         {
             newChar.Agility = GeneratePercentage();
@@ -275,6 +264,7 @@ namespace SoldierCWood.CharacterCreator
             set { _agility = value; }
         }
 
+        /// <summary> Determines character's constitution. </summary>
         public static void AssignConstitution ( Character newChar )
         {
             newChar.Constitution = GeneratePercentage();
@@ -283,18 +273,15 @@ namespace SoldierCWood.CharacterCreator
 
         }
 
-        /// <summary> Person's psychological makeup, both inherited and life taught. </summary>
-        
-        
-
         private int _constitution;
+        /// <summary> Person's psychological makeup, both inherited and life taught. </summary>
         public int Constitution
         {
             get { return _constitution; }
             set { _constitution = value; }
         }
 
-        /// <summary> Ability to make 'em smile, even when they don't want to. </summary>
+        /// <summary> Assign level of charisma to character. </summary>
         public static void AssignCharisma ( Character newChar )
         {
             newChar.Charisma = GeneratePercentage();
@@ -307,12 +294,14 @@ namespace SoldierCWood.CharacterCreator
 
         private int _charisma;
 
+        /// <summary> Ability to make 'em smile, even when they don't want to. </summary>
         public int Charisma
         {
             get { return _charisma; }
             set { _charisma = value; }
         }
 
+        /// <summary> Check for character's existence, then call method to display current character attributes. </summary>
         public static void ViewCharacter ( Character newChar )
         {
             if (String.IsNullOrEmpty(newChar.Name))
@@ -325,6 +314,7 @@ namespace SoldierCWood.CharacterCreator
                 DisplayCharacter(newChar);
             }
         }
+        /// <summary> Display current character attributes. </summary>
         public static void DisplayCharacter ( Character newChar )
         {
             Console.WriteLine("Character name:" + "\t\t" + newChar.Name);
@@ -340,6 +330,7 @@ namespace SoldierCWood.CharacterCreator
             Console.WriteLine();
 
         }
+        /// <summary> Edit the characteristics of the current character. </summary>
         public static void EditCharacter ( Character newChar )
         {
             EditName(newChar);
@@ -351,6 +342,7 @@ namespace SoldierCWood.CharacterCreator
             Console.WriteLine("You were born with these regardless of other character traits.");
             Console.WriteLine();
         }
+        /// <summary> Edit character name. </summary>
         public static void EditName ( Character newChar )
         {
             Console.WriteLine($"Your current name is: {newChar.Name}");
@@ -376,6 +368,7 @@ namespace SoldierCWood.CharacterCreator
                 break;
             };
         }
+        /// <summary> Edit the profession of the current character. </summary>
         public static void EditProfession ( Character newChar )
         {
             Console.WriteLine($"Your current profession is: {newChar.Profession}");
@@ -400,6 +393,7 @@ namespace SoldierCWood.CharacterCreator
                 break;
             };
         }
+        /// <summary> Select new character's race if user opts to. </summary>
         public static void EditRace ( Character newChar )
         {
             Console.WriteLine($"Your current race is: {newChar.Race}");
@@ -425,6 +419,7 @@ namespace SoldierCWood.CharacterCreator
             };
         }
 
+        /// <summary> Option to edit character biography. </summary>
         public static void EditBio (Character newChar)
         {
             Console.WriteLine($"Your current bio states: {newChar.Bio}");
@@ -450,13 +445,16 @@ namespace SoldierCWood.CharacterCreator
             };
         }
 
-        public static bool DeleteCharacter ( Character newChar, bool Exists)
+        /// <summary> Delete user created character. </summary>
+        /// <param name="exists"></param>
+        /// <returns>whether or not character currently exists</returns>
+        public static bool DeleteCharacter ( Character newChar, bool exists)
         {
             if (String.IsNullOrEmpty(newChar.Name))
             {
                 Console.WriteLine("Character has not yet been created. Please make appropriate selection to create a character.");
                 Console.WriteLine();
-                return Exists;
+                return exists;
             } else
             {
                 Console.WriteLine("Are you sure you want to delete your character? Please enter Y or N: ");
@@ -465,20 +463,21 @@ namespace SoldierCWood.CharacterCreator
                 {
                     case ConsoleKey.Y:
                     DeleteSteps(newChar);
-                    Exists = false;
-                    return Exists;
+                    exists = false;
+                    return exists;
                     
                     case ConsoleKey.N:
                     {
                         Console.WriteLine("Your character lives on.");
                         Console.WriteLine();
-                        return Exists;
+                        return exists;
                     }
                     default:
-                    return Exists;
+                    return exists;
                 };
             }
         }
+        /// <summary> Steps to delete current character. </summary>
         public static void DeleteSteps ( Character newChar )
         {
             newChar.Name = null;
