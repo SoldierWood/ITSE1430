@@ -177,7 +177,20 @@ namespace SoldierCWood.CharacterCreator
             newChar.Bio = value;
 
             Console.WriteLine();
-            Console.WriteLine("Your character has been created.");
+            //Console.WriteLine("Your character has been created.");
+        }
+
+        public static void ConfirmCreation ( Character newChar )
+        {
+            if (String.IsNullOrEmpty(newChar.Name))
+            {
+                Console.WriteLine("Character has not yet been created. Please make appropriate selection to create a character.");
+                Console.WriteLine();
+                return;
+            } else
+            {
+                Console.WriteLine("Character has successfully been created.\n");
+            }
         }
 
         private string _bio;
@@ -326,6 +339,7 @@ namespace SoldierCWood.CharacterCreator
             EditName(newChar);
             EditProfession(newChar);
             EditRace(newChar);
+            EditBio(newChar);
 
             Console.WriteLine("Sorry, you cannot edit your strength, intelligence, agility, constitution, or charisma.");
             Console.WriteLine("You were born with these regardless of other character traits.");
@@ -397,6 +411,31 @@ namespace SoldierCWood.CharacterCreator
                 case ConsoleKey.N:
                 {
                     Console.WriteLine("Your race remains as: " + newChar.Race);
+                    Console.WriteLine();
+                }
+                break;
+                default:
+                break;
+            };
+        }
+
+        public static void EditBio (Character newChar)
+        {
+            Console.WriteLine($"Your current bio states: {newChar.Bio}");
+            Console.WriteLine("Do you wish to modify your bio? Please enter Y or N: ");
+
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.Y:
+                {
+                    Character.AddCharacterBio(newChar);
+                    Console.WriteLine("Your new bio states: " + newChar.Bio);
+                    Console.WriteLine();
+                }
+                break;
+                case ConsoleKey.N:
+                {
+                    Console.WriteLine("Your bio still says: " + newChar.Bio);
                     Console.WriteLine();
                 }
                 break;

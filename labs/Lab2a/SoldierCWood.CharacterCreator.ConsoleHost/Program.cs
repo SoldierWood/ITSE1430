@@ -31,6 +31,7 @@ partial class Program
                 Character.AssignAgility(myCharacter);
                 Character.AssignConstitution(myCharacter);
                 Character.AssignCharisma(myCharacter);
+                Character.ConfirmCreation(myCharacter);
                 break;
                 case 2:
                     Character.ViewCharacter(myCharacter);
@@ -49,6 +50,7 @@ partial class Program
                         Character.AssignAgility(myCharacter);
                         Character.AssignConstitution(myCharacter);
                         Character.AssignCharisma(myCharacter);
+                        Character.ConfirmCreation(myCharacter);
 
                     } else
                         Character.EditCharacter(myCharacter);
