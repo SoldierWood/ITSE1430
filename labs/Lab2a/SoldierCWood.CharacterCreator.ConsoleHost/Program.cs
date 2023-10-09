@@ -26,12 +26,12 @@ partial class Program
                 Character.AddCharacterName (myCharacter);
                 Character.AddCharacterProfession(myCharacter);
                 Character.AddCharacterRace(myCharacter);
-                createCharacter.AddCharacterBio(myCharacter);
-                createCharacter.AssignStrength(myCharacter);
-                createCharacter.AssignIntelligence(myCharacter);
-                createCharacter.AssignAgility(myCharacter);
-                createCharacter.AssignConstitution(myCharacter);
-                createCharacter.AssignCharisma(myCharacter);
+                Character.AddCharacterBio(myCharacter);
+                Character.AssignStrength(myCharacter);
+                Character.AssignIntelligence(myCharacter);
+                Character.AssignAgility(myCharacter);
+                Character.AssignConstitution(myCharacter);
+                Character.AssignCharisma(myCharacter);
                 break;
                 case 2:
                     createCharacter.ViewCharacter(myCharacter);
@@ -44,12 +44,12 @@ partial class Program
                         Character.AddCharacterName(myCharacter);
                         Character.AddCharacterProfession(myCharacter);
                         Character.AddCharacterRace(myCharacter);
-                        createCharacter.AddCharacterBio(myCharacter);
-                        createCharacter.AssignStrength(myCharacter);
-                        createCharacter.AssignIntelligence(myCharacter);
-                        createCharacter.AssignAgility(myCharacter);
-                        createCharacter.AssignConstitution(myCharacter);
-                        createCharacter.AssignCharisma(myCharacter);
+                        Character.AddCharacterBio(myCharacter);
+                        Character.AssignStrength(myCharacter);
+                        Character.AssignIntelligence(myCharacter);
+                        Character.AssignAgility(myCharacter);
+                        Character.AssignConstitution(myCharacter);
+                        Character.AssignCharisma(myCharacter);
 
                     } else
                         createCharacter.EditCharacter(myCharacter);
@@ -250,55 +250,55 @@ partial class Program
         //    Console.WriteLine("H) Half Elf");
         //    Console.WriteLine("U) Human");
         //}
-            public static void AddCharacterBio ( Character newChar )
-        {
-            Console.WriteLine("Enter brief character biography, which is optional: ");
-            string value = Console.ReadLine();
+        //    public static void AddCharacterBio ( Character newChar )
+        //{
+        //    Console.WriteLine("Enter brief character biography, which is optional: ");
+        //    string value = Console.ReadLine();
             
-            newChar.Bio = value;
+        //    newChar.Bio = value;
 
-            Console.WriteLine();
-            Console.WriteLine("Your character has been created.");
-        }
+        //    Console.WriteLine();
+        //    Console.WriteLine("Your character has been created.");
+        //}
 
-        public static void AssignStrength ( Character newChar )
-        {
-            newChar.Strength = GeneratePercentage();
+        //public static void AssignStrength ( Character newChar )
+        //{
+        //    newChar.Strength = GeneratePercentage();
            
-            Console.WriteLine("Your character's strength level: " + newChar.Strength);
+        //    Console.WriteLine("Your character's strength level: " + newChar.Strength);
             
-        }
-        public static void AssignIntelligence ( Character newChar )
-        {
-            newChar.Intelligence = GeneratePercentage();
+        //}
+        //public static void AssignIntelligence ( Character newChar )
+        //{
+        //    newChar.Intelligence = GeneratePercentage();
 
-            Console.WriteLine("Your character's level of intelligence: " + newChar.Intelligence);
+        //    Console.WriteLine("Your character's level of intelligence: " + newChar.Intelligence);
 
-        }
-        public static void AssignAgility ( Character newChar )
-        {
-            newChar.Agility = GeneratePercentage();
+        //}
+        //public static void AssignAgility ( Character newChar )
+        //{
+        //    newChar.Agility = GeneratePercentage();
 
-            Console.WriteLine("Your character's agility: " + newChar.Agility);
+        //    Console.WriteLine("Your character's agility: " + newChar.Agility);
 
-        }
-        public static void AssignConstitution ( Character newChar )
-        {
-            newChar.Constitution = GeneratePercentage();
+        //}
+        //public static void AssignConstitution ( Character newChar )
+        //{
+        //    newChar.Constitution = GeneratePercentage();
 
-            Console.WriteLine("Your character's constitution: " + newChar.Constitution);
+        //    Console.WriteLine("Your character's constitution: " + newChar.Constitution);
 
-        }
+        //}
 
-        public static void AssignCharisma ( Character newChar )
-        {
-            newChar.Charisma = GeneratePercentage();
+        //public static void AssignCharisma ( Character newChar )
+        //{
+        //    newChar.Charisma = GeneratePercentage();
 
-            Console.WriteLine("Your character's charisma: " + newChar.Charisma);
+        //    Console.WriteLine("Your character's charisma: " + newChar.Charisma);
 
-            Console.WriteLine();
+        //    Console.WriteLine();
 
-        }
+        //}
         public static int GeneratePercentage()
         {
             return Random.Shared.Next(1, 101);

@@ -164,36 +164,135 @@ namespace SoldierCWood.CharacterCreator
             get { return _race; }
             set { _race = value; }
         }
-        
+
         //public string Race
         //{ get; set; }
         /// <summary> Gets or sets character biography. </summary>
-        public string Bio
-        { get; set; }
 
-       /// <summary>
-       ///  Physical power.
-       /// </summary>
-       public int Strength
-        { get; set; }
-       
-       /// <summary> Combination of book and street smarts. </summary>
-       public int Intelligence
-            
-        { get; set; }
-        
+        public static void AddCharacterBio ( Character newChar )
+        {
+            Console.WriteLine("Enter brief character biography, which is optional: ");
+            string value = Console.ReadLine();
+
+            newChar.Bio = value;
+
+            Console.WriteLine();
+            Console.WriteLine("Your character has been created.");
+        }
+
+        private string _bio;
+
+        public string Bio
+        {
+            get { return _bio; }
+            set { _bio = value; }
+        }
+
+        //public string Bio
+        //{ get; set; }
+
+        /// <summary>
+        ///  Physical power.
+        /// </summary>
+
+        public static void AssignStrength ( Character newChar )
+        {
+            newChar.Strength = GeneratePercentage();
+
+            Console.WriteLine("Your character's strength level: " + newChar.Strength);
+
+        }
+
+        private int _strength;
+
+        public int Strength
+        {
+            get { return _strength; }
+            set {  _strength = value; }
+        }
+
+        //public int Strength
+        //{ get; set; }
+
+        public static int GeneratePercentage ()
+        {
+            return Random.Shared.Next(1, 101);
+        }
+
+        public static void AssignIntelligence ( Character newChar )
+        {
+            newChar.Intelligence = GeneratePercentage();
+
+            Console.WriteLine("Your character's level of intelligence: " + newChar.Intelligence);
+
+        }
+
+        private int _intelligence;
+
+        public int Intelligence
+        {
+            get { return _intelligence; }
+            set { _intelligence = value; }
+        }
+        /// <summary> Combination of book and street smarts. </summary>
+        //public int Intelligence
+
+        //{ get; set; }
+
+        public static void AssignAgility ( Character newChar )
+        {
+            newChar.Agility = GeneratePercentage();
+
+            Console.WriteLine("Your character's agility: " + newChar.Agility);
+
+        }
+
+        private int _agility;
+
         /// <summary> Ability to "roll with the punches". </summary>
         public int Agility
-        { get; set; }
+        {
+            get { return _agility; }
+            set { _agility = value; }
+        }
+
+        public static void AssignConstitution ( Character newChar )
+        {
+            newChar.Constitution = GeneratePercentage();
+
+            Console.WriteLine("Your character's constitution: " + newChar.Constitution);
+
+        }
 
         /// <summary> Person's psychological makeup, both inherited and life taught. </summary>
-        public int Constitution
+        
+        
 
-        { get; set; }
+        private int _constitution;
+        public int Constitution
+        {
+            get { return _constitution; }
+            set { _constitution = value; }
+        }
 
         /// <summary> Ability to make 'em smile, even when they don't want to. </summary>
+        public static void AssignCharisma ( Character newChar )
+        {
+            newChar.Charisma = GeneratePercentage();
+
+            Console.WriteLine("Your character's charisma: " + newChar.Charisma);
+
+            Console.WriteLine();
+
+        }
+
+        private int _charisma;
+
         public int Charisma
-        { get; set; }
+        {
+            get { return _charisma; }
+            set { _charisma = value; }
+        }
     }
 
 }
