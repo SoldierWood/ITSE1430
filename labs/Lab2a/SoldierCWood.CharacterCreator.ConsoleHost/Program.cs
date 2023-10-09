@@ -103,12 +103,6 @@ partial class Program
             } while (true);
         }
 
-        Console.WriteLine(myCharacter.Name);
-        Console.WriteLine(myCharacter.Profession);
-        Console.WriteLine(myCharacter.Race);
-        Console.WriteLine(myCharacter.Bio);
-
-
         bool Confirmation ( string message )
         {
             return ReadBoolean(message);
