@@ -18,6 +18,7 @@ namespace SoldierCWood.CharacterCreator
         /// <summary> Gets or sets character name. </summary>
 
         private string _name;
+        public bool characterExists = false;
 
         public string Name
         {
@@ -36,6 +37,7 @@ namespace SoldierCWood.CharacterCreator
                 value = Console.ReadLine();
             }
             newChar.Name = value;
+             
         }
 
         public static void AddCharacterProfession ( Character newChar )
@@ -444,13 +446,13 @@ namespace SoldierCWood.CharacterCreator
             };
         }
 
-        public static void DeleteCharacter ( Character newChar )
+        public static bool DeleteCharacter ( Character newChar, bool Exists)
         {
             if (String.IsNullOrEmpty(newChar.Name))
             {
                 Console.WriteLine("Character has not yet been created. Please make appropriate selection to create a character.");
                 Console.WriteLine();
-                return;
+                return Exists;
             } else
             {
                 Console.WriteLine("Are you sure you want to delete your character? Please enter Y or N: ");
@@ -459,15 +461,17 @@ namespace SoldierCWood.CharacterCreator
                 {
                     case ConsoleKey.Y:
                     DeleteSteps(newChar);
-                    break;
+                    Exists = false;
+                    return Exists;
+                    
                     case ConsoleKey.N:
                     {
                         Console.WriteLine("Your character lives on.");
                         Console.WriteLine();
+                        return Exists;
                     }
-                    break;
                     default:
-                    break;
+                    return Exists;
                 };
             }
         }
@@ -482,6 +486,7 @@ namespace SoldierCWood.CharacterCreator
             newChar.Agility = 0;
             newChar.Constitution = 0;
             newChar.Charisma = 0;
+            
 
             Console.WriteLine("Your character has been deleted.");
             Console.WriteLine();

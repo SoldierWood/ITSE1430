@@ -14,6 +14,8 @@ partial class Program
        DisplayIntro();
 
        var done = false;
+        bool characterExists = false;
+       
 
        Character myCharacter = new Character();
         
@@ -22,16 +24,23 @@ partial class Program
             switch (GetUserSelection())
             {
                 case 1:
-                Character.AddCharacterName (myCharacter);
-                Character.AddCharacterProfession(myCharacter);
-                Character.AddCharacterRace(myCharacter);
-                Character.AddCharacterBio(myCharacter);
-                Character.AssignStrength(myCharacter);
-                Character.AssignIntelligence(myCharacter);
-                Character.AssignAgility(myCharacter);
-                Character.AssignConstitution(myCharacter);
-                Character.AssignCharisma(myCharacter);
-                Character.ConfirmCreation(myCharacter);
+                    if(characterExists == false) {
+                    Character.AddCharacterName(myCharacter);
+                    Character.AddCharacterProfession(myCharacter);
+                    Character.AddCharacterRace(myCharacter);
+                    Character.AddCharacterBio(myCharacter);
+                    Character.AssignStrength(myCharacter);
+                    Character.AssignIntelligence(myCharacter);
+                    Character.AssignAgility(myCharacter);
+                    Character.AssignConstitution(myCharacter);
+                    Character.AssignCharisma(myCharacter);
+                    Character.ConfirmCreation(myCharacter);
+                    characterExists = true;
+                } else
+                {
+                    Console.WriteLine("Character Already exists");
+                }
+
                 break;
                 case 2:
                     Character.ViewCharacter(myCharacter);
@@ -57,7 +66,7 @@ partial class Program
                 }
                 break;
                 case 4:
-                Character.DeleteCharacter(myCharacter);
+                characterExists = Character.DeleteCharacter(myCharacter, characterExists);
                 break;
                 case 0:
                 if (!Confirmation("Are you sure you want to quit the game (Y/N/)?"))
