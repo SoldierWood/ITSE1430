@@ -34,7 +34,7 @@ partial class Program
                 Character.AssignCharisma(myCharacter);
                 break;
                 case 2:
-                    createCharacter.ViewCharacter(myCharacter);
+                    Character.ViewCharacter(myCharacter);
                 break;
                 case 3:
                 {
@@ -52,11 +52,11 @@ partial class Program
                         Character.AssignCharisma(myCharacter);
 
                     } else
-                        createCharacter.EditCharacter(myCharacter);
+                        Character.EditCharacter(myCharacter);
                 }
                 break;
                 case 4:
-                createCharacter.DeleteCharacter(myCharacter);
+                Character.DeleteCharacter(myCharacter);
                 break;
                 case 0:
                 if (!Confirmation("Are you sure you want to quit the game (Y/N/)?"))
@@ -131,8 +131,8 @@ partial class Program
     }
 
    
-    class createCharacter
-    {
+    //class createCharacter
+    //{
         //public static void AddCharacterName ( Character newChar )
         //{
         //    Console.WriteLine("Enter character name: ");
@@ -299,167 +299,167 @@ partial class Program
         //    Console.WriteLine();
 
         //}
-        public static int GeneratePercentage()
-        {
-            return Random.Shared.Next(1, 101);
-        }
+        //public static int GeneratePercentage()
+        //{
+        //    return Random.Shared.Next(1, 101);
+        //}
 
-        public static void ViewCharacter ( Character newChar)
-        {
-            if (String.IsNullOrEmpty(newChar.Name))
-            {
-                Console.WriteLine("Character has not yet been created. Please make appropriate selection to create a character.");
-                Console.WriteLine();
-                return;
-            }
-            else
-            {
-                DisplayCharacter(newChar);
-            }
-        }
-        public static void DisplayCharacter ( Character newChar )
-        {
-            Console.WriteLine("Character name:" + "\t\t" + newChar.Name);
-            Console.WriteLine("Character profession:" + "\t" + newChar.Profession);
-            Console.WriteLine("Character race:" + "\t\t" + newChar.Race);
-            Console.WriteLine("Character biography: " + "\t" + newChar.Bio);
-            Console.WriteLine();
-            Console.WriteLine("Character strength: " + "\t\t" + newChar.Strength);
-            Console.WriteLine("Character intelligence: " + "\t" + newChar.Intelligence);
-            Console.WriteLine("Character agility: " + "\t\t" + newChar.Agility);
-            Console.WriteLine("Character constitution: " + "\t" + newChar.Constitution);
-            Console.WriteLine("Character charisma: " + "\t\t" + newChar.Charisma);
-            Console.WriteLine();
+        //public static void ViewCharacter ( Character newChar)
+        //{
+        //    if (String.IsNullOrEmpty(newChar.Name))
+        //    {
+        //        Console.WriteLine("Character has not yet been created. Please make appropriate selection to create a character.");
+        //        Console.WriteLine();
+        //        return;
+        //    }
+        //    else
+        //    {
+        //        DisplayCharacter(newChar);
+        //    }
+        //}
+        //public static void DisplayCharacter ( Character newChar )
+        //{
+        //    Console.WriteLine("Character name:" + "\t\t" + newChar.Name);
+        //    Console.WriteLine("Character profession:" + "\t" + newChar.Profession);
+        //    Console.WriteLine("Character race:" + "\t\t" + newChar.Race);
+        //    Console.WriteLine("Character biography: " + "\t" + newChar.Bio);
+        //    Console.WriteLine();
+        //    Console.WriteLine("Character strength: " + "\t\t" + newChar.Strength);
+        //    Console.WriteLine("Character intelligence: " + "\t" + newChar.Intelligence);
+        //    Console.WriteLine("Character agility: " + "\t\t" + newChar.Agility);
+        //    Console.WriteLine("Character constitution: " + "\t" + newChar.Constitution);
+        //    Console.WriteLine("Character charisma: " + "\t\t" + newChar.Charisma);
+        //    Console.WriteLine();
 
-        }
+        //}
 
-        public static void EditCharacter ( Character newChar )
-        {
-            EditName(newChar);
-            EditProfession(newChar);
-            EditRace(newChar);
+        //public static void EditCharacter ( Character newChar )
+        //{
+        //    EditName(newChar);
+        //    EditProfession(newChar);
+        //    EditRace(newChar);
 
-            Console.WriteLine("Sorry, you cannot edit your strength, intelligence, agility, constitution, or charisma.");
-            Console.WriteLine("You were born with these regardless of other character traits.");
-            Console.WriteLine();
-        }
-        public static void EditName ( Character newChar )
-        {
-            Console.WriteLine($"Your current name is: {newChar.Name}");
-            Console.WriteLine("Do you wish to change your name? Please enter Y or N: ");
+        //    Console.WriteLine("Sorry, you cannot edit your strength, intelligence, agility, constitution, or charisma.");
+        //    Console.WriteLine("You were born with these regardless of other character traits.");
+        //    Console.WriteLine();
+        //}
+        //public static void EditName ( Character newChar )
+        //{
+        //    Console.WriteLine($"Your current name is: {newChar.Name}");
+        //    Console.WriteLine("Do you wish to change your name? Please enter Y or N: ");
 
-            switch (Console.ReadKey(true).Key)
-            {
-                case ConsoleKey.Y:
-                {
-                    Console.WriteLine("Enter new name: ");
-                    newChar.Name = Console.ReadLine();
-                    Console.WriteLine("Your new name is: " + newChar.Name);
-                    Console.WriteLine();
-                }
-                break;
-                case ConsoleKey.N:
-                {
-                    Console.WriteLine("Your name remains as: " + newChar.Name);
-                    Console.WriteLine();
-                }
-                break;
-                default:
-                break;
-            };
-        }
-        public static void EditProfession ( Character newChar )
-        {
-            Console.WriteLine($"Your current profession is: {newChar.Profession}");
-            Console.WriteLine("Do you wish to change your profession? Please enter Y or N: ");
+        //    switch (Console.ReadKey(true).Key)
+        //    {
+        //        case ConsoleKey.Y:
+        //        {
+        //            Console.WriteLine("Enter new name: ");
+        //            newChar.Name = Console.ReadLine();
+        //            Console.WriteLine("Your new name is: " + newChar.Name);
+        //            Console.WriteLine();
+        //        }
+        //        break;
+        //        case ConsoleKey.N:
+        //        {
+        //            Console.WriteLine("Your name remains as: " + newChar.Name);
+        //            Console.WriteLine();
+        //        }
+        //        break;
+        //        default:
+        //        break;
+        //    };
+        //}
+        //public static void EditProfession ( Character newChar )
+        //{
+        //    Console.WriteLine($"Your current profession is: {newChar.Profession}");
+        //    Console.WriteLine("Do you wish to change your profession? Please enter Y or N: ");
 
-            switch (Console.ReadKey(true).Key)
-            {
-                case ConsoleKey.Y:
-                {
-                    Character.AddCharacterProfession(newChar);
-                    Console.WriteLine("Your new profession is: " + newChar.Profession);
-                    Console.WriteLine();
-                }
-                break;
-                case ConsoleKey.N:
-                {
-                    Console.WriteLine("Your profession remains as: " + newChar.Profession);
-                    Console.WriteLine();
-                }
-                break;
-                default:
-                break;
-            };
-        }
-        public static void EditRace ( Character newChar )
-        {
-            Console.WriteLine($"Your current race is: {newChar.Race}");
-            Console.WriteLine("Do you wish to change your race? Please enter Y or N: ");
+        //    switch (Console.ReadKey(true).Key)
+        //    {
+        //        case ConsoleKey.Y:
+        //        {
+        //            Character.AddCharacterProfession(newChar);
+        //            Console.WriteLine("Your new profession is: " + newChar.Profession);
+        //            Console.WriteLine();
+        //        }
+        //        break;
+        //        case ConsoleKey.N:
+        //        {
+        //            Console.WriteLine("Your profession remains as: " + newChar.Profession);
+        //            Console.WriteLine();
+        //        }
+        //        break;
+        //        default:
+        //        break;
+        //    };
+        //}
+        //public static void EditRace ( Character newChar )
+        //{
+        //    Console.WriteLine($"Your current race is: {newChar.Race}");
+        //    Console.WriteLine("Do you wish to change your race? Please enter Y or N: ");
 
-            switch (Console.ReadKey(true).Key)
-            {
-                case ConsoleKey.Y:
-                {
-                    Character.AddCharacterRace(newChar);
-                    Console.WriteLine("Your new race is: " + newChar.Race);
-                    Console.WriteLine();
-                }
-                break;
-                case ConsoleKey.N:
-                {
-                    Console.WriteLine("Your race remains as: " + newChar.Race);
-                    Console.WriteLine();
-                }
-                break;
-                default:
-                break;
-            };
-        }
-        public static void DeleteCharacter ( Character newChar )
-        {
-            if (String.IsNullOrEmpty(newChar.Name))
-            {
-                Console.WriteLine("Character has not yet been created. Please make appropriate selection to create a character.");
-                Console.WriteLine();
-                return;
-            } else
-            {
-                Console.WriteLine("Are you sure you want to delete your character? Please enter Y or N: ");
+        //    switch (Console.ReadKey(true).Key)
+        //    {
+        //        case ConsoleKey.Y:
+        //        {
+        //            Character.AddCharacterRace(newChar);
+        //            Console.WriteLine("Your new race is: " + newChar.Race);
+        //            Console.WriteLine();
+        //        }
+        //        break;
+        //        case ConsoleKey.N:
+        //        {
+        //            Console.WriteLine("Your race remains as: " + newChar.Race);
+        //            Console.WriteLine();
+        //        }
+        //        break;
+        //        default:
+        //        break;
+        //    };
+        //}
+        //public static void DeleteCharacter ( Character newChar )
+        //{
+        //    if (String.IsNullOrEmpty(newChar.Name))
+        //    {
+        //        Console.WriteLine("Character has not yet been created. Please make appropriate selection to create a character.");
+        //        Console.WriteLine();
+        //        return;
+        //    } else
+        //    {
+        //        Console.WriteLine("Are you sure you want to delete your character? Please enter Y or N: ");
 
-                switch (Console.ReadKey(true).Key)
-                {
-                    case ConsoleKey.Y:
-                    DeleteSteps(newChar);
-                    break;
-                    case ConsoleKey.N:
-                    {
-                        Console.WriteLine("Your character lives on.");
-                        Console.WriteLine();
-                    }
-                    break;
-                    default:
-                    break;
-                };
-            }
-        }
-        public static void DeleteSteps ( Character newChar )
-        {
-            newChar.Name = null;
-            newChar.Race = null;
-            newChar.Profession = null;
-            newChar.Bio = null;
-            newChar.Strength = 0;
-            newChar.Intelligence = 0;
-            newChar.Agility = 0;
-            newChar.Constitution = 0;
-            newChar.Charisma = 0;
+        //        switch (Console.ReadKey(true).Key)
+        //        {
+        //            case ConsoleKey.Y:
+        //            DeleteSteps(newChar);
+        //            break;
+        //            case ConsoleKey.N:
+        //            {
+        //                Console.WriteLine("Your character lives on.");
+        //                Console.WriteLine();
+        //            }
+        //            break;
+        //            default:
+        //            break;
+        //        };
+        //    }
+        //}
+        //public static void DeleteSteps ( Character newChar )
+        //{
+        //    newChar.Name = null;
+        //    newChar.Race = null;
+        //    newChar.Profession = null;
+        //    newChar.Bio = null;
+        //    newChar.Strength = 0;
+        //    newChar.Intelligence = 0;
+        //    newChar.Agility = 0;
+        //    newChar.Constitution = 0;
+        //    newChar.Charisma = 0;
 
-            Console.WriteLine("Your character has been deleted.");
-            Console.WriteLine();
+        //    Console.WriteLine("Your character has been deleted.");
+        //    Console.WriteLine();
 
-        }
+        //}
 
-    }
+    //}
    
 }
