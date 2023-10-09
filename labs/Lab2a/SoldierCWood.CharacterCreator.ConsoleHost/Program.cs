@@ -25,7 +25,7 @@ partial class Program
                 //createCharacter.AddCharacterName(myCharacter);
                 Character.AddCharacterName (myCharacter);
                 Character.AddCharacterProfession(myCharacter);
-                createCharacter.AddCharacterRace(myCharacter);
+                Character.AddCharacterRace(myCharacter);
                 createCharacter.AddCharacterBio(myCharacter);
                 createCharacter.AssignStrength(myCharacter);
                 createCharacter.AssignIntelligence(myCharacter);
@@ -43,7 +43,7 @@ partial class Program
                         Console.WriteLine("You have not yet created a character.");
                         Character.AddCharacterName(myCharacter);
                         Character.AddCharacterProfession(myCharacter);
-                        createCharacter.AddCharacterRace(myCharacter);
+                        Character.AddCharacterRace(myCharacter);
                         createCharacter.AddCharacterBio(myCharacter);
                         createCharacter.AssignStrength(myCharacter);
                         createCharacter.AssignIntelligence(myCharacter);
@@ -198,58 +198,58 @@ partial class Program
         //    Console.WriteLine("R) Rogue");
         //    Console.WriteLine("W) Wizard");
         //}
-        public static void AddCharacterRace ( Character newChar )
-        {
-            Console.WriteLine();
+        //public static void AddCharacterRace ( Character newChar )
+        //{
+        //    Console.WriteLine();
 
-            DisplayRaceChoices();
+        //    DisplayRaceChoices();
 
-            var complete = false;
+        //    var complete = false;
 
-            do
-            {
-                switch (Console.ReadKey(true).Key)
-                {
-                    case ConsoleKey.D:
-                    newChar.Race = "Dwarf";
-                    complete = true;
-                    break;
-                    case ConsoleKey.E:
-                    newChar.Race = "Elf";
-                    complete = true;
-                    break;
-                    case ConsoleKey.G:
-                    newChar.Race = "Gnome";
-                    complete = true;
-                    break;
-                    case ConsoleKey.H:
-                    newChar.Race = "Half Elf";
-                    complete = true;
-                    break;
-                    case ConsoleKey.U:
-                    newChar.Race = "Human";
-                    complete = true;
-                    break;
-                    default:
-                    Console.WriteLine("Unknown option");
-                    DisplayRaceChoices();
-                    break;
-                };
-            } while (!complete);
+        //    do
+        //    {
+        //        switch (Console.ReadKey(true).Key)
+        //        {
+        //            case ConsoleKey.D:
+        //            newChar.Race = "Dwarf";
+        //            complete = true;
+        //            break;
+        //            case ConsoleKey.E:
+        //            newChar.Race = "Elf";
+        //            complete = true;
+        //            break;
+        //            case ConsoleKey.G:
+        //            newChar.Race = "Gnome";
+        //            complete = true;
+        //            break;
+        //            case ConsoleKey.H:
+        //            newChar.Race = "Half Elf";
+        //            complete = true;
+        //            break;
+        //            case ConsoleKey.U:
+        //            newChar.Race = "Human";
+        //            complete = true;
+        //            break;
+        //            default:
+        //            Console.WriteLine("Unknown option");
+        //            DisplayRaceChoices();
+        //            break;
+        //        };
+        //    } while (!complete);
 
-            Console.WriteLine();
-        }
+        //    Console.WriteLine();
+        //}
 
-        public static void DisplayRaceChoices ()
-        {
-            Console.WriteLine("Enter character race");
-            Console.WriteLine("Available choices: ");
-            Console.WriteLine("D) Dwarf");
-            Console.WriteLine("E) Elf");
-            Console.WriteLine("G) Gnome");
-            Console.WriteLine("H) Half Elf");
-            Console.WriteLine("U) Human");
-        }
+        //public static void DisplayRaceChoices ()
+        //{
+        //    Console.WriteLine("Enter character race");
+        //    Console.WriteLine("Available choices: ");
+        //    Console.WriteLine("D) Dwarf");
+        //    Console.WriteLine("E) Elf");
+        //    Console.WriteLine("G) Gnome");
+        //    Console.WriteLine("H) Half Elf");
+        //    Console.WriteLine("U) Human");
+        //}
             public static void AddCharacterBio ( Character newChar )
         {
             Console.WriteLine("Enter brief character biography, which is optional: ");
@@ -401,7 +401,7 @@ partial class Program
             {
                 case ConsoleKey.Y:
                 {
-                    AddCharacterRace(newChar);
+                    Character.AddCharacterRace(newChar);
                     Console.WriteLine("Your new race is: " + newChar.Race);
                     Console.WriteLine();
                 }

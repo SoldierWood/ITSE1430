@@ -104,8 +104,69 @@ namespace SoldierCWood.CharacterCreator
         //public string Profession
         //{ get; set; }
         /// <summary> Gets or sets character race. </summary>
+        public static void AddCharacterRace ( Character newChar )
+        {
+            Console.WriteLine();
+
+            DisplayRaceChoices();
+
+            var complete = false;
+
+            do
+            {
+                switch (Console.ReadKey(true).Key)
+                {
+                    case ConsoleKey.D:
+                    newChar.Race = "Dwarf";
+                    complete = true;
+                    break;
+                    case ConsoleKey.E:
+                    newChar.Race = "Elf";
+                    complete = true;
+                    break;
+                    case ConsoleKey.G:
+                    newChar.Race = "Gnome";
+                    complete = true;
+                    break;
+                    case ConsoleKey.H:
+                    newChar.Race = "Half Elf";
+                    complete = true;
+                    break;
+                    case ConsoleKey.U:
+                    newChar.Race = "Human";
+                    complete = true;
+                    break;
+                    default:
+                    Console.WriteLine("Unknown option");
+                    DisplayRaceChoices();
+                    break;
+                };
+            } while (!complete);
+
+            Console.WriteLine();
+        }
+
+        public static void DisplayRaceChoices ()
+        {
+            Console.WriteLine("Enter character race");
+            Console.WriteLine("Available choices: ");
+            Console.WriteLine("D) Dwarf");
+            Console.WriteLine("E) Elf");
+            Console.WriteLine("G) Gnome");
+            Console.WriteLine("H) Half Elf");
+            Console.WriteLine("U) Human");
+        }
+
+        private string _race;
+
         public string Race
-        { get; set; }
+        {
+            get { return _race; }
+            set { _race = value; }
+        }
+        
+        //public string Race
+        //{ get; set; }
         /// <summary> Gets or sets character biography. </summary>
         public string Bio
         { get; set; }
