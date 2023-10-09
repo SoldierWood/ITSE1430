@@ -22,7 +22,8 @@ partial class Program
             switch (GetUserSelection())
             {
                 case 1:
-                createCharacter.AddCharacterName(myCharacter);
+                //createCharacter.AddCharacterName(myCharacter);
+                Character.AddCharacterName (myCharacter);
                 createCharacter.AddCharacterProfession(myCharacter);
                 createCharacter.AddCharacterRace(myCharacter);
                 createCharacter.AddCharacterBio(myCharacter);
@@ -132,18 +133,18 @@ partial class Program
    
     class createCharacter
     {
-        public static void AddCharacterName ( Character newChar )
-        {
-            Console.WriteLine("Enter character name: ");
-            string value = Console.ReadLine();
-            while (String.IsNullOrEmpty(value))
-            {
-                Console.WriteLine("Must input at least one character");
-                Console.WriteLine("Enter character name: ");
-                value = Console.ReadLine();
-            }
-            newChar.Name = value;
-        }
+        //public static void AddCharacterName ( Character newChar )
+        //{
+        //    Console.WriteLine("Enter character name: ");
+        //    string value = Console.ReadLine();
+        //    while (String.IsNullOrEmpty(value))
+        //    {
+        //        Console.WriteLine("Must input at least one character");
+        //        Console.WriteLine("Enter character name: ");
+        //        value = Console.ReadLine();
+        //    }
+        //    newChar.Name = value;
+        //}
 
 
         public static void AddCharacterProfession ( Character newChar )

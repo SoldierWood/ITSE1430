@@ -16,6 +16,22 @@ namespace SoldierCWood.CharacterCreator
     {
         public Character() { }
         /// <summary> Gets or sets character name. </summary>
+
+        public static void AddCharacterName ( Character newChar )
+        {
+            Console.WriteLine("Enter character name: ");
+            string value = Console.ReadLine();
+            while (String.IsNullOrEmpty(value))
+            {
+                Console.WriteLine("Must input at least one character");
+                Console.WriteLine("Enter character name: ");
+                value = Console.ReadLine();
+            }
+            newChar.Name = value;
+        }
+
+
+
         public string Name
         { get; set; }
         /// <summary> Gets or sets character profession. </summary>
