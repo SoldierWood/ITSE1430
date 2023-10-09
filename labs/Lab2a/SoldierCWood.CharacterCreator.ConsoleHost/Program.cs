@@ -14,7 +14,7 @@ partial class Program
        DisplayIntro();
 
        var done = false;
-        bool characterExists = false;
+       bool characterExists = false;
        
 
        Character myCharacter = new Character();

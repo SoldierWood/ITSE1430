@@ -15,17 +15,21 @@ namespace SoldierCWood.CharacterCreator
     public class Character
     {
         public Character() { }
-        /// <summary> Gets or sets character name. </summary>
-
-        private string _name;
+       
+        /// <summary> Result for if character exists. </summary>
+        /// <param name="characterExists">Indicator for if character exists. </param>
         public bool characterExists = false;
 
+        /// <summary> Name of character. </summary>
+        private string _name;
         public string Name
         {
             get { return _name; }
             set { _name = value; }
         }
 
+        /// <summary> Adds character name to character. </summary>
+        /// <param name="newChar">Character created by user.</param>
         public static void AddCharacterName ( Character newChar )
         {
             Console.WriteLine("Enter character name: ");
