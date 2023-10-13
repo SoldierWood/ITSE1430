@@ -6,7 +6,10 @@ namespace MovieLibrary.WInHost
         {
             InitializeComponent();
         }
+        
+       
 
+       
        
 
         private void OnFileExit ( object sender, EventArgs e )
@@ -17,14 +20,32 @@ namespace MovieLibrary.WInHost
         {
             var dlg = new MovieForm();
 
-            dlg.ShowDialog(); // modal
-
             //dlg.Show();   // modeless
+
+            if (dlg.ShowDialog() != DialogResult.OK) // modal
+                return;
+
+            _movie = dlg.Movie;
+            RefreshMovies();
+
         }
 
         private void OnEditMovie ( object sender, EventArgs e )
         {
-            MessageBox.Show("Edit Not implemented");
+            var movie = GetSelectedMovie();
+            if (movie == null)
+                return;
+
+            var dlg = new MovieForm();
+            dlg.Movie = movie;
+
+            //dlg.Show();   // modeless
+
+            if (dlg.ShowDialog() != DialogResult.OK) // modal
+                return;
+
+            _movie = dlg.Movie;
+            RefreshMovies();
         }
 
         private void OnDeleteMovie ( object sender, EventArgs e )
@@ -37,6 +58,7 @@ namespace MovieLibrary.WInHost
 
             //TODO: Delete movie
             _movie = null;
+            RefreshMovies();
         }
         
         private void OnHelpAbout (object sender, EventArgs e)
@@ -55,6 +77,16 @@ namespace MovieLibrary.WInHost
             return _movie;
         }
 
+        private void RefreshMovies()
+        {
+            _lstMovies.DataSource = null;
+
+            if (_movie != null)
+                _lstMovies.DataSource = new[] { _movie };
+        }
+
         private Movie _movie = new Movie() { Title = "Jaws"};
+
+        
     }
 }

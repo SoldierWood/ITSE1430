@@ -41,6 +41,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this._txtGenre = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // _txtTitle
@@ -72,6 +74,7 @@
             // 
             // _cbRating
             // 
+            this._cbRating.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbRating.FormattingEnabled = true;
             this._cbRating.Items.AddRange(new object[] {
             "G",
@@ -86,8 +89,9 @@
             // _txtDescription
             // 
             this._txtDescription.Location = new System.Drawing.Point(115, 161);
+            this._txtDescription.Multiline = true;
             this._txtDescription.Name = "_txtDescription";
-            this._txtDescription.Size = new System.Drawing.Size(100, 23);
+            this._txtDescription.Size = new System.Drawing.Size(222, 41);
             this._txtDescription.TabIndex = 4;
             // 
             // _txtReleaseYear
@@ -107,7 +111,7 @@
             // _chkIsBlackAndWhite
             // 
             this._chkIsBlackAndWhite.AutoSize = true;
-            this._chkIsBlackAndWhite.Location = new System.Drawing.Point(114, 283);
+            this._chkIsBlackAndWhite.Location = new System.Drawing.Point(109, 299);
             this._chkIsBlackAndWhite.Name = "_chkIsBlackAndWhite";
             this._chkIsBlackAndWhite.Size = new System.Drawing.Size(127, 19);
             this._chkIsBlackAndWhite.TabIndex = 7;
@@ -159,11 +163,29 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Run Length";
             // 
+            // _txtGenre
+            // 
+            this._txtGenre.Location = new System.Drawing.Point(115, 257);
+            this._txtGenre.Name = "_txtGenre";
+            this._txtGenre.Size = new System.Drawing.Size(100, 23);
+            this._txtGenre.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(57, 266);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(38, 15);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Genre";
+            // 
             // MovieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this._txtGenre);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -199,5 +221,7 @@
         private Label label3;
         private Label label4;
         private Label label5;
+        private TextBox _txtGenre;
+        private Label label6;
     }
 }
