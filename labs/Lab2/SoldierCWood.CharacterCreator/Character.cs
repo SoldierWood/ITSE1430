@@ -14,8 +14,6 @@ namespace SoldierCWood.CharacterCreator
     /// <summary> Represents game character. </summary>
     public class Character
     {
-        public Character() { }
-       
         /// <summary> Result for if character exists. </summary>
         /// <param name="characterExists">Indicator for if character exists. </param>
         public bool characterExists = false;

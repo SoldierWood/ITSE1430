@@ -137,7 +137,7 @@
             this.MainMenuStrip = this._mainMenu;
             this.Name = "MainForm";
             this.Text = "Movie Library";
-            this.Load += new System.EventHandler(this.OnFormClosing);
+            //this.Load += new System.EventHandler(this.OnFormClosing);
             this._mainMenu.ResumeLayout(false);
             this._mainMenu.PerformLayout();
             this.ResumeLayout(false);
