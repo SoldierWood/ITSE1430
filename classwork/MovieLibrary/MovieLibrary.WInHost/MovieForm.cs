@@ -37,14 +37,16 @@ namespace MovieLibrary.WInHost
 
             if (!movie.TryValidate(out var error))
             {
-                MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult = DialogResult.None;
+                return;
 
             };
 
             Movie = movie;
 
-            DialogResult = DialogResult.OK;
-            Close();
+            //DialogResult = DialogResult.OK;
+            //Close();
         }
 
         private void OnCancel ( object sender, EventArgs e )
@@ -59,6 +61,38 @@ namespace MovieLibrary.WInHost
                 return value;
 
             return defaultValue;
+        }
+
+        private void Label3_Click ( object sender, EventArgs e )
+        {
+
+        }
+
+        private void Label5_Click ( object sender, EventArgs e )
+        {
+
+        }
+
+        private void OnValidateTitle ( object sender, CancelEventArgs e )
+        {
+            if (String.IsNullOrEmpty(_txtTitle.Text))
+            {
+                //Invalid
+                _errors.SetError(_txtTitle, "Title is required");
+                e.Cancel = true;
+            } else
+                _errors.SetError(_txtTitle, "");
+        }
+
+        private void OnValidateTitle ( object sender, CancelEventArgs e )
+        {
+            if (String.IsNullOrEmpty(_txtTitle.Text))
+            {
+                //Invalid
+                _errors.SetError(_txtTitle, "Title is required");
+                e.Cancel = true;
+            } else
+                _errors.SetError(_txtTitle, "");
         }
     }
 }

@@ -22,7 +22,7 @@ namespace MovieLibrary.WInHost
 
             //dlg.Show();   // modeless
 
-            if (dlg.ShowDialog() != DialogResult.OK) // modal
+            if (dlg.ShowDialog(this) != DialogResult.OK) // modal
                 return;
 
             _movie = dlg.Movie;
@@ -41,7 +41,7 @@ namespace MovieLibrary.WInHost
 
             //dlg.Show();   // modeless
 
-            if (dlg.ShowDialog() != DialogResult.OK) // modal
+            if (dlg.ShowDialog(this) != DialogResult.OK) // modal
                 return;
 
             _movie = dlg.Movie;
@@ -64,12 +64,12 @@ namespace MovieLibrary.WInHost
         private void OnHelpAbout (object sender, EventArgs e)
         {
             var about = new AboutBox();
-            about.ShowDialog();
+            about.ShowDialog(this);
         }
 
         private bool Confirm (string title, string message)
         {
-            return MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
+            return MessageBox.Show(this, message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
         }
 
         private Movie GetSelectedMovie ()
