@@ -84,15 +84,39 @@ namespace MovieLibrary.WInHost
                 _errors.SetError(_txtTitle, "");
         }
 
-        private void OnValidateTitle ( object sender, CancelEventArgs e )
+        private void OnValidateReleaseYear ( object sender, System.ComponentModel.CancelEventArgs e )
         {
-            if (String.IsNullOrEmpty(_txtTitle.Text))
+            var value = GetInt32(_txtReleaseYear, 1);
+            if (value < 1900)
             {
                 //Invalid
-                _errors.SetError(_txtTitle, "Title is required");
+                _errors.SetError(_txtReleaseYear, "Release Year must be at least 1900");
                 e.Cancel = true;
             } else
-                _errors.SetError(_txtTitle, "");
+                _errors.SetError(_txtReleaseYear, "");
+        }
+
+        private void OnValidateRunLength ( object sender, System.ComponentModel.CancelEventArgs e )
+        {
+            var value = GetInt32(_txtRunLength, -1);
+            if (value < 0)
+            {
+                //Invalid
+                _errors.SetError(_txtRunLength, "Run Length must be >= 0");
+                e.Cancel = true;
+            } else
+                _errors.SetError(_txtRunLength, "");
+        }
+
+        private void OnValidateRating ( object sender, System.ComponentModel.CancelEventArgs e )
+        {
+            if (String.IsNullOrEmpty(_cbRating.Text))
+            {
+                //Invalid
+                _errors.SetError(_cbRating, "Rating is required");
+                e.Cancel = true;
+            } else
+                _errors.SetError(_cbRating, "");
         }
     }
 }
