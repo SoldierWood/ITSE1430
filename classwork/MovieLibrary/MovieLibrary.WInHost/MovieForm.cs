@@ -1,122 +1,133 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿namespace MovieLibrary.WinHost;
 
-namespace MovieLibrary.WInHost
+public partial class MovieForm : Form
 {
-    public partial class MovieForm : Form
+    public MovieForm ()
     {
-        public MovieForm ()
+        InitializeComponent();
+    }
+
+    /// <summary>Gets or sets the movie.</summary>
+    public Movie Movie { get; set; }
+
+    //Called to init form just before it is shown
+    protected override void OnLoad ( EventArgs e )
+    {
+        base.OnLoad(e);
+
+        //Load movie data, if any
+        if (Movie != null)
         {
-            InitializeComponent();
-        }
-        /// <summary> Gets or sets the new movie. </summary>
-        public Movie Movie { get; set; }
+            Text = "Edit Movie";
 
+            _txtTitle.Text = Movie.Title;
+            _txtDescription.Text = Movie.Description;
+            _txtGenre.Text = Movie.Genre;
 
-        private void OnSave ( object sender, EventArgs e )
+            _cbRating.Text = Movie.Rating?.Name;
+            _txtReleaseYear.Text = Movie.ReleaseYear.ToString();
+            _txtRunLength.Text = Movie.RunLength.ToString();
+
+            _chkIsBlackAndWhite.Checked = Movie.IsBlackAndWhite;
+        };
+
+        ValidateChildren();
+    }
+
+    private void OnSave ( object sender, EventArgs e )
+    {
+        //Validate and abort if necessary
+        if (!ValidateChildren())
         {
-            var movie = new Movie();
+            DialogResult = DialogResult.None;
+            return;
+        };
 
-            //Populate from the UI
-            movie.Title = _txtTitle.Text;
-            movie.Description = _txtDescription.Text;   
-            movie.Genre = _txtGenre.Text;
+        var button = sender as Button;
 
-            movie.Rating = new Rating(_cbRating.Text);
-            movie.ReleaseYear = GetInt32(_txtReleaseYear, 0);
-            movie.RunLength = GetInt32(_txtRunLength, -1);
+        var movie = new Movie();
 
-            movie.IsBlackAndWhite = _chkIsBlackAndWhite.Checked;
+        //Populate from the UI
+        movie.Title = _txtTitle.Text;
+        movie.Description = _txtDescription.Text;
+        movie.Genre = _txtGenre.Text;
 
-            if (!movie.TryValidate(out var error))
-            {
-                MessageBox.Show(this, error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                DialogResult = DialogResult.None;
-                return;
+        movie.Rating = new Rating(_cbRating.Text);
+        movie.ReleaseYear = GetInt32(_txtReleaseYear, 0);
+        movie.RunLength = GetInt32(_txtRunLength, -1);
 
-            };
+        movie.IsBlackAndWhite = _chkIsBlackAndWhite.Checked;
 
-            Movie = movie;
-
-            //DialogResult = DialogResult.OK;
-            //Close();
-        }
-
-        private void OnCancel ( object sender, EventArgs e )
+        if (!movie.TryValidate(out var error))
         {
-            DialogResult = DialogResult.Cancel;
-            Close();
-        }
+            MessageBox.Show(this, error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-        private int GetInt32 ( Control control, int defaultValue )
+            DialogResult = DialogResult.None;
+            return;
+        };
+
+        Movie = movie;
+        //DialogResult = DialogResult.OK;
+        //Close();
+    }
+
+    private void OnCancel ( object sender, EventArgs e )
+    {
+        DialogResult = DialogResult.Cancel;
+        Close();
+    }
+
+    private int GetInt32 ( Control control, int defaultValue )
+    {
+        if (Int32.TryParse(control.Text, out var value))
+            return value;
+
+        return defaultValue;
+    }
+
+    private void OnValidateTitle ( object sender, System.ComponentModel.CancelEventArgs e )
+    {
+        if (String.IsNullOrEmpty(_txtTitle.Text))
         {
-            if (Int32.TryParse(control.Text, out var value))
-                return value;
+            //Invalid
+            _errors.SetError(_txtTitle, "Title is required");
+            e.Cancel = true;
+        } else
+            _errors.SetError(_txtTitle, "");
+    }
 
-            return defaultValue;
-        }
-
-        private void Label3_Click ( object sender, EventArgs e )
+    private void OnValidateReleaseYear ( object sender, System.ComponentModel.CancelEventArgs e )
+    {
+        var value = GetInt32(_txtReleaseYear, 1);
+        if (value < 1900)
         {
+            //Invalid
+            _errors.SetError(_txtReleaseYear, "Release Year must be at least 1900");
+            e.Cancel = true;
+        } else
+            _errors.SetError(_txtReleaseYear, "");
+    }
 
-        }
-
-        private void Label5_Click ( object sender, EventArgs e )
+    private void OnValidateRunLength ( object sender, System.ComponentModel.CancelEventArgs e )
+    {
+        var value = GetInt32(_txtRunLength, -1);
+        if (value < 0)
         {
+            //Invalid
+            _errors.SetError(_txtRunLength, "Run Length must be >= 0");
+            e.Cancel = true;
+        } else
+            _errors.SetError(_txtRunLength, "");
+    }
 
-        }
-
-        private void OnValidateTitle ( object sender, CancelEventArgs e )
+    private void OnValidateRating ( object sender, System.ComponentModel.CancelEventArgs e )
+    {
+        if (String.IsNullOrEmpty(_cbRating.Text))
         {
-            if (String.IsNullOrEmpty(_txtTitle.Text))
-            {
-                //Invalid
-                _errors.SetError(_txtTitle, "Title is required");
-                e.Cancel = true;
-            } else
-                _errors.SetError(_txtTitle, "");
-        }
-
-        private void OnValidateReleaseYear ( object sender, System.ComponentModel.CancelEventArgs e )
-        {
-            var value = GetInt32(_txtReleaseYear, 1);
-            if (value < 1900)
-            {
-                //Invalid
-                _errors.SetError(_txtReleaseYear, "Release Year must be at least 1900");
-                e.Cancel = true;
-            } else
-                _errors.SetError(_txtReleaseYear, "");
-        }
-
-        private void OnValidateRunLength ( object sender, System.ComponentModel.CancelEventArgs e )
-        {
-            var value = GetInt32(_txtRunLength, -1);
-            if (value < 0)
-            {
-                //Invalid
-                _errors.SetError(_txtRunLength, "Run Length must be >= 0");
-                e.Cancel = true;
-            } else
-                _errors.SetError(_txtRunLength, "");
-        }
-
-        private void OnValidateRating ( object sender, System.ComponentModel.CancelEventArgs e )
-        {
-            if (String.IsNullOrEmpty(_cbRating.Text))
-            {
-                //Invalid
-                _errors.SetError(_cbRating, "Rating is required");
-                e.Cancel = true;
-            } else
-                _errors.SetError(_cbRating, "");
-        }
+            //Invalid
+            _errors.SetError(_cbRating, "Rating is required");
+            e.Cancel = true;
+        } else
+            _errors.SetError(_cbRating, "");
     }
 }

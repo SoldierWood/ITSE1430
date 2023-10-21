@@ -1,4 +1,4 @@
-﻿namespace MovieLibrary.WInHost
+﻿namespace MovieLibrary.WinHost
 {
     partial class AboutBox
     {
