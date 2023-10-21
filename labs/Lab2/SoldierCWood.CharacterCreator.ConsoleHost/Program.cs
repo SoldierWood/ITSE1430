@@ -78,14 +78,14 @@ partial class Program
             };
         } while (!done);
 
-        void DisplayIntro ()
-        {
+        //void DisplayIntro ()
+        //{
 
-            Console.WriteLine("ITSE 1430 Character Creator");
-            Console.WriteLine("Written by Chris \"Soldier\" Wood");
-            Console.WriteLine("Fall 2023\n");
+        //    Console.WriteLine("ITSE 1430 Character Creator");
+        //    Console.WriteLine("Written by Chris \"Soldier\" Wood");
+        //    Console.WriteLine("Fall 2023\n");
 
-        }
+        //}
 
         int GetUserSelection ()
         {
@@ -131,6 +131,15 @@ partial class Program
             }
         }
 
+
+    }
+
+    private static void DisplayIntro ()
+    {
+
+        Console.WriteLine("ITSE 1430 Character Creator");
+        Console.WriteLine("Written by Chris \"Soldier\" Wood");
+        Console.WriteLine("Fall 2023\n");
 
     }
 
