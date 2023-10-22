@@ -200,27 +200,36 @@ partial class Program
     /// <summary> Edit the profession of the current character. </summary>
     public static void EditProfession ( Character newChar )
     {
+        bool finish = false;
+        
         Console.WriteLine($"Your current profession is: {newChar.Profession}");
         Console.WriteLine("Do you wish to change your profession? Please enter Y or N: ");
 
-        switch (Console.ReadKey(true).Key)
+        while (!finish)
         {
-            case ConsoleKey.Y:
+            switch (Console.ReadKey(true).Key)
             {
-                AddCharacterProfession(newChar);
-                Console.WriteLine("Your new profession is: " + newChar.Profession);
-                Console.WriteLine();
-            }
-            break;
-            case ConsoleKey.N:
-            {
-                Console.WriteLine("Your profession remains as: " + newChar.Profession);
-                Console.WriteLine();
-            }
-            break;
-            default:
-            break;
-        };
+                case ConsoleKey.Y:
+                {
+                    AddCharacterProfession(newChar);
+                    Console.WriteLine("Your new profession is: " + newChar.Profession);
+                    Console.WriteLine();
+                    finish = true;
+                }
+                break;
+                case ConsoleKey.N:
+                {
+                    Console.WriteLine("Your profession remains as: " + newChar.Profession);
+                    Console.WriteLine();
+                    finish = true;
+                }
+                break;
+                default:
+                    Console.WriteLine("Unknown option");
+                    Console.WriteLine("Do you wish to change your profession? Please enter Y or N: ");
+                break;
+            };
+        }
     }
 
     /// <summary> Edit the characteristics of the current character. </summary>
@@ -239,79 +248,107 @@ partial class Program
     /// <summary> Edit character name. </summary>
     public static void EditName ( Character newChar )
     {
+        bool finish = false;
+        
         Console.WriteLine($"Your current name is: {newChar.Name}");
         Console.WriteLine("Do you wish to change your name? Please enter Y or N: ");
 
-        switch (Console.ReadKey(true).Key)
+        while (!finish)
         {
-            case ConsoleKey.Y:
+            switch (Console.ReadKey(true).Key)
             {
-                Console.WriteLine("Enter new name: ");
-                newChar.Name = Console.ReadLine();
-                Console.WriteLine("Your new name is: " + newChar.Name);
-                Console.WriteLine();
-            }
-            break;
-            case ConsoleKey.N:
-            {
-                Console.WriteLine("Your name remains as: " + newChar.Name);
-                Console.WriteLine();
-            }
-            break;
-            default:
-            break;
-        };
+                case ConsoleKey.Y:
+                {
+                    Console.WriteLine("Enter new name: ");
+                    newChar.Name = Console.ReadLine();
+                    Console.WriteLine("Your new name is: " + newChar.Name);
+                    Console.WriteLine();
+                    finish = true;
+                }
+                break;
+                case ConsoleKey.N:
+                {
+                    Console.WriteLine("Your name remains as: " + newChar.Name);
+                    Console.WriteLine();
+                    finish = true;
+                }
+                    break;
+                default:
+                    Console.WriteLine("Unknown option");
+                    Console.WriteLine("Do you wish to change your name? Please enter Y or N: ");
+                    break;
+            };
+        }
     }
     /// <summary> Select new character's race if user opts to. </summary>
     public static void EditRace ( Character newChar )
     {
+        bool finish = false;
+        
         Console.WriteLine($"Your current race is: {newChar.Race}");
         Console.WriteLine("Do you wish to change your race? Please enter Y or N: ");
 
-        switch (Console.ReadKey(true).Key)
+        while (!finish)
         {
-            case ConsoleKey.Y:
+
+            switch (Console.ReadKey(true).Key)
             {
-                AddCharacterRace(newChar);
-                Console.WriteLine("Your new race is: " + newChar.Race);
-                Console.WriteLine();
-            }
-            break;
-            case ConsoleKey.N:
-            {
-                Console.WriteLine("Your race remains as: " + newChar.Race);
-                Console.WriteLine();
-            }
-            break;
-            default:
-            break;
-        };
+                case ConsoleKey.Y:
+                {
+                    AddCharacterRace(newChar);
+                    Console.WriteLine("Your new race is: " + newChar.Race);
+                    Console.WriteLine();
+                    finish = true;
+                }
+                break;
+                case ConsoleKey.N:
+                {
+                    Console.WriteLine("Your race remains as: " + newChar.Race);
+                    Console.WriteLine();
+                    finish = true;
+                }
+                break;
+                default:
+                    Console.WriteLine("Unknown option");
+                    Console.WriteLine("Do you wish to change your race? Please enter Y or N:");
+                break;
+            };
+        }
     }
 
     /// <summary> Option to edit character biography. </summary>
     public static void EditBio ( Character newChar )
     {
+        bool finish = false;
+        
         Console.WriteLine($"Your current bio states: {newChar.Bio}");
         Console.WriteLine("Do you wish to modify your bio? Please enter Y or N: ");
 
-        switch (Console.ReadKey(true).Key)
+        while (!finish)
         {
-            case ConsoleKey.Y:
+            switch (Console.ReadKey(true).Key)
             {
-                AddCharacterBio(newChar);
-                Console.WriteLine("Your new bio states: " + newChar.Bio);
-                Console.WriteLine();
-            }
-            break;
-            case ConsoleKey.N:
-            {
-                Console.WriteLine("Your bio still says: " + newChar.Bio);
-                Console.WriteLine();
-            }
-            break;
-            default:
-            break;
-        };
+                case ConsoleKey.Y:
+                {
+                    AddCharacterBio(newChar);
+                    Console.WriteLine("Your new bio states: " + newChar.Bio);
+                    Console.WriteLine();
+                    finish = true;
+                }
+                break;
+                case ConsoleKey.N:
+                {
+                    Console.WriteLine("Your bio still says: " + newChar.Bio);
+                    Console.WriteLine();
+                    finish = true;
+                }
+                break;
+                default:
+                    Console.WriteLine("Unknown option");
+                    Console.WriteLine("Do you wish to change your bio? Please enter Y or N");
+                break;
+            };
+        }
     }
 
     /// <summary> Adds race choice to character. </summary>
