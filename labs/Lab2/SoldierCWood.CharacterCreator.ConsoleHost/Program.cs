@@ -24,16 +24,7 @@ partial class Program
             {
                 case 1:
                     if(characterExists == false) {
-                    Character.AddCharacterName(myCharacter);
-                    Character.AddCharacterProfession(myCharacter);
-                    Character.AddCharacterRace(myCharacter);
-                    Character.AddCharacterBio(myCharacter);
-                    Character.AssignStrength(myCharacter);
-                    Character.AssignIntelligence(myCharacter);
-                    Character.AssignAgility(myCharacter);
-                    Character.AssignConstitution(myCharacter);
-                    Character.AssignCharisma(myCharacter);
-                    Character.ConfirmCreation(myCharacter);
+                    AddCharacter(myCharacter);
                     characterExists = true;
                 } else
                 {
@@ -49,30 +40,20 @@ partial class Program
                     if (myCharacter.Name == null)
                     {
                         Console.WriteLine("You have not yet created a character.");
-                        Character.AddCharacterName(myCharacter);
-                        Character.AddCharacterProfession(myCharacter);
-                        Character.AddCharacterRace(myCharacter);
-                        Character.AddCharacterBio(myCharacter);
-                        Character.AssignStrength(myCharacter);
-                        Character.AssignIntelligence(myCharacter);
-                        Character.AssignAgility(myCharacter);
-                        Character.AssignConstitution(myCharacter);
-                        Character.AssignCharisma(myCharacter);
-                        Character.ConfirmCreation(myCharacter);
-
+                        AddCharacter(myCharacter);
                     } else
                         Character.EditCharacter(myCharacter);
                 }
                 break;
                 case 4:
-                characterExists = Character.DeleteCharacter(myCharacter, characterExists);
+                    characterExists = Character.DeleteCharacter(myCharacter, characterExists);
                 break;
                 case 0:
-                if (!Confirmation("Are you sure you want to quit the game (Y/N/)?"))
-                {
-                    done = true;
-                }
-                break;
+                    if (!Confirmation("Are you sure you want to quit the game (Y/N/)?"))
+                    {
+                        done = true;
+                    }
+                    break;
                 case 5: Console.WriteLine("\n"); break;
             };
         } while (!done);
@@ -130,6 +111,20 @@ partial class Program
                 case ConsoleKey.N: return true;
             };
         }
+    }
+
+    private static void AddCharacter (Character myCharacter)
+    {
+        Character.AddCharacterName(myCharacter);
+        Character.AddCharacterProfession(myCharacter);
+        Character.AddCharacterRace(myCharacter);
+        Character.AddCharacterBio(myCharacter);
+        Character.AssignStrength(myCharacter);
+        Character.AssignIntelligence(myCharacter);
+        Character.AssignAgility(myCharacter);
+        Character.AssignConstitution(myCharacter);
+        Character.AssignCharisma(myCharacter);
+        Character.ConfirmCreation(myCharacter);
     }
 
 
