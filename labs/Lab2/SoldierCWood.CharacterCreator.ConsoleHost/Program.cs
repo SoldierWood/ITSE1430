@@ -37,7 +37,7 @@ partial class Program
                 break;
                 case 3:
                 {
-                    if (myCharacter.Name == null)
+                    if (String.IsNullOrEmpty(myCharacter.Name))
                     {
                         Console.WriteLine("You have not yet created a character.");
                         AddCharacter(myCharacter);
