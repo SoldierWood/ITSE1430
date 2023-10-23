@@ -434,12 +434,25 @@ partial class Program
     /// <summary> Determine physical power. </summary>
     public static void AssignStrength ( Character newChar )
     {
-        newChar.Strength = GeneratePercentage();
+        int howStrong;
 
-        Console.WriteLine("Your character's strength level: " + newChar.Strength);
+        Console.WriteLine("Please enter an integer number between 1 - 100 for your level of strength: ");
+
+        howStrong = Convert.ToInt32(Console.ReadLine());
+
+        while ((howStrong < 1) || (howStrong > 100))
+        {
+            Console.WriteLine("Invalid input. Please enter an integer number between 1 - 100:");
+            howStrong = Convert.ToInt32(Console.ReadLine());
+        }
+
+        newChar.Strength = howStrong;
+
+        Console.WriteLine("Your character's level of strength has been set to " + newChar.Strength);
+        Console.WriteLine();
 
     }
-
+    
     /// <summary>
     /// Randomly generate integer to use for character attribute values.  </summary>
     /// <returns>Randomly generate number between 1 and 100.</returns>
@@ -451,37 +464,84 @@ partial class Program
     /// <summary> Assigns character intelligence level. </summary>
     public static void AssignIntelligence ( Character newChar )
     {
-        newChar.Intelligence = GeneratePercentage();
+        int howSmart;
+        
+        Console.WriteLine("Please enter an integer number between 1 - 100 for your integlligence level: ");
 
-        Console.WriteLine("Your character's level of intelligence: " + newChar.Intelligence);
+        howSmart = Convert.ToInt32(Console.ReadLine());
+        
+        while ((howSmart < 1) || (howSmart > 100))
+        {
+            Console.WriteLine("Invalid input. Please enter an integer number between 1 - 100:");
+            howSmart = Convert.ToInt32(Console.ReadLine());
+        }
+        
+        newChar.Intelligence = howSmart;
 
+        Console.WriteLine("Your character's level of intelligence has been set to " + newChar.Intelligence);
+        Console.WriteLine();
     }
 
     /// <summary> Assigns amount of agility character possesses. </summary>
     public static void AssignAgility ( Character newChar )
     {
-        newChar.Agility = GeneratePercentage();
+        int howAgile;
 
-        Console.WriteLine("Your character's agility: " + newChar.Agility);
+        Console.WriteLine("Please enter an integer number between 1 - 100 for your agility level: ");
+        
+        howAgile = Convert.ToInt32(Console.ReadLine());
 
+        while ((howAgile < 1) || (howAgile > 100))
+        {
+            Console.WriteLine("Invalid input. Please enter an integer number between 1 - 100:");
+            howAgile = Convert.ToInt32(Console.ReadLine());
+        }
+
+        newChar.Agility = howAgile;
+
+        Console.WriteLine("Your character's agility has been set to " + newChar.Agility);
+        Console.WriteLine();
     }
 
     /// <summary> Determines character's constitution. </summary>
     public static void AssignConstitution ( Character newChar )
     {
-        newChar.Constitution = GeneratePercentage();
+        int whatConstitution;
 
-        Console.WriteLine("Your character's constitution: " + newChar.Constitution);
+        Console.WriteLine("Please enter an integer number between 1 - 100 for your level of constitution: ");
 
+        whatConstitution = Convert.ToInt32(Console.ReadLine());
+
+        while ((whatConstitution < 1) || (whatConstitution > 100))
+        {
+            Console.WriteLine("Invalid input. Please enter an integer number between 1 - 100:");
+            whatConstitution = Convert.ToInt32(Console.ReadLine());
+        }
+
+        newChar.Agility = whatConstitution;
+
+        Console.WriteLine("Your character's constitution has been set to " + newChar.Constitution);
+        Console.WriteLine();
     }
 
     /// <summary> Assign level of charisma to character. </summary>
     public static void AssignCharisma ( Character newChar )
     {
-        newChar.Charisma = GeneratePercentage();
+        int whatCharisma;
 
-        Console.WriteLine("Your character's charisma: " + newChar.Charisma);
+        Console.WriteLine("Please enter an integer number between 1 - 100 for your level of charisma: ");
 
+        whatCharisma = Convert.ToInt32(Console.ReadLine());
+
+        while ((whatCharisma < 1) || (whatCharisma > 100))
+        {
+            Console.WriteLine("Invalid input. Please enter an integer number between 1 - 100:");
+            whatCharisma = Convert.ToInt32(Console.ReadLine());
+        }
+
+        newChar.Charisma = whatCharisma;
+
+        Console.WriteLine("Your character's charisma has been set to " + newChar.Charisma);
         Console.WriteLine();
 
     }
