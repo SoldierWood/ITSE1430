@@ -113,9 +113,9 @@ partial class Program
         }
     }
 
+    /// <summary> Adds character. </summary>
     private static void AddCharacter (Character myCharacter)
     {
-        //Character.AddCharacterName(myCharacter);
         AddCharacterName(myCharacter);
         AddCharacterProfession(myCharacter);
         AddCharacterRace(myCharacter);
@@ -239,9 +239,12 @@ partial class Program
         EditProfession(newChar);
         EditRace(newChar);
         EditBio(newChar);
+        EditStrength(newChar);
+        EditIntelligence(newChar);
+        EditAgility(newChar);
+        EditConstitution(newChar);
+        EditCharisma(newChar);
 
-        Console.WriteLine("Sorry, you cannot edit your strength, intelligence, agility, constitution, or charisma.");
-        Console.WriteLine("You were born with these regardless of other character traits.");
         Console.WriteLine();
     }
 
@@ -259,10 +262,7 @@ partial class Program
             {
                 case ConsoleKey.Y:
                 {
-                    Console.WriteLine("Enter new name: ");
-                    newChar.Name = Console.ReadLine();
-                    Console.WriteLine("Your new name is: " + newChar.Name);
-                    Console.WriteLine();
+                    AddCharacterName(newChar);
                     finish = true;
                 }
                 break;
@@ -351,6 +351,170 @@ partial class Program
         }
     }
 
+    /// <summary> Allows user to edit strength. </summary>
+    public static void EditStrength ( Character newChar )
+    {
+        bool finish = false;
+
+        Console.WriteLine($"Your current strength level: {newChar.Strength}");
+        Console.WriteLine("Do you wish to modify your strength? Please enter Y or N: ");
+
+        while (!finish)
+        {
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.Y:
+                {
+                    AssignStrength(newChar);
+                    Console.WriteLine();
+                    finish = true;
+                }
+                break;
+                case ConsoleKey.N:
+                {
+                    Console.WriteLine("Your strength level stays: " + newChar.Strength);
+                    Console.WriteLine();
+                    finish = true;
+                }
+                break;
+                default:
+                Console.WriteLine("Unknown option");
+                Console.WriteLine("Do you wish to change your strength? Please enter Y or N");
+                break;
+            };
+        }
+    }
+
+    /// <summary> Allows user to edit intelligence. </summary>
+    public static void EditIntelligence ( Character newChar )
+    {
+        bool finish = false;
+
+        Console.WriteLine($"Your current intelligence level: {newChar.Intelligence}");
+        Console.WriteLine("Do you wish to modify your intelligence? Please enter Y or N: ");
+
+        while (!finish)
+        {
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.Y:
+                {
+                    AssignIntelligence(newChar);
+                    finish = true;
+                }
+                break;
+                case ConsoleKey.N:
+                {
+                    Console.WriteLine("Your intelligence level stays: " + newChar.Intelligence);
+                    Console.WriteLine();
+                    finish = true;
+                }
+                break;
+                default:
+                Console.WriteLine("Unknown option");
+                Console.WriteLine("Do you wish to change your intelligence? Please enter Y or N");
+                break;
+            };
+        }
+    }
+
+    /// <summary> Allows user to edit agility. </summary>
+    public static void EditAgility ( Character newChar )
+    {
+        bool finish = false;
+
+        Console.WriteLine($"Your current agility level: {newChar.Agility}");
+        Console.WriteLine("Do you wish to modify your agility? Please enter Y or N: ");
+
+        while (!finish)
+        {
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.Y:
+                {
+                    AssignAgility(newChar);
+                    finish = true;
+                }
+                break;
+                case ConsoleKey.N:
+                {
+                    Console.WriteLine("Your agility level stays: " + newChar.Agility);
+                    Console.WriteLine();
+                    finish = true;
+                }
+                break;
+                default:
+                Console.WriteLine("Unknown option");
+                Console.WriteLine("Do you wish to change your agility? Please enter Y or N");
+                break;
+            };
+        }
+    }
+
+    /// <summary> Allows user to edit constitution. </summary>
+    public static void EditConstitution ( Character newChar )
+    {
+        bool finish = false;
+
+        Console.WriteLine($"Your current constitution level: {newChar.Constitution}");
+        Console.WriteLine("Do you wish to modify your constitution? Please enter Y or N: ");
+
+        while (!finish)
+        {
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.Y:
+                {
+                    AssignConstitution(newChar);
+                    finish = true;
+                }
+                break;
+                case ConsoleKey.N:
+                {
+                    Console.WriteLine("Your constitution level stays: " + newChar.Constitution);
+                    Console.WriteLine();
+                    finish = true;
+                }
+                break;
+                default:
+                Console.WriteLine("Unknown option");
+                Console.WriteLine("Do you wish to change your constitution? Please enter Y or N");
+                break;
+            };
+        }
+    }
+    /// <summary> Allows user to edit charisma. </summary>
+    public static void EditCharisma ( Character newChar )
+    {
+        bool finish = false;
+
+        Console.WriteLine($"Your current charisma level: {newChar.Charisma}");
+        Console.WriteLine("Do you wish to modify your charisma? Please enter Y or N: ");
+
+        while (!finish)
+        {
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.Y:
+                {
+                    AssignCharisma(newChar);
+                    finish = true;
+                }
+                break;
+                case ConsoleKey.N:
+                {
+                    Console.WriteLine("Your charisma level stays: " + newChar.Charisma);
+                    Console.WriteLine();
+                    finish = true;
+                }
+                break;
+                default:
+                Console.WriteLine("Unknown option");
+                Console.WriteLine("Do you wish to change your charisma? Please enter Y or N");
+                break;
+            };
+        }
+    }
     /// <summary> Adds race choice to character. </summary>
     public static void AddCharacterRace ( Character newChar )
     {
@@ -518,7 +682,7 @@ partial class Program
             whatConstitution = Convert.ToInt32(Console.ReadLine());
         }
 
-        newChar.Agility = whatConstitution;
+        newChar.Constitution = whatConstitution;
 
         Console.WriteLine("Your character's constitution has been set to " + newChar.Constitution);
         Console.WriteLine();
