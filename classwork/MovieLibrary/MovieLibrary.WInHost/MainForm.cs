@@ -1,13 +1,10 @@
-
-using MoveLibrary.Memory;
-
-using MovieLibrary.WinHost;
+using MovieLibrary.Memory;
 
 namespace MovieLibrary.WinHost;
 
 public partial class MainForm : Form
 {
-    public MainForm ()
+    public MainForm()
     {
         InitializeComponent();
     }
@@ -64,22 +61,30 @@ public partial class MainForm : Form
     }
 
     private void OnEditMovie ( object sender, EventArgs e )
-    {
+    {        
         var movie = GetSelectedMovie();
         if (movie == null)
             return;
 
         var dlg = new MovieForm();
         dlg.Movie = movie;
-        if (dlg.ShowDialog(this) != DialogResult.OK)
-            return;
 
-        //Edit movie in library
-        //_movie = dlg.Movie;
-        _database.Update(movie.Id, dlg.Movie);
+        do
+        {
+            if (dlg.ShowDialog(this) != DialogResult.OK)
+                return;
+
+            //Edit movie in library
+            //_movie = dlg.Movie;
+            var error = _database.Update(movie.Id, dlg.Movie);
+            if (String.IsNullOrEmpty(error))
+                break;
+            MessageBox.Show(this, error, "Updated Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        } while (true);
+
         RefreshMovies();
     }
-
+    
     private void OnDeleteMovie ( object sender, EventArgs e )
     {
         var movie = GetSelectedMovie();
@@ -108,12 +113,12 @@ public partial class MainForm : Form
         return MessageBox.Show(this, message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
     }
 
-    private Movie GetSelectedMovie ()
+    private Movie GetSelectedMovie()
     {
         return _lstMovies.SelectedItem as Movie;
     }
 
-    private void RefreshMovies ()
+    private void RefreshMovies()
     {
         _lstMovies.DataSource = null;
 
@@ -126,6 +131,6 @@ public partial class MainForm : Form
         //var movies2 = _database.GetAll();
     }
 
-    private MovieDatabase _database = new MovieDatabase();
+    private MemoryMovieDatabase _database = new MemoryMovieDatabase();
     #endregion
 }

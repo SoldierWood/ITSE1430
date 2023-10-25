@@ -1,14 +1,15 @@
-﻿
-using MovieLibrary;
+﻿﻿using System;
 
-namespace MoveLibrary.Memory;
+namespace MovieLibrary.Memory;
 
 /// <summary>Represents a database of movies.</summary>
 public class MemoryMovieDatabase
 {
     public MemoryMovieDatabase ()
     {
-        //Object initializer
+        //Object initializer - replaces need for creating an object (expression) and then assigning values to properties (statements)
+        // object-initializer ::= new T() { property-assignment+ }
+        // property-assignment ::= id = Et,
         //var movie = new Movie();
         //movie.Id = _id++;
         //movie.Title = "Jaws";
@@ -16,30 +17,46 @@ public class MemoryMovieDatabase
         //movie.Rating = Rating.PG;
         //movie.RunLength = 120;
         //_movies[0] = movie;
-        _movies[0] = new Movie() {
-            Id = _id++,
-            Title = "Jaws",
-            ReleaseYear = 1977,
-            Rating = Rating.PG,
-            RunLength = 120,
-        };
+        //_movies[0] = new Movie() {
+        //    Id = _id++,
+        //    Title = "Jaws",
+        //    ReleaseYear = 1977,
+        //    Rating = Rating.PG,
+        //    RunLength = 120,
+        //};
 
-        //TODO: Fix this
-        var movie = new Movie();
-        movie.Id = _id++;
-        movie.Title = "Dune";
-        movie.ReleaseYear = 1983;
-        movie.Rating = Rating.PG13;
-        movie.RunLength = 210;
-        _movies[1] = movie;
+        //Collection initializer syntax
+        // new T[] { E, E, E }
+        //Set up movies
+        var movies = new[] {
+                    new Movie() {
+                        Title = "Jaws",
+                        ReleaseYear = 1977,
+                        Rating = Rating.PG,
+                        RunLength = 120,
+                    },
+                    new Movie() {
+                        Title = "Dune",
+                        ReleaseYear = 1983,
+                        Rating = Rating.PG13,
+                        RunLength = 210,
+                    },
+                    new Movie() {
+                        Title = "Star Wars",
+                        ReleaseYear = 1977,
+                        Rating = Rating.PG,
+                        RunLength = 150,
+                    },
+                };
 
-        movie = new Movie();
-        movie.Id = _id++;
-        movie.Title = "Star Wars";
-        movie.ReleaseYear = 1977;
-        movie.Rating = Rating.PG;
-        movie.RunLength = 150;
-        _movies[2] = movie;
+        //Enumeration - use foreach
+        // foreach-statement ::= foreach (T id in array) S;
+        // 1. variant is readonly
+        // 2. array must be immutable while enumerating
+        //for (int index = 0; index < movies.Length; ++index)
+        //   Add(movies[index]);
+        foreach (var movie in movies)
+            Add(movie);
     }
 
     public string Add ( Movie movie )
@@ -65,9 +82,8 @@ public class MemoryMovieDatabase
         //        return "";
         //    };
         //};
-
+        movie.Id = _id++;
         _movies.Add(Clone(movie));
-
         return "";
     }
 
@@ -79,24 +95,22 @@ public class MemoryMovieDatabase
 
         if (movie == null)
             return "Movie is null";
-        
         if (!movie.TryValidate(out var error))
             return error;
 
-        //Title must be unique and not self
+        //Title must be unique (and not self)
         var existing = FindByTitle(movie.Title);
         if (existing != null && existing.Id != id)
             return "Movie title must be unique";
 
+        //Movie must exist
         existing = FindById(id);
         if (existing == null)
             return "Movie not found";
 
         //Update
         Copy(existing, movie);
-
         return "";
-
     }
 
     public void Delete ( int id )
@@ -106,10 +120,9 @@ public class MemoryMovieDatabase
         //var index = FindById(id);
         //if (index >= 0)
         //    _movies[index] = null;
-
         var movie = FindById(id);
         if (movie != null)
-            _movies.Remove(movie);  //reference equality applies
+            _movies.Remove(movie);  //Reference equality applies
     }
 
     public Movie[] GetAll ()
@@ -120,7 +133,7 @@ public class MemoryMovieDatabase
         //var count = 0;
         //for (var index = 0; index < _movies.Length; ++index)
         //    if (_movies[index] != null)
-        //        ++count;
+        //        ++count;        
 
         //Clone array
         var items = new Movie[_movies.Count];
@@ -137,8 +150,7 @@ public class MemoryMovieDatabase
 
     private Movie Clone ( Movie movie )
     {
-        var item = new Movie();
-        item.Id = movie.Id;
+        var item = new Movie() { Id = movie.Id };
         Copy(item, movie);
 
         return item;
@@ -146,7 +158,7 @@ public class MemoryMovieDatabase
 
     private void Copy ( Movie target, Movie source )
     {
-        //don't copy ID
+        //Don't copy Id
         target.Title = source.Title;
         target.Description = source.Description;
         target.Rating = source.Rating;
@@ -154,7 +166,6 @@ public class MemoryMovieDatabase
         target.RunLength = source.RunLength;
         target.IsBlackAndWhite = source.IsBlackAndWhite;
         target.Genre = source.Genre;
-
     }
 
     private Movie FindById ( int id )
@@ -162,7 +173,6 @@ public class MemoryMovieDatabase
         //for (var index = 0; index < _movies.Length; ++index)
         //    if (_movies[index]?.Id == id)
         //        return index;
-
         foreach (var movie in _movies)
             if (movie.Id == id)
                 return movie;
@@ -172,18 +182,17 @@ public class MemoryMovieDatabase
 
     private Movie FindByTitle ( string title )
     {
+        //for (var index = 0; index < _movies.Length; ++index)
+        //    if (String.Equals(title, _movies[index]?.Title, StringComparison.OrdinalIgnoreCase))
+        //        return _movies[index];
         foreach (var movie in _movies)
             if (String.Equals(title, movie.Title, StringComparison.OrdinalIgnoreCase))
                 return movie;
 
-
-        //for (var index = 0; index < _movies.Length; ++index)
-        //    if (String.Equals(title, _movies[index]?.Title, StringComparison.OrdinalIgnoreCase))
-        //        return _movies[index];
-
         return null;
     }
 
+    //private readonly Movie[] _movies = new Movie[100];
 
     //List<T> generic type, resizable array of type T
     private readonly List<Movie> _movies = new List<Movie>();
