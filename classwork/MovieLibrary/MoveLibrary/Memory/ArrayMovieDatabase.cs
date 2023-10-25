@@ -1,4 +1,7 @@
-﻿namespace MovieLibrary;
+﻿
+using MovieLibrary;
+
+namespace MoveLibrary.Memory;
 
 /// <summary>Represents a database of movies.</summary>
 public class MovieDatabase
@@ -14,12 +17,12 @@ public class MovieDatabase
         //movie.RunLength = 120;
         //_movies[0] = movie;
         _movies[0] = new Movie() {
-                Id = _id++,
-                Title = "Jaws",
-                ReleaseYear = 1977,
-                Rating = Rating.PG,
-                RunLength = 120,
-            };
+            Id = _id++,
+            Title = "Jaws",
+            ReleaseYear = 1977,
+            Rating = Rating.PG,
+            RunLength = 120,
+        };
 
         //TODO: Fix this
         var movie = new Movie();

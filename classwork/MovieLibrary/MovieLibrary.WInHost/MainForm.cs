@@ -1,3 +1,6 @@
+
+using MoveLibrary.Memory;
+
 using MovieLibrary.WinHost;
 
 namespace MovieLibrary.WinHost;
@@ -73,7 +76,7 @@ public partial class MainForm : Form
 
         //Edit movie in library
         //_movie = dlg.Movie;
-        _database.Update(dlg.Movie);
+        _database.Update(movie.Id, dlg.Movie);
         RefreshMovies();
     }
 
