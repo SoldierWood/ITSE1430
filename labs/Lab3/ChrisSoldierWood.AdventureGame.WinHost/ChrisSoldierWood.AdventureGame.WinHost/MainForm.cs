@@ -5,6 +5,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
         public MainForm()
         {
             InitializeComponent();
+           
         }
     }
 }

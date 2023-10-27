@@ -165,7 +165,7 @@ namespace ChrisWood.AdventureGame
             message = "Character is ready for adventure";
             return true;
         }
-        
+        //TODO: return public variables not private
         public override string ToString ()
         {
             return $"{_name} {_profession} {_race}";
