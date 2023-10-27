@@ -7,5 +7,10 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             InitializeComponent();
            
         }
+
+        private void charactersToolStripMenuItem_Click ( object sender, EventArgs e )
+        {
+
+        }
     }
 }
