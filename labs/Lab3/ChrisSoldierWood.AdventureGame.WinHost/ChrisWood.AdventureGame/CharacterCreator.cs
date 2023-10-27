@@ -165,6 +165,12 @@ namespace ChrisWood.AdventureGame
             message = "Character is ready for adventure";
             return true;
         }
+        
+        public override string ToString ()
+        {
+            return $"{_name} {_profession} {_race}";
+        }
+
 
     }
 
