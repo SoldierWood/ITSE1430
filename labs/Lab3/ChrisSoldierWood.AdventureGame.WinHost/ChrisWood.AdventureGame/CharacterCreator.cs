@@ -103,6 +103,68 @@ namespace ChrisWood.AdventureGame
             get { return _charisma; }
             set { _charisma = value; }
         }
+        /// <summary> Validates the character instance.
+        public bool Validate (out string message )
+        {
+            //Name is required
+            if (String.IsNullOrEmpty(_name))
+            {
+                message = "Name is required. Please enter at least one character.";
+                return false;
+            }
+
+            //Profession is required
+            if (String.IsNullOrEmpty(_profession))
+            {
+                message = "Profession is required. Please select a profession.";
+                return false;
+            }
+
+            //Race is required
+            if (String.IsNullOrEmpty(_race))
+            {
+                message = "Race is required. Please select a race.";
+                return false;
+            }
+
+            // Strength attribute must be integer between 1 - 100
+            if ((_strength < 1) || (_strength > 100))
+            {
+                message = "Strength attribute must be a number between 1 and 100. Please enter number between 1 - 100.";
+                return false;
+            }
+
+            // Intelligence attribute must be integer between 1 - 100
+            if ((_intelligence < 1) || (_intelligence > 100))
+            {
+                message = "Intelligence attribute must be a number between 1 and 100. Please enter number between 1 - 100.";
+                return false;
+            }
+
+            // Agility attribute must be integer between 1 - 100
+            if ((_agility < 1) || (_agility > 100))
+            {
+                message = "Agility attribute must be a number between 1 and 100. Please enter number between 1 - 100.";
+                return false;
+            }
+
+            // Constitution attribute must be integer between 1 - 100
+            if ((_constitution < 1) || (_constitution > 100))
+            {
+                message = "Constitution attribute must be a number between 1 and 100. Please enter number between 1 - 100.";
+                return false;
+            }
+
+            // Charisma attribute must be integer between 1 - 100
+            if ((_charisma < 1) || (_charisma > 100))
+            {
+                message = "Charisma attribute must be a number between 1 and 100. Please enter number between 1 - 100.";
+                return false;
+            }
+
+            message = "Character is ready for adventure";
+            return true;
+        }
 
     }
 

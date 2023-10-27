@@ -122,7 +122,7 @@ public partial class MainForm : Form
     {
         _lstMovies.DataSource = null;
 
-        var movies = _database.GetAll();
+        var movies = _database.GetAll().ToList();
         _lstMovies.DataSource = movies;
 
         //movies[0].Title = "None";
