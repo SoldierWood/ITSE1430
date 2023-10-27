@@ -125,27 +125,37 @@ public class MemoryMovieDatabase
             _movies.Remove(movie);  //Reference equality applies
     }
 
-    public Movie[] GetAll ()
+    public IEnumerable<Movie> GetAll ()
     {
-        var count = _movies.Count;
-        
-        ////How many are not null
-        //var count = 0;
-        //for (var index = 0; index < _movies.Length; ++index)
-        //    if (_movies[index] != null)
-        //        ++count;        
+        //var count = _movies.Count;
 
-        //Clone array
-        var items = new Movie[_movies.Count];
-        var itemIndex = 0;
+        //////How many are not null
+        ////var count = 0;
+        ////for (var index = 0; index < _movies.Length; ++index)
+        ////    if (_movies[index] != null)
+        ////        ++count;        
+
+        ////Clone array
+        //var items = new Movie[_movies.Count];
+        //var itemIndex = 0;
+        //foreach (var movie in _movies)
+        //    items[itemIndex++] = Clone(movie);
+
+        ////for (var index = 0; index < _movies.Length; ++index)
+        ////    if (_movies[index] != null)
+        ////        items[itemIndex++] = Clone(_movies[index]);
+
+
+        ///IIf return type is IEnumberable<T> then you may use iterator to implement
+
         foreach (var movie in _movies)
-            items[itemIndex++] = Clone(movie);
+            yield return Clone(movie);
 
-        //for (var index = 0; index < _movies.Length; ++index)
-        //    if (_movies[index] != null)
-        //        items[itemIndex++] = Clone(_movies[index]);
+        //var items = new List<Movie>();
+        //foreach (var movie in _movies)
+        //    items.Add(Clone(movie));
 
-        return items;
+        //return items;
     }
 
     private Movie Clone ( Movie movie )

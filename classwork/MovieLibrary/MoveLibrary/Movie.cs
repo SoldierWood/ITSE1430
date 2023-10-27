@@ -2,10 +2,12 @@
 * ITSE 1430
 * Fall 2023
 */
+using System.ComponentModel.DataAnnotations;
+
 namespace MovieLibrary;
 
 /// <summary>Represents a movie.</summary>
-public class Movie : ValidatableObject
+public class Movie : IValidatableObject
 {
     #region Construction
 
@@ -84,8 +86,9 @@ public class Movie : ValidatableObject
 
     /// <summary>Validates the movie instance.</summary>
     /// <returns>Error message if invalid or empty string otherwise.</returns>
-    public override bool TryValidate ( out string message ) /* Movie this */
+    public bool TryValidate ( out string message ) /* Movie this */
     {
+        //TODO replace with IValidatableObject call
         //Title is required
         if (String.IsNullOrEmpty(_title))
         {
@@ -113,7 +116,9 @@ public class Movie : ValidatableObject
             return false;
         };
 
-        return base.TryValidate(out message);
+        message = "";
+        return false;
+        //return base.TryValidate(out message);
     }
 
     public override string ToString ()
@@ -121,9 +126,37 @@ public class Movie : ValidatableObject
         return $"{Title} [{ReleaseYear}]";
     }
 
-    #region Private Members
+    public IEnumerable<ValidationResult> Validate ( ValidationContext validationContext )
+    {
+        //Title is required
+        if (String.IsNullOrEmpty(_title))
+        {
+            yield return new ValidationResult("Title is required");
+        }
 
-    private string _title;
+        //Release Year >= 1900
+        if (ReleaseYear<MinimumReleaseYear)
+        {
+            yield return new ValidationResult($"Release Year must be >= {MinimumReleaseYear}");
+        }
+        //Length >= 0
+        if (RunLength < 0)
+        {
+            yield return new ValidationResult("Length must be at least 0");
+            
+        }
+
+        if (ReleaseYear < 1940 && !IsBlackAndWhite)
+        {
+            yield return new ValidationResult("Movies before 1940 must be black and white");
+
+        }
+
+    }
+//return base.TryValidate(out message);
+#region Private Members
+
+private string _title;
     private string _description = "";
     private string _genre = "";
 
