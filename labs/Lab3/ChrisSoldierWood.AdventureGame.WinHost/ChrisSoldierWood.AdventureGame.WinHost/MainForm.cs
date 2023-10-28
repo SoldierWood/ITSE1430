@@ -31,5 +31,11 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
         //    AboutBox1 a = new AboutBox1();
         //    a.Show();
         }
+
+        private void OnHelpAbout ( object sender, EventArgs e )
+        {
+            var about = new AboutBox1();
+            about.ShowDialog(this);
+        }
     }
 }
