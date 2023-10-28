@@ -25,5 +25,11 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             } 
             
         }
+
+        private void MainForm_Load ( object sender, EventArgs e )
+        {
+        //    AboutBox1 a = new AboutBox1();
+        //    a.Show();
+        }
     }
 }
