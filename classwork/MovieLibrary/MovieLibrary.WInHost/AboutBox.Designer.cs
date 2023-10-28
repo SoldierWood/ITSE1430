@@ -90,6 +90,7 @@
             this.labelProductName.TabIndex = 19;
             this.labelProductName.Text = "Product Name";
             this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelProductName.Click += new System.EventHandler(this.labelProductName_Click);
             // 
             // labelVersion
             // 
@@ -164,11 +165,11 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AboutBox";
-            this.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.Padding = new System.Windows.Forms.Padding(10);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "AboutBox";
+            this.Text = " ";
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();

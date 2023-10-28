@@ -6,6 +6,9 @@
     <Nullable>disable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Product>Be You Adventure Game</Product>
+    <Company>Chris Soldier Wood</Company>
+    <Version>1.0.0</Version>
   </PropertyGroup>
 
 </Project>
