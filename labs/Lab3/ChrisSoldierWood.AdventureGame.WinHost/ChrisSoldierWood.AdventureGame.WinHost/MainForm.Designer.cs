@@ -67,41 +67,42 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             // 
             fileToolStripMenuItem.Name="fileToolStripMenuItem";
             fileToolStripMenuItem.ShortcutKeys=Keys.Alt|Keys.F4;
-            fileToolStripMenuItem.Size=new Size(135, 22);
-            fileToolStripMenuItem.Text="&Exit";
+            fileToolStripMenuItem.Size=new Size(180, 22);
+            fileToolStripMenuItem.Text="E&xit";
             fileToolStripMenuItem.Click+=OnFileExit;
             // 
             // charactersToolStripMenuItem
             // 
             charactersToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addToolStripMenuItem, editToolStripMenuItem, viewToolStripMenuItem, deleteToolStripMenuItem });
             charactersToolStripMenuItem.Name="charactersToolStripMenuItem";
-            charactersToolStripMenuItem.Size=new Size(75, 20);
-            charactersToolStripMenuItem.Text="Characters";
+            charactersToolStripMenuItem.Size=new Size(70, 20);
+            charactersToolStripMenuItem.Text="&Character";
             charactersToolStripMenuItem.Click+=charactersToolStripMenuItem_Click;
             // 
             // addToolStripMenuItem
             // 
             addToolStripMenuItem.Name="addToolStripMenuItem";
-            addToolStripMenuItem.Size=new Size(107, 22);
-            addToolStripMenuItem.Text="Add";
+            addToolStripMenuItem.ShortcutKeys=Keys.Control|Keys.N;
+            addToolStripMenuItem.Size=new Size(180, 22);
+            addToolStripMenuItem.Text="&New";
             // 
             // editToolStripMenuItem
             // 
             editToolStripMenuItem.Name="editToolStripMenuItem";
-            editToolStripMenuItem.Size=new Size(107, 22);
-            editToolStripMenuItem.Text="Edit";
+            editToolStripMenuItem.Size=new Size(180, 22);
+            editToolStripMenuItem.Text="&Edit";
             // 
             // viewToolStripMenuItem
             // 
             viewToolStripMenuItem.Name="viewToolStripMenuItem";
-            viewToolStripMenuItem.Size=new Size(107, 22);
-            viewToolStripMenuItem.Text="View";
+            viewToolStripMenuItem.Size=new Size(180, 22);
+            viewToolStripMenuItem.Text="&View";
             // 
             // deleteToolStripMenuItem
             // 
             deleteToolStripMenuItem.Name="deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size=new Size(107, 22);
-            deleteToolStripMenuItem.Text="Delete";
+            deleteToolStripMenuItem.Size=new Size(180, 22);
+            deleteToolStripMenuItem.Text="&Delete";
             // 
             // helpToolStripMenuItem
             // 

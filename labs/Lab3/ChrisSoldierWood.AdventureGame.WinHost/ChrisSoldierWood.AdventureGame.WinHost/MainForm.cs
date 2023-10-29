@@ -1,4 +1,5 @@
 using ChrisWood.AdventureGame;
+
 using System.Numerics;
 
 
@@ -32,9 +33,9 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
         private void MainForm_Load ( object sender, EventArgs e )
         {
-            
-            
-            List<Character> CharacterList = new List<Character>();  
+
+
+            List<Character> CharacterList = new List<Character>();
             Character curChar = new Character();
             charListBox1.DataSource = null;
             charListBox1.DataSource = CharacterList;
