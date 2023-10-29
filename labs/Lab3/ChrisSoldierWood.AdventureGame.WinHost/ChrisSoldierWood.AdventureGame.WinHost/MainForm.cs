@@ -51,5 +51,12 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             var about = new AboutBox1();
             about.ShowDialog(this);
         }
+
+        private void OnAddCharacter ( object sender, EventArgs e )
+        {
+            var dlg = new Form();
+
+            dlg.Show();
+        }
     }
 }

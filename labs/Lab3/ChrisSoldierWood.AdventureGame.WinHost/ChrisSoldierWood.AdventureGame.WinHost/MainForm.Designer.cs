@@ -67,7 +67,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             // 
             fileToolStripMenuItem.Name="fileToolStripMenuItem";
             fileToolStripMenuItem.ShortcutKeys=Keys.Alt|Keys.F4;
-            fileToolStripMenuItem.Size=new Size(180, 22);
+            fileToolStripMenuItem.Size=new Size(135, 22);
             fileToolStripMenuItem.Text="E&xit";
             fileToolStripMenuItem.Click+=OnFileExit;
             // 
@@ -85,6 +85,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             addToolStripMenuItem.ShortcutKeys=Keys.Control|Keys.N;
             addToolStripMenuItem.Size=new Size(180, 22);
             addToolStripMenuItem.Text="&New";
+            addToolStripMenuItem.Click+=OnAddCharacter;
             // 
             // editToolStripMenuItem
             // 
