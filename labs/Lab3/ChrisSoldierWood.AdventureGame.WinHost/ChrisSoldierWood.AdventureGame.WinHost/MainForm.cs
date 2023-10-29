@@ -1,4 +1,6 @@
+using ChrisWood.AdventureGame;
 using System.Numerics;
+
 
 namespace ChrisSoldierWood.AdventureGame.WinHost
 {
@@ -28,16 +30,24 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
         }
 
+        //public class Character 
+        //{
+        //    public string CharacterName {  get; set; }
+        //}
+
         private void MainForm_Load ( object sender, EventArgs e )
         {
-            //    AboutBox1 a = new AboutBox1();
-            //    a.Show();
-            int charIntel =4;
+            
+            
+            List<Character> CharacterList = new List<Character>();  
+            Character curChar = new Character();
+            charListBox1.DataSource = null;
+            charListBox1.DataSource = CharacterList;
 
-
-            charListBox1.Items.Add(charIntel);
-            //charListBox1.Items.Add(Character.Name);
-
+            CharacterList.Add(new Character() {
+                Name = "Adam"
+            });
+            //curChar.Name = charListBox1.SelectedItem.ToString();
         }
 
         private void OnHelpAbout ( object sender, EventArgs e )
