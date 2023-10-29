@@ -30,11 +30,6 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
         }
 
-        //public class Character 
-        //{
-        //    public string CharacterName {  get; set; }
-        //}
-
         private void MainForm_Load ( object sender, EventArgs e )
         {
             
