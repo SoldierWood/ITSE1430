@@ -1,3 +1,5 @@
+using System.Numerics;
+
 namespace ChrisSoldierWood.AdventureGame.WinHost
 {
     public partial class MainForm : Form
@@ -30,6 +32,12 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
         {
             //    AboutBox1 a = new AboutBox1();
             //    a.Show();
+            int charIntel =4;
+
+
+            charListBox1.Items.Add(charIntel);
+            //charListBox1.Items.Add(Character.Name);
+
         }
 
         private void OnHelpAbout ( object sender, EventArgs e )
