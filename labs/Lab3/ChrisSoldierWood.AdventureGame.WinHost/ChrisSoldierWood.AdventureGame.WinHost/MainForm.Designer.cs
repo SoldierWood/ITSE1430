@@ -116,7 +116,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             // 
             aboutToolStripMenuItem.Name="aboutToolStripMenuItem";
             aboutToolStripMenuItem.ShortcutKeys=Keys.F1;
-            aboutToolStripMenuItem.Size=new Size(126, 22);
+            aboutToolStripMenuItem.Size=new Size(180, 22);
             aboutToolStripMenuItem.Text="&About";
             aboutToolStripMenuItem.Click+=OnHelpAbout;
             // 

@@ -54,9 +54,17 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
         private void OnAddCharacter ( object sender, EventArgs e )
         {
-            var dlg = new Form();
+            
+            var form = new NewCharForm();
+            //form.ShowDialog(this);
 
-            dlg.Show();
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+                // returns DialogResult
+            }
+
+
+
         }
     }
 }
