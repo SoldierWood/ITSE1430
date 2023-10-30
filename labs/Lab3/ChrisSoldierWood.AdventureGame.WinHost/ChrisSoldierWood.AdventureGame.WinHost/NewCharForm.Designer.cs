@@ -41,8 +41,12 @@
             _txtBiography=new TextBox();
             label5=new Label();
             label6=new Label();
-            _txtStrength=new TextBox();
+            Strength=new NumericUpDown();
+            numericUpDown2=new NumericUpDown();
+            Saving=new Button();
             ((System.ComponentModel.ISupportInitialize)_error).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Strength).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             SuspendLayout();
             // 
             // _txtName
@@ -69,6 +73,7 @@
             _txtCharName.Name="_txtCharName";
             _txtCharName.Size=new Size(149, 23);
             _txtCharName.TabIndex=0;
+            _txtCharName.TextChanged+=_txtCharName_TextChanged;
             _txtCharName.Validating+=OnValidateName;
             // 
             // label2
@@ -89,6 +94,7 @@
             _cbProfession.Name="_cbProfession";
             _cbProfession.Size=new Size(121, 23);
             _cbProfession.TabIndex=2;
+            _cbProfession.SelectedIndexChanged+=_cbProfession_SelectedIndexChanged;
             _cbProfession.Validating+=OnValidateProfession;
             // 
             // label3
@@ -117,6 +123,7 @@
             _cbRace.Name="_cbRace";
             _cbRace.Size=new Size(121, 23);
             _cbRace.TabIndex=5;
+            _cbRace.SelectedIndexChanged+=_cbRace_SelectedIndexChanged;
             _cbRace.Validating+=OnValidateRace;
             // 
             // _txtBiography
@@ -145,18 +152,38 @@
             label6.TabIndex=8;
             label6.Text="Strength";
             // 
-            // _txtStrength
+            // Strength
             // 
-            _txtStrength.Location=new Point(139, 235);
-            _txtStrength.Name="_txtStrength";
-            _txtStrength.Size=new Size(100, 23);
-            _txtStrength.TabIndex=9;
-            _txtStrength.Validating+=OnValidateStrength;
+            Strength.Location=new Point(139, 236);
+            Strength.Name="Strength";
+            Strength.Size=new Size(120, 23);
+            Strength.TabIndex=10;
+            Strength.Value=new decimal(new int[] { 50, 0, 0, 0 });
+            Strength.ValueChanged+=Strength_ValueChanged;
+            // 
+            // numericUpDown2
+            // 
+            numericUpDown2.Location=new Point(139, 286);
+            numericUpDown2.Name="numericUpDown2";
+            numericUpDown2.Size=new Size(120, 23);
+            numericUpDown2.TabIndex=11;
+            // 
+            // Saving
+            // 
+            Saving.Location=new Point(181, 382);
+            Saving.Name="Saving";
+            Saving.Size=new Size(75, 23);
+            Saving.TabIndex=12;
+            Saving.Text="Save";
+            Saving.UseVisualStyleBackColor=true;
+            Saving.Click+=Saving_Click;
             // 
             // NewCharForm
             // 
             ClientSize=new Size(610, 432);
-            Controls.Add(_txtStrength);
+            Controls.Add(Saving);
+            Controls.Add(numericUpDown2);
+            Controls.Add(Strength);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(_txtBiography);
@@ -170,7 +197,10 @@
             Name="NewCharForm";
             StartPosition=FormStartPosition.CenterParent;
             Text="Create New Character";
+            Load+=NewCharForm_Load;
             ((System.ComponentModel.ISupportInitialize)_error).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Strength).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -188,7 +218,9 @@
         private Label label4;
         private Label label5;
         private TextBox _txtBiography;
-        private TextBox _txtStrength;
         private Label label6;
+        private NumericUpDown numericUpDown2;
+        private NumericUpDown Strength;
+        private Button Saving;
     }
 }

@@ -57,6 +57,45 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             //var value = GetInt32(_txtStrength, 50);
         }
 
+        private void Strength_ValueChanged ( object sender, EventArgs e )
+        {
+
+        }
+
+        private void NewCharForm_Load ( object sender, EventArgs e )
+        {
+
+        }
+
+        private void Saving_Click ( object sender, EventArgs e )
+        {
+            string nam = _txtCharName.Text;
+            string prof = _cbProfession.Text;
+            string race = _cbRace.Text;
+            string bio = _txtBiography.Text;
+            int stren = Convert.ToInt32(Strength.Value);
+        }
+
+        private void _txtCharName_TextChanged ( object sender, EventArgs e )
+        {
+
+        }
+
+        private void _cbProfession_SelectedIndexChanged ( object sender, EventArgs e )
+        {
+
+        }
+
+        private void _cbRace_SelectedIndexChanged ( object sender, EventArgs e )
+        {
+
+        }
+
+        private void _txtBiography_TextChanged ( object sender, EventArgs e )
+        {
+
+        }
+
         //private int GetInt32( Control control, iterator defaultValue )
         //{
 
