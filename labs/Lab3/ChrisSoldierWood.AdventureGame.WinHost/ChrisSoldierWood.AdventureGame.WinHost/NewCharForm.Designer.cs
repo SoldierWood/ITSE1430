@@ -28,46 +28,48 @@
         /// </summary>
         private void InitializeComponent ()
         {
-            textBox1=new TextBox();
-            label1=new Label();
-            SuspendLayout();
+            this._txtName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SuspendLayout();
             // 
-            // textBox1
+            // _txtName
             // 
-            textBox1.Location=new Point(122, 29);
-            textBox1.Name="textBox1";
-            textBox1.Size=new Size(100, 23);
-            textBox1.TabIndex=0;
+            this._txtName.Location = new System.Drawing.Point(122, 29);
+            this._txtName.Name = "_txtName";
+            this._txtName.Size = new System.Drawing.Size(100, 23);
+            this._txtName.TabIndex = 0;
+            this._txtName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
-            label1.AutoSize=true;
-            label1.Location=new Point(23, 32);
-            label1.Name="label1";
-            label1.Size=new Size(93, 15);
-            label1.TabIndex=1;
-            label1.Text="Character Name";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(23, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 15);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Character Name";
             // 
             // NewCharForm
             // 
-            AutoScaleDimensions=new SizeF(7F, 15F);
-            AutoScaleMode=AutoScaleMode.Font;
-            ClientSize=new Size(800, 450);
-            Controls.Add(label1);
-            Controls.Add(textBox1);
-            FormBorderStyle=FormBorderStyle.FixedDialog;
-            MaximizeBox=false;
-            MinimizeBox=false;
-            Name="NewCharForm";
-            StartPosition=FormStartPosition.CenterParent;
-            Text="Create New Character";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this._txtName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "NewCharForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Create New Character";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox _txtName;
         private Label label1;
     }
 }

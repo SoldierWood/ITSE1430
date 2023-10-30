@@ -16,10 +16,18 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
         {
             InitializeComponent();
         }
+
+        private void textBox1_TextChanged ( object sender, EventArgs e )
+        {
+
+        }
     }
 
     private void OnValidateName ( object sender, System.ComponentModel.CancelEventArgs e)
     {
-        //if (String.IsNullOrEmpty(_))
+        if (String.IsNullOrEmpty(_txtName.Text))
+        {
+
+        }
     }
 }
