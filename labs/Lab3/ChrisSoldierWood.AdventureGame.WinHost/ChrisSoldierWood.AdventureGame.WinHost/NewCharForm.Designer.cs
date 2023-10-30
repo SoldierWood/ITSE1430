@@ -28,85 +28,85 @@
         /// </summary>
         private void InitializeComponent ()
         {
-            this.components = new System.ComponentModel.Container();
-            this._txtName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this._error = new System.Windows.Forms.ErrorProvider(this.components);
-            this._txtCharName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this._error)).BeginInit();
-            this.SuspendLayout();
+            components=new System.ComponentModel.Container();
+            _txtName=new TextBox();
+            label1=new Label();
+            _error=new ErrorProvider(components);
+            _txtCharName=new TextBox();
+            label2=new Label();
+            comboBox1=new ComboBox();
+            label3=new Label();
+            ((System.ComponentModel.ISupportInitialize)_error).BeginInit();
+            SuspendLayout();
             // 
             // _txtName
             // 
-            this._txtName.Location = new System.Drawing.Point(122, 29);
-            this._txtName.Name = "_txtName";
-            this._txtName.Size = new System.Drawing.Size(100, 23);
-            this._txtName.TabIndex = 0;
+            _txtName.Location=new Point(122, 29);
+            _txtName.Name="_txtName";
+            _txtName.Size=new Size(100, 23);
+            _txtName.TabIndex=0;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 23);
-            this.label1.TabIndex = 0;
+            label1.Location=new Point(0, 0);
+            label1.Name="label1";
+            label1.Size=new Size(100, 23);
+            label1.TabIndex=0;
             // 
             // _error
             // 
-            this._error.ContainerControl = this;
+            _error.ContainerControl=this;
             // 
             // _txtCharName
             // 
-            this._txtCharName.Location = new System.Drawing.Point(118, 12);
-            this._txtCharName.Name = "_txtCharName";
-            this._txtCharName.Size = new System.Drawing.Size(100, 23);
-            this._txtCharName.TabIndex = 0;
-            this._txtCharName.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateName);
+            _txtCharName.Location=new Point(118, 12);
+            _txtCharName.Name="_txtCharName";
+            _txtCharName.Size=new Size(100, 23);
+            _txtCharName.TabIndex=0;
+            _txtCharName.Validating+=OnValidateName;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(73, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Name";
+            label2.AutoSize=true;
+            label2.Location=new Point(73, 15);
+            label2.Name="label2";
+            label2.Size=new Size(39, 15);
+            label2.TabIndex=1;
+            label2.Text="Name";
             // 
             // comboBox1
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(118, 60);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 2;
+            comboBox1.DropDownStyle=ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled=true;
+            comboBox1.Items.AddRange(new object[] { "Fighter", "Hunter", "Priest", "Rogue", "Wizard" });
+            comboBox1.Location=new Point(118, 60);
+            comboBox1.Name="comboBox1";
+            comboBox1.Size=new Size(121, 23);
+            comboBox1.TabIndex=2;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(50, 63);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 15);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Profession";
+            label3.AutoSize=true;
+            label3.Location=new Point(50, 63);
+            label3.Name="label3";
+            label3.Size=new Size(62, 15);
+            label3.TabIndex=3;
+            label3.Text="Profession";
             // 
             // NewCharForm
             // 
-            this.ClientSize = new System.Drawing.Size(610, 432);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this._txtCharName);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "NewCharForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Create New Character";
-            ((System.ComponentModel.ISupportInitialize)(this._error)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            ClientSize=new Size(610, 432);
+            Controls.Add(label3);
+            Controls.Add(comboBox1);
+            Controls.Add(label2);
+            Controls.Add(_txtCharName);
+            FormBorderStyle=FormBorderStyle.FixedDialog;
+            Name="NewCharForm";
+            StartPosition=FormStartPosition.CenterParent;
+            Text="Create New Character";
+            ((System.ComponentModel.ISupportInitialize)_error).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

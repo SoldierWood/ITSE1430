@@ -17,7 +17,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             InitializeComponent();
         }
 
-       
+
         private void OnValidateName ( object sender, CancelEventArgs e )
         {
             if (String.IsNullOrEmpty(_txtCharName.Text))
@@ -32,5 +32,5 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
     }
 
-    
+
 }
