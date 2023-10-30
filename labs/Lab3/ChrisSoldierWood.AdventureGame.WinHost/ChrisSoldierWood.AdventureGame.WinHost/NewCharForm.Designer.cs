@@ -34,7 +34,7 @@
             _error=new ErrorProvider(components);
             _txtCharName=new TextBox();
             label2=new Label();
-            comboBox1=new ComboBox();
+            _cbProfession=new ComboBox();
             label3=new Label();
             ((System.ComponentModel.ISupportInitialize)_error).BeginInit();
             SuspendLayout();
@@ -74,15 +74,16 @@
             label2.TabIndex=1;
             label2.Text="Name";
             // 
-            // comboBox1
+            // _cbProfession
             // 
-            comboBox1.DropDownStyle=ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled=true;
-            comboBox1.Items.AddRange(new object[] { "Fighter", "Hunter", "Priest", "Rogue", "Wizard" });
-            comboBox1.Location=new Point(118, 60);
-            comboBox1.Name="comboBox1";
-            comboBox1.Size=new Size(121, 23);
-            comboBox1.TabIndex=2;
+            _cbProfession.DropDownStyle=ComboBoxStyle.DropDownList;
+            _cbProfession.FormattingEnabled=true;
+            _cbProfession.Items.AddRange(new object[] { "Fighter", "Hunter", "Priest", "Rogue", "Wizard" });
+            _cbProfession.Location=new Point(118, 60);
+            _cbProfession.Name="_cbProfession";
+            _cbProfession.Size=new Size(121, 23);
+            _cbProfession.TabIndex=2;
+            _cbProfession.Validating+=OnValidateProfession;
             // 
             // label3
             // 
@@ -97,7 +98,7 @@
             // 
             ClientSize=new Size(610, 432);
             Controls.Add(label3);
-            Controls.Add(comboBox1);
+            Controls.Add(_cbProfession);
             Controls.Add(label2);
             Controls.Add(_txtCharName);
             FormBorderStyle=FormBorderStyle.FixedDialog;
@@ -117,6 +118,6 @@
         private Label label2;
         private TextBox _txtCharName;
         private Label label3;
-        private ComboBox comboBox1;
+        private ComboBox _cbProfession;
     }
 }
