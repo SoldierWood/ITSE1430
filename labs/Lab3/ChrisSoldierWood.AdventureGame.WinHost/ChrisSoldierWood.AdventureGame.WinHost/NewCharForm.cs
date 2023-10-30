@@ -17,4 +17,9 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             InitializeComponent();
         }
     }
+
+    private void OnValidateName ( object sender, System.ComponentModel.CancelEventArgs e)
+    {
+        //if (String.IsNullOrEmpty(_))
+    }
 }
