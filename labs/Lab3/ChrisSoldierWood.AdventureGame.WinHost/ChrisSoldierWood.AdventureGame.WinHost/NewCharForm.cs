@@ -27,8 +27,10 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             if (String.IsNullOrEmpty(_txtName.Text))
             {
                 // Invalid
-                //_errors.SetError(_txtName, "Title is required");
-            }
+                _error.SetError(_txtName, "Title is required");
+                e.Cancel = true;
+            } else
+                _error.SetError(_txtName, "");
 
         }
 
