@@ -61,6 +61,7 @@
             this._txtCharName.Name = "_txtCharName";
             this._txtCharName.Size = new System.Drawing.Size(100, 23);
             this._txtCharName.TabIndex = 0;
+            this._txtCharName.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateName);
             // 
             // label2
             // 
