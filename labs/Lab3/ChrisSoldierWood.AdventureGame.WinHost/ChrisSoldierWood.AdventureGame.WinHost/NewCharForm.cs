@@ -22,15 +22,16 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
         }
 
-        private void OnValidateTitle ( object sender, CancelEventArgs e )
+        private void OnValidateName ( object sender, CancelEventArgs e )
         {
             if (String.IsNullOrEmpty(_txtName.Text))
             {
                 // Invalid
-                //_errors.SetError(txtTitle, "Title is required");
+                //_errors.SetError(_txtName, "Title is required");
             }
 
         }
+
     }
 
     

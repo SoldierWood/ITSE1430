@@ -39,7 +39,7 @@
             this._txtName.Size = new System.Drawing.Size(100, 23);
             this._txtName.TabIndex = 0;
             this._txtName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this._txtName.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateTitle);
+            this._txtName.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateName);
             // 
             // label1
             // 
