@@ -36,6 +36,8 @@
             label2=new Label();
             _cbProfession=new ComboBox();
             label3=new Label();
+            label4=new Label();
+            _cbRace=new ComboBox();
             ((System.ComponentModel.ISupportInitialize)_error).BeginInit();
             SuspendLayout();
             // 
@@ -61,7 +63,7 @@
             // 
             _txtCharName.Location=new Point(118, 12);
             _txtCharName.Name="_txtCharName";
-            _txtCharName.Size=new Size(100, 23);
+            _txtCharName.Size=new Size(121, 23);
             _txtCharName.TabIndex=0;
             _txtCharName.Validating+=OnValidateName;
             // 
@@ -94,9 +96,30 @@
             label3.TabIndex=3;
             label3.Text="Profession";
             // 
+            // label4
+            // 
+            label4.AutoSize=true;
+            label4.Location=new Point(74, 116);
+            label4.Name="label4";
+            label4.Size=new Size(32, 15);
+            label4.TabIndex=4;
+            label4.Text="Race";
+            // 
+            // _cbRace
+            // 
+            _cbRace.FormattingEnabled=true;
+            _cbRace.Items.AddRange(new object[] { "Dwarf", "Elf", "Gnome", "Half Elf", "Human" });
+            _cbRace.Location=new Point(118, 113);
+            _cbRace.Name="_cbRace";
+            _cbRace.Size=new Size(121, 23);
+            _cbRace.TabIndex=5;
+            _cbRace.Validating+=OnValidateRace;
+            // 
             // NewCharForm
             // 
             ClientSize=new Size(610, 432);
+            Controls.Add(_cbRace);
+            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(_cbProfession);
             Controls.Add(label2);
@@ -119,5 +142,7 @@
         private TextBox _txtCharName;
         private Label label3;
         private ComboBox _cbProfession;
+        private ComboBox _cbRace;
+        private Label label4;
     }
 }

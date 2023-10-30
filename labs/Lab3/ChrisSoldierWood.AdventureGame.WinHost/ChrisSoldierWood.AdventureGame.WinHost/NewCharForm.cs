@@ -40,6 +40,17 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             } else
                 _error.SetError(_cbProfession, "");
         }
+
+        private void OnValidateRace ( object sender, CancelEventArgs e )
+        {
+            if (String.IsNullOrEmpty(_cbRace.Text))
+            {
+                //Invalid
+                _error.SetError(_cbRace, "Profession is required");
+                e.Cancel = true;
+            } else
+                _error.SetError(_cbRace, "");
+        }
     }
 
 
