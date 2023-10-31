@@ -42,6 +42,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.Saving = new System.Windows.Forms.Button();
+            this._txtStrength = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this._error)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +66,7 @@
             // 
             // _txtCharName
             // 
-            this._txtCharName.Location = new System.Drawing.Point(139, 19);
+            this._txtCharName.Location = new System.Drawing.Point(139, 6);
             this._txtCharName.Name = "_txtCharName";
             this._txtCharName.Size = new System.Drawing.Size(149, 23);
             this._txtCharName.TabIndex = 0;
@@ -73,7 +74,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(89, 22);
+            this.label2.Location = new System.Drawing.Point(89, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 15);
             this.label2.TabIndex = 1;
@@ -89,7 +90,7 @@
             "Priest",
             "Rogue",
             "Wizard"});
-            this._cbProfession.Location = new System.Drawing.Point(139, 63);
+            this._cbProfession.Location = new System.Drawing.Point(139, 45);
             this._cbProfession.Name = "_cbProfession";
             this._cbProfession.Size = new System.Drawing.Size(121, 23);
             this._cbProfession.TabIndex = 2;
@@ -97,7 +98,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(66, 71);
+            this.label3.Location = new System.Drawing.Point(66, 45);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 15);
             this.label3.TabIndex = 3;
@@ -106,7 +107,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(96, 116);
+            this.label4.Location = new System.Drawing.Point(89, 79);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 15);
             this.label4.TabIndex = 4;
@@ -121,23 +122,24 @@
             "Gnome",
             "Half Elf",
             "Human"});
-            this._cbRace.Location = new System.Drawing.Point(139, 113);
+            this._cbRace.Location = new System.Drawing.Point(139, 79);
             this._cbRace.Name = "_cbRace";
             this._cbRace.Size = new System.Drawing.Size(121, 23);
             this._cbRace.TabIndex = 5;
             // 
             // _txtBiography
             // 
-            this._txtBiography.Location = new System.Drawing.Point(139, 154);
+            this._txtBiography.Location = new System.Drawing.Point(139, 117);
             this._txtBiography.Multiline = true;
             this._txtBiography.Name = "_txtBiography";
             this._txtBiography.Size = new System.Drawing.Size(149, 71);
             this._txtBiography.TabIndex = 6;
+            this._txtBiography.TextChanged += new System.EventHandler(this._txtBiography_TextChanged_1);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 157);
+            this.label5.Location = new System.Drawing.Point(12, 117);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(116, 15);
             this.label5.TabIndex = 7;
@@ -146,7 +148,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(76, 238);
+            this.label6.Location = new System.Drawing.Point(76, 203);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 15);
             this.label6.TabIndex = 8;
@@ -161,9 +163,18 @@
             this.Saving.Text = "Save";
             this.Saving.UseVisualStyleBackColor = true;
             // 
+            // _txtStrength
+            // 
+            this._txtStrength.Location = new System.Drawing.Point(156, 203);
+            this._txtStrength.Name = "_txtStrength";
+            this._txtStrength.Size = new System.Drawing.Size(100, 23);
+            this._txtStrength.TabIndex = 13;
+            this._txtStrength.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateStrength);
+            // 
             // NewCharForm
             // 
             this.ClientSize = new System.Drawing.Size(610, 432);
+            this.Controls.Add(this._txtStrength);
             this.Controls.Add(this.Saving);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -199,5 +210,6 @@
         private TextBox _txtBiography;
         private Label label6;
         private Button Saving;
+        private TextBox _txtStrength;
     }
 }

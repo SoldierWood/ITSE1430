@@ -54,7 +54,22 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
         private void OnValidateStrength ( object sender, CancelEventArgs e )
         {
-            //var value = GetInt32(_txtStrength, 50);
+            var value = GetInt32(_txtStrength, 50);
+
+            if ((value < 0) || (value > 100))
+            {
+                //Invalid
+                _error.SetError(_txtStrength, "Strength value must be between 1 - 100");
+            } else
+                _error.SetError(_txtStrength, "");
+        }
+
+        private int GetInt32( Control control, int defaultValue )
+        {
+            if (Int32.TryParse(control.Text, out var value))
+                return value;
+
+            return defaultValue;
         }
 
         private void Strength_ValueChanged ( object sender, EventArgs e )
@@ -73,7 +88,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             string prof = _cbProfession.Text;
             string race = _cbRace.Text;
             string bio = _txtBiography.Text;
-            int stren = Convert.ToInt32(Strength.Value);
+            int stren = Convert.ToInt32(_txtStrength.Text);
         }
 
         private void _txtCharName_TextChanged ( object sender, EventArgs e )
@@ -96,10 +111,12 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
         }
 
-        //private int GetInt32( Control control, iterator defaultValue )
-        //{
+        private void _txtBiography_TextChanged_1 ( object sender, EventArgs e )
+        {
 
-        //}
+        }
+
+        
     }
 
 
