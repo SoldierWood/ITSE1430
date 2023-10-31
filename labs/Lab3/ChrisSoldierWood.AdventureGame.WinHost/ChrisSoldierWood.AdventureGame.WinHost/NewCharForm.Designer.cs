@@ -50,6 +50,7 @@
             this._txtIntelligence = new System.Windows.Forms.TextBox();
             this._txtAgility = new System.Windows.Forms.TextBox();
             this._txtConstitution = new System.Windows.Forms.TextBox();
+            this._txtCharisma = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this._error)).BeginInit();
             this.SuspendLayout();
             // 
@@ -239,9 +240,18 @@
             this._txtConstitution.TabIndex = 20;
             this._txtConstitution.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateConstitution);
             // 
+            // _txtCharisma
+            // 
+            this._txtCharisma.Location = new System.Drawing.Point(155, 353);
+            this._txtCharisma.Name = "_txtCharisma";
+            this._txtCharisma.Size = new System.Drawing.Size(100, 23);
+            this._txtCharisma.TabIndex = 21;
+            this._txtCharisma.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateCharisma);
+            // 
             // NewCharForm
             // 
             this.ClientSize = new System.Drawing.Size(610, 432);
+            this.Controls.Add(this._txtCharisma);
             this.Controls.Add(this._txtConstitution);
             this.Controls.Add(this._txtAgility);
             this.Controls.Add(this._txtIntelligence);
@@ -293,5 +303,6 @@
         private TextBox _txtIntelligence;
         private TextBox _txtAgility;
         private TextBox _txtConstitution;
+        private TextBox _txtCharisma;
     }
 }

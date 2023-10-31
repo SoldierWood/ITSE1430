@@ -98,8 +98,21 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
                 _error.SetError(_txtConstitution, "Strength value must be between 1 - 100");
             } else
                 _error.SetError(_txtConstitution, "");
+        }
+
+        private void OnValidateCharisma ( object sender, CancelEventArgs e )
+        {
+            var value = GetInt32(_txtCharisma, 50);
+
+            if ((value < 0) || (value > 100))
+            {
+                //Invalid
+                _error.SetError(_txtCharisma, "Strength value must be between 1 - 100");
+            } else
+                _error.SetError(_txtCharisma, "");
 
         }
+
         private int GetInt32( Control control, int defaultValue )
         {
             if (Int32.TryParse(control.Text, out var value))
