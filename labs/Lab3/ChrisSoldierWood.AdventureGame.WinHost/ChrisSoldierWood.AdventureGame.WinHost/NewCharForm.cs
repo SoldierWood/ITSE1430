@@ -150,7 +150,15 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             newChar.Constitution = Convert.ToInt32(_txtConstitution.Text);
             newChar.Charisma = Convert.ToInt32(_txtCharisma.Text);
 
+            //if (!newChar.TryValidate(out var error))
+            //{
+            //    MessageBox.Show(this, error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+            //    DialogResult = DialogResult.None;
+            //    return;
+            //};
+
+            //Character = newChar;
 
 
 
