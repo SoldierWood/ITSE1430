@@ -49,6 +49,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this._txtIntelligence = new System.Windows.Forms.TextBox();
             this._txtAgility = new System.Windows.Forms.TextBox();
+            this._txtConstitution = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this._error)).BeginInit();
             this.SuspendLayout();
             // 
@@ -230,9 +231,18 @@
             this._txtAgility.TabIndex = 19;
             this._txtAgility.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateAgility);
             // 
+            // _txtConstitution
+            // 
+            this._txtConstitution.Location = new System.Drawing.Point(156, 317);
+            this._txtConstitution.Name = "_txtConstitution";
+            this._txtConstitution.Size = new System.Drawing.Size(100, 23);
+            this._txtConstitution.TabIndex = 20;
+            this._txtConstitution.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateConstitution);
+            // 
             // NewCharForm
             // 
             this.ClientSize = new System.Drawing.Size(610, 432);
+            this.Controls.Add(this._txtConstitution);
             this.Controls.Add(this._txtAgility);
             this.Controls.Add(this._txtIntelligence);
             this.Controls.Add(this.label10);
@@ -282,5 +292,6 @@
         private Label label7;
         private TextBox _txtIntelligence;
         private TextBox _txtAgility;
+        private TextBox _txtConstitution;
     }
 }
