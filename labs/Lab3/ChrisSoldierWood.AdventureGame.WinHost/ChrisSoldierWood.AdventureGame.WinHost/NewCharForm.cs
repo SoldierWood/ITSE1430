@@ -75,6 +75,18 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
                 _error.SetError(_txtIntelligence, "");
 
         }
+
+        private void OnValidateAgility ( object sender, CancelEventArgs e )
+        {
+            var value = GetInt32(_txtAgility, 50);
+
+            if ((value < 0) || (value > 100))
+            {
+                //Invalid
+                _error.SetError(_txtAgility, "Strength value must be between 1 - 100");
+            } else
+                _error.SetError(_txtAgility, "");
+        }
         private int GetInt32( Control control, int defaultValue )
         {
             if (Int32.TryParse(control.Text, out var value))
@@ -132,7 +144,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
         }
 
-       
+        
     }
 
 
