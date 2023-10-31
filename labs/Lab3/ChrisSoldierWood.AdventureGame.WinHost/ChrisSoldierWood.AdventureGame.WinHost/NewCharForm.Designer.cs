@@ -28,181 +28,160 @@
         /// </summary>
         private void InitializeComponent ()
         {
-            components=new System.ComponentModel.Container();
-            _txtName=new TextBox();
-            label1=new Label();
-            _error=new ErrorProvider(components);
-            _txtCharName=new TextBox();
-            label2=new Label();
-            _cbProfession=new ComboBox();
-            label3=new Label();
-            label4=new Label();
-            _cbRace=new ComboBox();
-            _txtBiography=new TextBox();
-            label5=new Label();
-            label6=new Label();
-            Strength=new NumericUpDown();
-            numericUpDown2=new NumericUpDown();
-            Saving=new Button();
-            ((System.ComponentModel.ISupportInitialize)_error).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)Strength).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
-            SuspendLayout();
+            this.components = new System.ComponentModel.Container();
+            this._txtName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this._error = new System.Windows.Forms.ErrorProvider(this.components);
+            this._txtCharName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this._cbProfession = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this._cbRace = new System.Windows.Forms.ComboBox();
+            this._txtBiography = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Saving = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this._error)).BeginInit();
+            this.SuspendLayout();
             // 
             // _txtName
             // 
-            _txtName.Location=new Point(122, 29);
-            _txtName.Name="_txtName";
-            _txtName.Size=new Size(100, 23);
-            _txtName.TabIndex=0;
+            this._txtName.Location = new System.Drawing.Point(122, 29);
+            this._txtName.Name = "_txtName";
+            this._txtName.Size = new System.Drawing.Size(100, 23);
+            this._txtName.TabIndex = 0;
             // 
             // label1
             // 
-            label1.Location=new Point(0, 0);
-            label1.Name="label1";
-            label1.Size=new Size(100, 23);
-            label1.TabIndex=0;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.TabIndex = 0;
             // 
             // _error
             // 
-            _error.ContainerControl=this;
+            this._error.ContainerControl = this;
             // 
             // _txtCharName
             // 
-            _txtCharName.Location=new Point(139, 19);
-            _txtCharName.Name="_txtCharName";
-            _txtCharName.Size=new Size(149, 23);
-            _txtCharName.TabIndex=0;
-            _txtCharName.TextChanged+=_txtCharName_TextChanged;
-            _txtCharName.Validating+=OnValidateName;
+            this._txtCharName.Location = new System.Drawing.Point(139, 19);
+            this._txtCharName.Name = "_txtCharName";
+            this._txtCharName.Size = new System.Drawing.Size(149, 23);
+            this._txtCharName.TabIndex = 0;
             // 
             // label2
             // 
-            label2.AutoSize=true;
-            label2.Location=new Point(89, 22);
-            label2.Name="label2";
-            label2.Size=new Size(39, 15);
-            label2.TabIndex=1;
-            label2.Text="Name";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(89, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(39, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Name";
             // 
             // _cbProfession
             // 
-            _cbProfession.DropDownStyle=ComboBoxStyle.DropDownList;
-            _cbProfession.FormattingEnabled=true;
-            _cbProfession.Items.AddRange(new object[] { "Fighter", "Hunter", "Priest", "Rogue", "Wizard" });
-            _cbProfession.Location=new Point(139, 63);
-            _cbProfession.Name="_cbProfession";
-            _cbProfession.Size=new Size(121, 23);
-            _cbProfession.TabIndex=2;
-            _cbProfession.SelectedIndexChanged+=_cbProfession_SelectedIndexChanged;
-            _cbProfession.Validating+=OnValidateProfession;
+            this._cbProfession.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._cbProfession.FormattingEnabled = true;
+            this._cbProfession.Items.AddRange(new object[] {
+            "Fighter",
+            "Hunter",
+            "Priest",
+            "Rogue",
+            "Wizard"});
+            this._cbProfession.Location = new System.Drawing.Point(139, 63);
+            this._cbProfession.Name = "_cbProfession";
+            this._cbProfession.Size = new System.Drawing.Size(121, 23);
+            this._cbProfession.TabIndex = 2;
             // 
             // label3
             // 
-            label3.AutoSize=true;
-            label3.Location=new Point(66, 71);
-            label3.Name="label3";
-            label3.Size=new Size(62, 15);
-            label3.TabIndex=3;
-            label3.Text="Profession";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(66, 71);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 15);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Profession";
             // 
             // label4
             // 
-            label4.AutoSize=true;
-            label4.Location=new Point(96, 116);
-            label4.Name="label4";
-            label4.Size=new Size(32, 15);
-            label4.TabIndex=4;
-            label4.Text="Race";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(96, 116);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(32, 15);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Race";
             // 
             // _cbRace
             // 
-            _cbRace.FormattingEnabled=true;
-            _cbRace.Items.AddRange(new object[] { "Dwarf", "Elf", "Gnome", "Half Elf", "Human" });
-            _cbRace.Location=new Point(139, 113);
-            _cbRace.Name="_cbRace";
-            _cbRace.Size=new Size(121, 23);
-            _cbRace.TabIndex=5;
-            _cbRace.SelectedIndexChanged+=_cbRace_SelectedIndexChanged;
-            _cbRace.Validating+=OnValidateRace;
+            this._cbRace.FormattingEnabled = true;
+            this._cbRace.Items.AddRange(new object[] {
+            "Dwarf",
+            "Elf",
+            "Gnome",
+            "Half Elf",
+            "Human"});
+            this._cbRace.Location = new System.Drawing.Point(139, 113);
+            this._cbRace.Name = "_cbRace";
+            this._cbRace.Size = new System.Drawing.Size(121, 23);
+            this._cbRace.TabIndex = 5;
             // 
             // _txtBiography
             // 
-            _txtBiography.Location=new Point(139, 154);
-            _txtBiography.Multiline=true;
-            _txtBiography.Name="_txtBiography";
-            _txtBiography.Size=new Size(149, 71);
-            _txtBiography.TabIndex=6;
+            this._txtBiography.Location = new System.Drawing.Point(139, 154);
+            this._txtBiography.Multiline = true;
+            this._txtBiography.Name = "_txtBiography";
+            this._txtBiography.Size = new System.Drawing.Size(149, 71);
+            this._txtBiography.TabIndex = 6;
             // 
             // label5
             // 
-            label5.AutoSize=true;
-            label5.Location=new Point(12, 157);
-            label5.Name="label5";
-            label5.Size=new Size(116, 15);
-            label5.TabIndex=7;
-            label5.Text="Biography (optional)";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 157);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(116, 15);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Biography (optional)";
             // 
             // label6
             // 
-            label6.AutoSize=true;
-            label6.Location=new Point(76, 238);
-            label6.Name="label6";
-            label6.Size=new Size(52, 15);
-            label6.TabIndex=8;
-            label6.Text="Strength";
-            // 
-            // Strength
-            // 
-            Strength.Location=new Point(139, 236);
-            Strength.Name="Strength";
-            Strength.Size=new Size(120, 23);
-            Strength.TabIndex=10;
-            Strength.Value=new decimal(new int[] { 50, 0, 0, 0 });
-            Strength.ValueChanged+=Strength_ValueChanged;
-            // 
-            // numericUpDown2
-            // 
-            numericUpDown2.Location=new Point(139, 286);
-            numericUpDown2.Name="numericUpDown2";
-            numericUpDown2.Size=new Size(120, 23);
-            numericUpDown2.TabIndex=11;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(76, 238);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 15);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Strength";
             // 
             // Saving
             // 
-            Saving.Location=new Point(181, 382);
-            Saving.Name="Saving";
-            Saving.Size=new Size(75, 23);
-            Saving.TabIndex=12;
-            Saving.Text="Save";
-            Saving.UseVisualStyleBackColor=true;
-            Saving.Click+=Saving_Click;
+            this.Saving.Location = new System.Drawing.Point(181, 382);
+            this.Saving.Name = "Saving";
+            this.Saving.Size = new System.Drawing.Size(75, 23);
+            this.Saving.TabIndex = 12;
+            this.Saving.Text = "Save";
+            this.Saving.UseVisualStyleBackColor = true;
             // 
             // NewCharForm
             // 
-            ClientSize=new Size(610, 432);
-            Controls.Add(Saving);
-            Controls.Add(numericUpDown2);
-            Controls.Add(Strength);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(_txtBiography);
-            Controls.Add(_cbRace);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(_cbProfession);
-            Controls.Add(label2);
-            Controls.Add(_txtCharName);
-            FormBorderStyle=FormBorderStyle.FixedDialog;
-            Name="NewCharForm";
-            StartPosition=FormStartPosition.CenterParent;
-            Text="Create New Character";
-            Load+=NewCharForm_Load;
-            ((System.ComponentModel.ISupportInitialize)_error).EndInit();
-            ((System.ComponentModel.ISupportInitialize)Strength).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.ClientSize = new System.Drawing.Size(610, 432);
+            this.Controls.Add(this.Saving);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this._txtBiography);
+            this.Controls.Add(this._cbRace);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this._cbProfession);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this._txtCharName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Name = "NewCharForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Create New Character";
+            ((System.ComponentModel.ISupportInitialize)(this._error)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
@@ -219,8 +198,6 @@
         private Label label5;
         private TextBox _txtBiography;
         private Label label6;
-        private NumericUpDown numericUpDown2;
-        private NumericUpDown Strength;
         private Button Saving;
     }
 }
