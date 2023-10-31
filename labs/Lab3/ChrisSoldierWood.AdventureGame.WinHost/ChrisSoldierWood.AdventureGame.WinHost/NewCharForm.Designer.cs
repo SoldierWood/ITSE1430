@@ -51,6 +51,7 @@
             this._txtAgility = new System.Windows.Forms.TextBox();
             this._txtConstitution = new System.Windows.Forms.TextBox();
             this._txtCharisma = new System.Windows.Forms.TextBox();
+            this._btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._error)).BeginInit();
             this.SuspendLayout();
             // 
@@ -249,9 +250,20 @@
             this._txtCharisma.TabIndex = 8;
             this._txtCharisma.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateCharisma);
             // 
+            // _btnCancel
+            // 
+            this._btnCancel.Location = new System.Drawing.Point(418, 384);
+            this._btnCancel.Name = "_btnCancel";
+            this._btnCancel.Size = new System.Drawing.Size(75, 23);
+            this._btnCancel.TabIndex = 19;
+            this._btnCancel.Text = "Cancel";
+            this._btnCancel.UseVisualStyleBackColor = true;
+            this._btnCancel.Click += new System.EventHandler(this.OnCancel);
+            // 
             // NewCharForm
             // 
             this.ClientSize = new System.Drawing.Size(610, 432);
+            this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._txtCharisma);
             this.Controls.Add(this._txtConstitution);
             this.Controls.Add(this._txtAgility);
@@ -305,5 +317,6 @@
         private TextBox _txtAgility;
         private TextBox _txtConstitution;
         private TextBox _txtCharisma;
+        private Button _btnCancel;
     }
 }

@@ -18,6 +18,9 @@ namespace ChrisWood.AdventureGame
     /// <summary> Represents game character. </summary>
     public class Character
     {
+
+        public static List<Character> CharacterRoster = new List<Character>();
+        
         /// <summary> Result for if character exists. </summary>
         /// <param name="characterExists">Indicator for if character exists. </param>
         public bool characterExists = false;

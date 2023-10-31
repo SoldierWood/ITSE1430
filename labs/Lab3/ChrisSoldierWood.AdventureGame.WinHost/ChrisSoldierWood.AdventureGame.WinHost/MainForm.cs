@@ -66,5 +66,10 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
 
         }
+
+        private void fileToolStripMenuItem_Click ( object sender, EventArgs e )
+        {
+
+        }
     }
 }

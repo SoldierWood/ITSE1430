@@ -14,13 +14,16 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 {
     public partial class NewCharForm : Form
     {
+
+
+
         public NewCharForm ()
         {
             InitializeComponent();
         }
 
         /// <summary> Gets or sets the movie.  </summary>
-        public Character Character { get; set; }
+        //public Character Character { get; set; }
 
         private void OnValidateName ( object sender, CancelEventArgs e )
         {
@@ -160,8 +163,11 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
                 return;
             };
 
-            Character = newChar;
-
+            
+            Character.CharacterRoster.Add(newChar);
+            MessageBox.Show($"Total length of character roster: {Character.CharacterRoster.Count}");
+            this.Close();
+            
         }
 
 
@@ -196,7 +202,12 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
         }
 
-       
+        private void OnCancel ( object sender, EventArgs e )
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
+
+        }
     }
 
 
