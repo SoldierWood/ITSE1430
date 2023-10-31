@@ -31,18 +31,24 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
         }
 
+        private void OnListBoxClick (object sender, EventArgs e)
+        {
+            charListBox1.DataSource = null;
+            charListBox1.DataSource = Character.CharacterRoster;
+        }
+
         private void MainForm_Load ( object sender, EventArgs e )
         {
 
 
-            List<Character> CharacterList = new List<Character>();
-            Character curChar = new Character();
+            //List<Character> CharacterList = new List<Character>();
+            //Character curChar = new Character();
             charListBox1.DataSource = null;
-            charListBox1.DataSource = CharacterList;
+            charListBox1.DataSource = Character.CharacterRoster;
 
-            CharacterList.Add(new Character() {
-                Name = "Adam"
-            });
+            //CharacterList.Add(new Character() {
+            //    Name = "Adam"
+            //});
             //curChar.Name = charListBox1.SelectedItem.ToString();
         }
 
@@ -70,6 +76,13 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
         private void fileToolStripMenuItem_Click ( object sender, EventArgs e )
         {
 
+        }
+
+        private void MainForm_Load_1 ( object sender, EventArgs e )
+        {
+
+            charListBox1.DataSource = null;
+            charListBox1.DataSource = Character.CharacterRoster;
         }
     }
 }

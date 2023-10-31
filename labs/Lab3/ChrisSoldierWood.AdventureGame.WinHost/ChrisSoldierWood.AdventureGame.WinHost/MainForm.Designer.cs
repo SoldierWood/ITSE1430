@@ -71,7 +71,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             // 
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.fileToolStripMenuItem.Text = "E&xit";
             this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
@@ -97,6 +97,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.editToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.editToolStripMenuItem.Text = "&Edit";
             // 
@@ -136,6 +137,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             this.charListBox1.Name = "charListBox1";
             this.charListBox1.Size = new System.Drawing.Size(784, 537);
             this.charListBox1.TabIndex = 1;
+            this.charListBox1.Click += new System.EventHandler(this.OnListBoxClick);
             // 
             // MainForm
             // 
@@ -148,6 +150,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             this.MinimumSize = new System.Drawing.Size(300, 200);
             this.Name = "MainForm";
             this.Text = "Chris Wood Adventure Game";
+            this.Load += new System.EventHandler(this.MainForm_Load_1);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
