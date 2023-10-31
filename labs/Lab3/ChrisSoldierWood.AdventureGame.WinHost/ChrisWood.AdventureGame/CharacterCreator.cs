@@ -104,7 +104,7 @@ namespace ChrisWood.AdventureGame
             set { _charisma = value; }
         }
         /// <summary> Validates the character instance.
-        public bool Validate (out string message )
+        public bool TryValidate (out string message )
         {
             //Name is required
             if (String.IsNullOrEmpty(_name))
@@ -171,6 +171,11 @@ namespace ChrisWood.AdventureGame
             return $"{_name} {_profession} {_race}";
         }
 
+        //public bool TryValidate(out string message) /* Character this */
+        //{
+        //    message = "";
+        //    return true;
+        //}
 
     }
 

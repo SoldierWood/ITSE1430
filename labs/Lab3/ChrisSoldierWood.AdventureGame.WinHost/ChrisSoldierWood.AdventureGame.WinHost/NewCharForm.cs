@@ -19,6 +19,8 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             InitializeComponent();
         }
 
+        /// <summary> Gets or sets the movie.  </summary>
+        public Character Character { get; set; }
 
         private void OnValidateName ( object sender, CancelEventArgs e )
         {
@@ -140,7 +142,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             var newChar = new Character();
 
             // Populate from UI
-            newChar.Name = _txtName.Text;
+            newChar.Name = _txtCharName.Text;
             newChar.Profession = _cbProfession.Text;
             newChar.Race = _cbRace.Text;
             newChar.Bio = _txtBiography.Text;
@@ -150,19 +152,19 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             newChar.Constitution = Convert.ToInt32(_txtConstitution.Text);
             newChar.Charisma = Convert.ToInt32(_txtCharisma.Text);
 
-            //if (!newChar.TryValidate(out var error))
-            //{
-            //    MessageBox.Show(this, error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (!newChar.TryValidate(out var error))
+            {
+                MessageBox.Show(this, error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            //    DialogResult = DialogResult.None;
-            //    return;
-            //};
+                DialogResult = DialogResult.None;
+                return;
+            };
 
-            //Character = newChar;
-
-
+            Character = newChar;
 
         }
+
+
 
         private void _txtCharName_TextChanged ( object sender, EventArgs e )
         {
