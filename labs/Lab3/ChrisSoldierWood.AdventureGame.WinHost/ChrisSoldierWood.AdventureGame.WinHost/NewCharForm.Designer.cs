@@ -43,6 +43,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.Saving = new System.Windows.Forms.Button();
             this._txtStrength = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this._txtIntelligence = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this._error)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,9 +176,59 @@
             this._txtStrength.TabIndex = 13;
             this._txtStrength.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateStrength);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(60, 249);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 15);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Intelligence";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(80, 289);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 15);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Agility";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(60, 317);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(73, 15);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Constitution";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(76, 350);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(57, 15);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Charisma";
+            // 
+            // _txtIntelligence
+            // 
+            this._txtIntelligence.Location = new System.Drawing.Point(156, 249);
+            this._txtIntelligence.Name = "_txtIntelligence";
+            this._txtIntelligence.Size = new System.Drawing.Size(100, 23);
+            this._txtIntelligence.TabIndex = 18;
+            this._txtIntelligence.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateIntelligence);
+            // 
             // NewCharForm
             // 
             this.ClientSize = new System.Drawing.Size(610, 432);
+            this.Controls.Add(this._txtIntelligence);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this._txtStrength);
             this.Controls.Add(this.Saving);
             this.Controls.Add(this.label6);
@@ -211,5 +266,10 @@
         private Label label6;
         private Button Saving;
         private TextBox _txtStrength;
+        private Label label10;
+        private Label label9;
+        private Label label8;
+        private Label label7;
+        private TextBox _txtIntelligence;
     }
 }

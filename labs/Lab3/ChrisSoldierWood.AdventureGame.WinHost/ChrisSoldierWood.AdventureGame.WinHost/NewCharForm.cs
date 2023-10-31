@@ -63,7 +63,18 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             } else
                 _error.SetError(_txtStrength, "");
         }
+        private void OnValidateIntelligence ( object sender, CancelEventArgs e )
+        {
+            var value = GetInt32(_txtIntelligence, 50);
 
+            if ((value < 0) || (value > 100))
+            {
+                //Invalid
+                _error.SetError(_txtIntelligence, "Strength value must be between 1 - 100");
+            } else
+                _error.SetError(_txtIntelligence, "");
+
+        }
         private int GetInt32( Control control, int defaultValue )
         {
             if (Int32.TryParse(control.Text, out var value))
@@ -116,7 +127,12 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
         }
 
-        
+        private void label8_Click ( object sender, EventArgs e )
+        {
+
+        }
+
+       
     }
 
 
