@@ -33,7 +33,9 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
                 _error.SetError(_txtCharName, "Title is required");
                 e.Cancel = true;
             } else
+            {
                 _error.SetError(_txtCharName, "");
+            }
 
         }
 

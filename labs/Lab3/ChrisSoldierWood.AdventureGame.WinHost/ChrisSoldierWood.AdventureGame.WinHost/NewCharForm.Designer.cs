@@ -79,6 +79,7 @@
             this._txtCharName.Name = "_txtCharName";
             this._txtCharName.Size = new System.Drawing.Size(149, 23);
             this._txtCharName.TabIndex = 0;
+            this._txtCharName.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateName);
             // 
             // label2
             // 
@@ -86,7 +87,7 @@
             this.label2.Location = new System.Drawing.Point(89, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 15);
-            this.label2.TabIndex = 10;
+            this.label2.TabIndex = 11;
             this.label2.Text = "Name";
             // 
             // _cbProfession
@@ -103,6 +104,7 @@
             this._cbProfession.Name = "_cbProfession";
             this._cbProfession.Size = new System.Drawing.Size(121, 23);
             this._cbProfession.TabIndex = 1;
+            this._cbProfession.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateProfession);
             // 
             // label3
             // 
@@ -110,7 +112,7 @@
             this.label3.Location = new System.Drawing.Point(66, 45);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 15);
-            this.label3.TabIndex = 11;
+            this.label3.TabIndex = 12;
             this.label3.Text = "Profession";
             // 
             // label4
@@ -119,7 +121,7 @@
             this.label4.Location = new System.Drawing.Point(89, 79);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 15);
-            this.label4.TabIndex = 12;
+            this.label4.TabIndex = 13;
             this.label4.Text = "Race";
             // 
             // _cbRace
@@ -135,6 +137,7 @@
             this._cbRace.Name = "_cbRace";
             this._cbRace.Size = new System.Drawing.Size(121, 23);
             this._cbRace.TabIndex = 2;
+            this._cbRace.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateRace);
             // 
             // _txtBiography
             // 
@@ -151,7 +154,7 @@
             this.label5.Location = new System.Drawing.Point(12, 117);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(116, 15);
-            this.label5.TabIndex = 13;
+            this.label5.TabIndex = 14;
             this.label5.Text = "Biography (optional)";
             // 
             // label6
@@ -160,7 +163,7 @@
             this.label6.Location = new System.Drawing.Point(76, 203);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 15);
-            this.label6.TabIndex = 14;
+            this.label6.TabIndex = 15;
             this.label6.Text = "Strength";
             // 
             // Saving
@@ -187,7 +190,7 @@
             this.label7.Location = new System.Drawing.Point(60, 249);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 15);
-            this.label7.TabIndex = 15;
+            this.label7.TabIndex = 16;
             this.label7.Text = "Intelligence";
             // 
             // label8
@@ -196,7 +199,7 @@
             this.label8.Location = new System.Drawing.Point(80, 289);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 15);
-            this.label8.TabIndex = 16;
+            this.label8.TabIndex = 17;
             this.label8.Text = "Agility";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
@@ -206,7 +209,7 @@
             this.label9.Location = new System.Drawing.Point(60, 317);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 15);
-            this.label9.TabIndex = 17;
+            this.label9.TabIndex = 18;
             this.label9.Text = "Constitution";
             // 
             // label10
@@ -215,7 +218,7 @@
             this.label10.Location = new System.Drawing.Point(76, 350);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 15);
-            this.label10.TabIndex = 18;
+            this.label10.TabIndex = 19;
             this.label10.Text = "Charisma";
             // 
             // _txtIntelligence
@@ -255,7 +258,7 @@
             this._btnCancel.Location = new System.Drawing.Point(418, 384);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 23);
-            this._btnCancel.TabIndex = 19;
+            this._btnCancel.TabIndex = 10;
             this._btnCancel.Text = "Cancel";
             this._btnCancel.UseVisualStyleBackColor = true;
             this._btnCancel.Click += new System.EventHandler(this.OnCancel);
