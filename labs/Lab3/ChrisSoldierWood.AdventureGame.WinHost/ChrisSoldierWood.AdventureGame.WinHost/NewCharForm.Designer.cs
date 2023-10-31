@@ -164,7 +164,7 @@
             // 
             // Saving
             // 
-            this.Saving.Location = new System.Drawing.Point(181, 382);
+            this.Saving.Location = new System.Drawing.Point(310, 384);
             this.Saving.Name = "Saving";
             this.Saving.Size = new System.Drawing.Size(75, 23);
             this.Saving.TabIndex = 12;
