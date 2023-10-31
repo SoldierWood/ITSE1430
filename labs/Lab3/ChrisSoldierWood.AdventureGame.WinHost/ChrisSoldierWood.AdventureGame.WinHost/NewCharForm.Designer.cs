@@ -170,6 +170,7 @@
             this.Saving.TabIndex = 9;
             this.Saving.Text = "Save";
             this.Saving.UseVisualStyleBackColor = true;
+            this.Saving.Click += new System.EventHandler(this.OnSave);
             // 
             // _txtStrength
             // 

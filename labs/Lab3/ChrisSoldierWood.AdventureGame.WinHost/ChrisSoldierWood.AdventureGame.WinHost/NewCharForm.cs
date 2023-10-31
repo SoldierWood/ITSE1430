@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ChrisWood.AdventureGame;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -131,13 +133,27 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
         }
 
-        private void Saving_Click ( object sender, EventArgs e )
+        private void OnSave ( object sender, EventArgs e )
         {
-            string nam = _txtCharName.Text;
-            string prof = _cbProfession.Text;
-            string race = _cbRace.Text;
-            string bio = _txtBiography.Text;
-            int stren = Convert.ToInt32(_txtStrength.Text);
+            var button = sender as Button;
+
+            var newChar = new Character();
+
+            // Populate from UI
+            newChar.Name = _txtName.Text;
+            newChar.Profession = _cbProfession.Text;
+            newChar.Race = _cbRace.Text;
+            newChar.Bio = _txtBiography.Text;
+            newChar.Strength = Convert.ToInt32(_txtStrength.Text);
+            newChar.Intelligence = Convert.ToInt32(_txtIntelligence.Text);
+            newChar.Agility = Convert.ToInt32(_txtAgility.Text);
+            newChar.Constitution = Convert.ToInt32(_txtConstitution.Text);
+            newChar.Charisma = Convert.ToInt32(_txtCharisma.Text);
+
+
+
+
+
         }
 
         private void _txtCharName_TextChanged ( object sender, EventArgs e )
@@ -170,7 +186,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
         }
 
-        
+       
     }
 
 
