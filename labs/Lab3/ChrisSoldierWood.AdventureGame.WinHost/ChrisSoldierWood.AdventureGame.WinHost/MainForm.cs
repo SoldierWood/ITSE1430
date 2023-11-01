@@ -45,6 +45,11 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             //Character curChar = new Character();
             charListBox1.DataSource = null;
             charListBox1.DataSource = Character.CharacterRoster;
+            charListBox1.Refresh();
+            //charListBox1.DisplayMember.
+            Refresh();
+
+
 
             //CharacterList.Add(new Character() {
             //    Name = "Adam"
