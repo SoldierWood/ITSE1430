@@ -122,8 +122,15 @@ public partial class MainForm : Form
     {
         _lstMovies.DataSource = null;
 
-        var movies = _database.GetAll().ToList();
-        _lstMovies.DataSource = movies;
+        //var movies = _database.GetAll().ToList();
+
+        var movies = _database.GetAll();
+
+        var source = new BindingSource() {
+            DataSource = movies
+        };
+
+        _lstMovies.DataSource = s;
 
         //movies[0].Title = "None";
         ////movies[2] = new Movie() { Title = "Bob" };
@@ -131,6 +138,6 @@ public partial class MainForm : Form
         //var movies2 = _database.GetAll();
     }
 
-    private MemoryMovieDatabase _database = new MemoryMovieDatabase();
+    private IMovieDatabase _database = new MemoryMovieDatabase();
     #endregion
 }

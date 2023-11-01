@@ -1,4 +1,6 @@
-﻿namespace MovieLibrary.WinHost;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MovieLibrary.WinHost;
 
 public partial class MovieForm : Form
 {
@@ -58,9 +60,16 @@ public partial class MovieForm : Form
 
         movie.IsBlackAndWhite = _chkIsBlackAndWhite.Checked;
 
-        if (!movie.TryValidate(out var error))
+        //var context = new ValidationContext(movie);
+        //var results = new System.Collections.ObjectModel.Collection<ValidationResult>();
+        //if (!Validator.TryValidateObject(movie, context, results, true))
+
+//        if (!movie.TryValidate(out var error))
+
+        if (!new ObjectValidator().TryValidate(movie, out var results))
         {
-            MessageBox.Show(this, error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            var error = results.First();
+            MessageBox.Show(this, error.ErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             DialogResult = DialogResult.None;
             return;

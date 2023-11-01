@@ -1,9 +1,11 @@
-﻿﻿using System;
+﻿using System;
+
+using MoveLibrary;
 
 namespace MovieLibrary.Memory;
 
 /// <summary>Represents a database of movies.</summary>
-public class MemoryMovieDatabase
+public class MemoryMovieDatabase : MovieDatabase
 {
     public MemoryMovieDatabase ()
     {
@@ -59,18 +61,18 @@ public class MemoryMovieDatabase
             Add(movie);
     }
 
-    public string Add ( Movie movie )
+    protected override Movie AddCore ( Movie movie )
     {
         //Validate: null, invalid movie
-        if (movie == null)
-            return "Movie is null";
-        if (!movie.TryValidate(out var error))
-            return error;
+        //if (movie == null)
+        //    return "Movie is null";
+        //if (!new ObjectValidator().TryValidate(movie, out var error))
+        //    return error.First().ErrorMessage;
 
-        //Title must be unique
-        var existing = FindByTitle(movie.Title);
-        if (existing != null)
-            return "Movie title must be unique";
+        ////Title must be unique
+        //var existing = FindByTitle(movie.Title);
+        //if (existing != null)
+        //    return "Movie title must be unique";
 
         ////Find an empty slot
         //for (var index = 0; index < _movies.Length; ++index)
@@ -84,7 +86,8 @@ public class MemoryMovieDatabase
         //};
         movie.Id = _id++;
         _movies.Add(Clone(movie));
-        return "";
+        
+        return movie;
     }
 
     public string Update ( int id, Movie movie )
@@ -95,8 +98,8 @@ public class MemoryMovieDatabase
 
         if (movie == null)
             return "Movie is null";
-        if (!movie.TryValidate(out var error))
-            return error;
+        if (!new ObjectValidator().TryValidate(movie, out var error))
+            return error.First().ErrorMessage;
 
         //Title must be unique (and not self)
         var existing = FindByTitle(movie.Title);
@@ -113,19 +116,26 @@ public class MemoryMovieDatabase
         return "";
     }
 
-    public void Delete ( int id )
+    protected override void DeleteCore ( int id )
     {
-        //TODO:Id > 0
-
-        //var index = FindById(id);
-        //if (index >= 0)
-        //    _movies[index] = null;
         var movie = FindById(id);
         if (movie != null)
             _movies.Remove(movie);  //Reference equality applies
     }
 
-    public IEnumerable<Movie> GetAll ()
+    protected override public Movie GetCore ( int id )
+    {
+        if (id <= 0)
+            return null;
+
+        var movie = FindById(id);
+
+        if (movie == null)
+            return null;
+
+        return Clone(movie);
+    }
+    protected override IEnumerable<Movie> GetAllCore ()
     {
         //var count = _movies.Count;
 
@@ -178,7 +188,7 @@ public class MemoryMovieDatabase
         target.Genre = source.Genre;
     }
 
-    private Movie FindById ( int id )
+    protected override Movie FindById ( int id )
     {
         //for (var index = 0; index < _movies.Length; ++index)
         //    if (_movies[index]?.Id == id)
@@ -190,7 +200,7 @@ public class MemoryMovieDatabase
         return null;
     }
 
-    private Movie FindByTitle ( string title )
+    protected override Movie FindByTitle ( string title )
     {
         //for (var index = 0; index < _movies.Length; ++index)
         //    if (String.Equals(title, _movies[index]?.Title, StringComparison.OrdinalIgnoreCase))
@@ -200,6 +210,13 @@ public class MemoryMovieDatabase
                 return movie;
 
         return null;
+    }
+
+    protected override void UpdateCore ( int id, Movie movie)
+    {
+        var existing = FindById(id);
+
+        Copy(existing, movie);
     }
 
     //private readonly Movie[] _movies = new Movie[100];
