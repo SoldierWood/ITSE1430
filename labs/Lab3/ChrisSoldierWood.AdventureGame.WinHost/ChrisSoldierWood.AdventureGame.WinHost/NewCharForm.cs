@@ -170,7 +170,9 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             //MainForm.charListBox1.Click();
             MessageBox.Show($"Total length of character roster: {Character.CharacterRoster.Count}");
             this.Close();
-            
+            //MainForm_Load();
+
+
         }
 
 

@@ -90,5 +90,26 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             charListBox1.DataSource = null;
             charListBox1.DataSource = Character.CharacterRoster;
         }
+
+        private void OnEditMovie ( object sender, EventArgs e )
+        {
+            //var currentChar = GetSelectedCharacter();
+
+            //if (currentChar == null)
+            //    return;
+
+           
+            var form = new NewCharForm();
+
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+                // returns DialogResult
+            }
+        }
+
+        private Character GetSelectedCharacter()
+        {
+            return charListBox1.SelectedItem as Character;
+        }
     }
 }
