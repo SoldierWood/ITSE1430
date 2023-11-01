@@ -46,6 +46,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             charListBox1.DataSource = null;
             charListBox1.DataSource = Character.CharacterRoster;
             charListBox1.Refresh();
+            //charListBox1.
             //charListBox1.DisplayMember.
             Refresh();
 
