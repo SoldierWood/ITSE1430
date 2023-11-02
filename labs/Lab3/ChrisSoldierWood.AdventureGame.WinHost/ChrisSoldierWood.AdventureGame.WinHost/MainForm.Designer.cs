@@ -90,7 +90,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
             this.addToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.addToolStripMenuItem.Text = "&New";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.OnAddCharacter);
             // 
@@ -98,20 +98,20 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.editToolStripMenuItem.Text = "&Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.OnEditMovie);
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.viewToolStripMenuItem.Text = "&View";
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.deleteToolStripMenuItem.Text = "&Delete";
             // 
             // helpToolStripMenuItem
@@ -138,7 +138,6 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             this.charListBox1.Name = "charListBox1";
             this.charListBox1.Size = new System.Drawing.Size(784, 537);
             this.charListBox1.TabIndex = 1;
-            this.charListBox1.Click += new System.EventHandler(this.OnListBoxClick);
             // 
             // MainForm
             // 

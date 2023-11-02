@@ -15,7 +15,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
     public partial class NewCharForm : Form
     {
 
-
+        public MainForm mForm;
 
         public NewCharForm ()
         {
@@ -122,6 +122,50 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
         }
 
+        public void SetCharNameBox (string chName)
+        {
+            _txtCharName.Text = chName;
+
+        }
+
+        public void SetProfessionCBox ( string chProfession)
+        {
+            _cbProfession.Text = chProfession;
+        }
+        public void SetRaceCBox ( string chRace )
+        {
+            _cbRace.Text = chRace;
+        }
+
+        public void SetBioBox ( string chBio )
+        {
+            _txtBiography.Text = chBio;
+        }
+        public void SetStrengthBox ( int chStrength )
+        { 
+            _txtStrength.Text = chStrength.ToString();
+        }
+        public void SetIntelligenceBox ( int chIntelligence )
+        {
+            _txtIntelligence.Text = chIntelligence.ToString();
+        }
+
+        public void SetAgilityBox ( int chAgility )
+        {
+            _txtAgility.Text = chAgility.ToString();
+        }
+
+        public void SetConstitutionBox ( int chConstitution )
+        {
+            _txtConstitution.Text = chConstitution.ToString();
+        }
+
+        public void SetCharismaBox ( int chCharisma )
+        {
+            _txtCharisma.Text = chCharisma.ToString();
+        }
+
+
         private int GetInt32( Control control, int defaultValue )
         {
             if (Int32.TryParse(control.Text, out var value))
@@ -167,10 +211,15 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
             
             Character.CharacterRoster.Add(newChar);
-            //MainForm.charListBox1.Click();
-            MessageBox.Show($"Total length of character roster: {Character.CharacterRoster.Count}");
+
+            //MessageBox.Show($"Total length of character roster: {Character.CharacterRoster.Count}");
+
+            
+            
+            mForm.ListRefresh();
+
             this.Close();
-            //MainForm_Load();
+            
 
 
         }

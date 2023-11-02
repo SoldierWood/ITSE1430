@@ -37,25 +37,19 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             charListBox1.DataSource = Character.CharacterRoster;
         }
 
+
+
         private void MainForm_Load ( object sender, EventArgs e )
         {
 
 
-            //List<Character> CharacterList = new List<Character>();
-            //Character curChar = new Character();
+            
             charListBox1.DataSource = null;
             charListBox1.DataSource = Character.CharacterRoster;
             charListBox1.Refresh();
-            //charListBox1.
-            //charListBox1.DisplayMember.
+           
             Refresh();
 
-
-
-            //CharacterList.Add(new Character() {
-            //    Name = "Adam"
-            //});
-            //curChar.Name = charListBox1.SelectedItem.ToString();
         }
 
         private void OnHelpAbout ( object sender, EventArgs e )
@@ -68,6 +62,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
         {
             
             var form = new NewCharForm();
+            form.mForm = this;
             //form.ShowDialog(this);
 
             if (form.ShowDialog(this) == DialogResult.OK)
@@ -93,23 +88,44 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
         private void OnEditMovie ( object sender, EventArgs e )
         {
-            //var currentChar = GetSelectedCharacter();
+            var currentChar = GetSelectedCharacter();
 
-            //if (currentChar == null)
-            //    return;
+           // if (currentChar == null)
+           //     return;
 
            
             var form = new NewCharForm();
+            form.Text = "Edit Character";
+            form.mForm = this;
+
+            form.SetCharNameBox(currentChar.Name);
+            form.SetProfessionCBox(currentChar.Profession);
+            form.SetRaceCBox(currentChar.Race);
+            form.SetBioBox(currentChar.Bio);
+            form.SetStrengthBox(currentChar.Strength);
+            form.SetIntelligenceBox(currentChar.Intelligence);
+            form.SetAgilityBox(currentChar.Agility);
+            form.SetConstitutionBox(currentChar.Constitution);
+            form.SetCharismaBox(currentChar.Charisma);
 
             if (form.ShowDialog(this) == DialogResult.OK)
             {
                 // returns DialogResult
+               
             }
+
+
         }
 
         private Character GetSelectedCharacter()
         {
             return charListBox1.SelectedItem as Character;
+        }
+
+        public void ListRefresh()
+        {
+            charListBox1.DataSource = null;
+            charListBox1.DataSource = Character.CharacterRoster;
         }
     }
 }
