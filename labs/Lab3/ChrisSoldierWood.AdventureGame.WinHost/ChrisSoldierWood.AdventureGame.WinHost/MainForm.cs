@@ -31,7 +31,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
         }
 
-        private void OnListBoxClick (object sender, EventArgs e)
+        private void OnListBoxClick ( object sender, EventArgs e )
         {
             charListBox1.DataSource = null;
             charListBox1.DataSource = Character.CharacterRoster;
@@ -43,11 +43,11 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
         {
 
 
-            
+
             charListBox1.DataSource = null;
             charListBox1.DataSource = Character.CharacterRoster;
             charListBox1.Refresh();
-           
+
             Refresh();
 
         }
@@ -60,7 +60,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
         private void OnAddCharacter ( object sender, EventArgs e )
         {
-            
+
             var form = new NewCharForm();
             form.mForm = this;
             //form.ShowDialog(this);
@@ -90,11 +90,12 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
         {
             var currentChar = GetSelectedCharacter();
 
-           // if (currentChar == null)
-           //     return;
+            // if (currentChar == null)
+            //     return;
 
-           
-            var form = new NewCharForm();
+
+
+            var form = new EditCharForm();
             form.Text = "Edit Character";
             form.mForm = this;
 
@@ -107,25 +108,64 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             form.SetAgilityBox(currentChar.Agility);
             form.SetConstitutionBox(currentChar.Constitution);
             form.SetCharismaBox(currentChar.Charisma);
+            Character.CharacterRoster.Remove(GetSelectedCharacter());
+
 
             if (form.ShowDialog(this) == DialogResult.OK)
             {
                 // returns DialogResult
-               
+
             }
 
 
         }
 
-        private Character GetSelectedCharacter()
+        //public void UpdateCharacter ()
+        //{
+
+        //}
+
+        private Character GetSelectedCharacter ()
         {
             return charListBox1.SelectedItem as Character;
         }
 
-        public void ListRefresh()
+        public void ListRefresh ()
         {
             charListBox1.DataSource = null;
             charListBox1.DataSource = Character.CharacterRoster;
+        }
+
+        private void deleteToolStripMenuItem_Click ( object sender, EventArgs e )
+        {
+            var currentCha = GetSelectedCharacter();
+            var form = new Form();
+            Button button1 = new Button();
+            Button button2 = new Button();
+
+            
+            button1.Text = "Yes";
+            button1.Location = new Point(10, 10);
+            button2.Text = "No";
+            // Set the position of the button based on the location of button1.
+            button2.Location = new Point(button1.Left, button1.Height + button1.Top + 10);
+              
+            form.Text = "are you sure you want to delete " + currentCha.Name + "?";
+            form.AcceptButton = button1;
+
+            button1.Click += new System.EventHandler(this.delete_click);
+
+            
+            form.Controls.Add(button1);
+            form.Controls.Add(button2);
+            form.ShowDialog();
+            ListRefresh();
+
+        }
+        void delete_click (object sender, EventArgs e)
+        {
+            Character.CharacterRoster.Remove(GetSelectedCharacter());
+            
         }
     }
 }
