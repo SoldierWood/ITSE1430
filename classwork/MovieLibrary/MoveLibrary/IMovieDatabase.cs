@@ -1,7 +1,7 @@
 ﻿
 using MovieLibrary;
 
-namespace MoveLibrary
+namespace MovieLibrary
 {
     public interface IMovieDatabase
     {

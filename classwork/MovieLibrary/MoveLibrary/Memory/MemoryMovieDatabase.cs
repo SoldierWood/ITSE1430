@@ -1,6 +1,5 @@
 ﻿using System;
 
-using MoveLibrary;
 
 namespace MovieLibrary.Memory;
 
@@ -123,7 +122,7 @@ public class MemoryMovieDatabase : MovieDatabase
             _movies.Remove(movie);  //Reference equality applies
     }
 
-    protected override public Movie GetCore ( int id )
+    protected override Movie GetCore ( int id )
     {
         if (id <= 0)
             return null;

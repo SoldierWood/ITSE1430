@@ -130,7 +130,7 @@ public partial class MainForm : Form
             DataSource = movies
         };
 
-        _lstMovies.DataSource = s;
+        _lstMovies.DataSource = source;
 
         //movies[0].Title = "None";
         ////movies[2] = new Movie() { Title = "Bob" };

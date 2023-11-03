@@ -77,6 +77,14 @@ public abstract class MovieDatabase : IMovieDatabase
         movie.Id = newMovie.Id;
         return "";
     }
+
+    public virtual Movie Get ( int id )
+    {
+        if (id <= 0)
+            return null;
+
+        return GetCore(id);
+    }
     protected abstract Movie GetCore ( int id );
 
     protected abstract Movie AddCore ( Movie movie );
@@ -104,7 +112,7 @@ public abstract class MovieDatabase : IMovieDatabase
             return "Movie not found";
 
         //Update
-        Copy(existing, movie);
+        UpdateCore(id, movie);
         return "";
     }
 
@@ -124,7 +132,7 @@ public abstract class MovieDatabase : IMovieDatabase
         return GetAllCore();
 
     }
-
+    protected abstract IEnumerable<Movie> GetAllCore ();
 
     protected abstract Movie FindById ( int id );
 
