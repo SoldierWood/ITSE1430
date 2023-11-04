@@ -74,11 +74,6 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
 
         }
 
-        private void fileToolStripMenuItem_Click ( object sender, EventArgs e )
-        {
-
-        }
-
         private void MainForm_Load_1 ( object sender, EventArgs e )
         {
 
@@ -143,29 +138,29 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             Button button1 = new Button();
             Button button2 = new Button();
 
-            
+
             button1.Text = "Yes";
             button1.Location = new Point(10, 10);
             button2.Text = "No";
             // Set the position of the button based on the location of button1.
             button2.Location = new Point(button1.Left, button1.Height + button1.Top + 10);
-              
+
             form.Text = "are you sure you want to delete " + currentCha.Name + "?";
             form.AcceptButton = button1;
 
             button1.Click += new System.EventHandler(this.delete_click);
 
-            
+
             form.Controls.Add(button1);
             form.Controls.Add(button2);
             form.ShowDialog();
             ListRefresh();
 
         }
-        void delete_click (object sender, EventArgs e)
+        void delete_click ( object sender, EventArgs e )
         {
             Character.CharacterRoster.Remove(GetSelectedCharacter());
-            
+
         }
     }
 }

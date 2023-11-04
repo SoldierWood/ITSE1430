@@ -69,7 +69,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             fileToolStripMenuItem.ShortcutKeys=Keys.Alt|Keys.F4;
             fileToolStripMenuItem.Size=new Size(180, 22);
             fileToolStripMenuItem.Text="E&xit";
-            fileToolStripMenuItem.Click+=fileToolStripMenuItem_Click;
+            fileToolStripMenuItem.Click+=OnFileExit;
             // 
             // charactersToolStripMenuItem
             // 
@@ -82,7 +82,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             // 
             addToolStripMenuItem.Name="addToolStripMenuItem";
             addToolStripMenuItem.ShortcutKeys=Keys.Control|Keys.N;
-            addToolStripMenuItem.Size=new Size(180, 22);
+            addToolStripMenuItem.Size=new Size(141, 22);
             addToolStripMenuItem.Text="&New";
             addToolStripMenuItem.Click+=OnAddCharacter;
             // 
@@ -90,20 +90,20 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             // 
             editToolStripMenuItem.Name="editToolStripMenuItem";
             editToolStripMenuItem.ShortcutKeys=Keys.Control|Keys.O;
-            editToolStripMenuItem.Size=new Size(180, 22);
+            editToolStripMenuItem.Size=new Size(141, 22);
             editToolStripMenuItem.Text="&Edit";
             editToolStripMenuItem.Click+=OnEditMovie;
             // 
             // viewToolStripMenuItem
             // 
             viewToolStripMenuItem.Name="viewToolStripMenuItem";
-            viewToolStripMenuItem.Size=new Size(180, 22);
+            viewToolStripMenuItem.Size=new Size(141, 22);
             viewToolStripMenuItem.Text="&View";
             // 
             // deleteToolStripMenuItem
             // 
             deleteToolStripMenuItem.Name="deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size=new Size(180, 22);
+            deleteToolStripMenuItem.Size=new Size(141, 22);
             deleteToolStripMenuItem.Text="&Delete";
             deleteToolStripMenuItem.Click+=deleteToolStripMenuItem_Click;
             // 
