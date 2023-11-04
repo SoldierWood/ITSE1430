@@ -39,7 +39,6 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             this.charactersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,7 +70,7 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             // 
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.fileToolStripMenuItem.Text = "E&xit";
             this.fileToolStripMenuItem.Click += new System.EventHandler(this.OnFileExit);
             // 
@@ -80,7 +79,6 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             this.charactersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripMenuItem,
             this.editToolStripMenuItem,
-            this.viewToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.charactersToolStripMenuItem.Name = "charactersToolStripMenuItem";
             this.charactersToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
@@ -90,27 +88,24 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
             this.addToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addToolStripMenuItem.Text = "&New";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.OnAddCharacter);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editToolStripMenuItem.Text = "&Edit";
-            // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.viewToolStripMenuItem.Text = "&View";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.OnEditMovie);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteToolStripMenuItem.Text = "&Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -163,7 +158,6 @@ namespace ChrisSoldierWood.AdventureGame.WinHost
         private ToolStripMenuItem charactersToolStripMenuItem;
         private ToolStripMenuItem addToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem;
-        private ToolStripMenuItem viewToolStripMenuItem;
         private ToolStripMenuItem deleteToolStripMenuItem;
         private ToolStripMenuItem helpToolStripMenuItem;
         private ToolStripMenuItem aboutToolStripMenuItem;
