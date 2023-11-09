@@ -28,172 +28,197 @@ namespace Nile.Windows
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            _mainMenu = new MenuStrip();
-            fileToolStripMenuItem = new ToolStripMenuItem();
-            _miFileExit = new ToolStripMenuItem();
-            productToolStripMenuItem = new ToolStripMenuItem();
-            _miProductAdd = new ToolStripMenuItem();
-            _miProductEdit = new ToolStripMenuItem();
-            toolStripSeparator1 = new ToolStripSeparator();
-            _miProductDelete = new ToolStripMenuItem();
-            _gridProducts = new DataGridView();
-            _bsProducts = new BindingSource(components);
-            colId = new DataGridViewTextBoxColumn();
-            colName = new DataGridViewTextBoxColumn();
-            colDescription = new DataGridViewTextBoxColumn();
-            colPrice = new DataGridViewTextBoxColumn();
-            colDiscontinued = new DataGridViewCheckBoxColumn();
-            _mainMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)_gridProducts).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)_bsProducts).BeginInit();
-            SuspendLayout();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this._mainMenu = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._miFileExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._miProductAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this._miProductEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this._miProductDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this._gridProducts = new System.Windows.Forms.DataGridView();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDiscontinued = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this._bsProducts = new System.Windows.Forms.BindingSource(this.components);
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._mainMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._gridProducts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._bsProducts)).BeginInit();
+            this.SuspendLayout();
             // 
             // _mainMenu
             // 
-            _mainMenu.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, productToolStripMenuItem });
-            _mainMenu.Location = new Point(0, 0);
-            _mainMenu.Name = "_mainMenu";
-            _mainMenu.Padding = new Padding(7, 2, 0, 2);
-            _mainMenu.Size = new Size(965, 24);
-            _mainMenu.TabIndex = 0;
-            _mainMenu.Text = "menuStrip1";
+            this._mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.productToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this._mainMenu.Location = new System.Drawing.Point(0, 0);
+            this._mainMenu.Name = "_mainMenu";
+            this._mainMenu.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this._mainMenu.Size = new System.Drawing.Size(965, 24);
+            this._mainMenu.TabIndex = 0;
+            this._mainMenu.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { _miFileExit });
-            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(37, 20);
-            fileToolStripMenuItem.Text = "&File";
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._miFileExit});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "&File";
             // 
             // _miFileExit
             // 
-            _miFileExit.Name = "_miFileExit";
-            _miFileExit.ShortcutKeys = Keys.Alt | Keys.F4;
-            _miFileExit.Size = new Size(135, 22);
-            _miFileExit.Text = "E&xit";
-            _miFileExit.Click += OnFileExit;
+            this._miFileExit.Name = "_miFileExit";
+            this._miFileExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this._miFileExit.Size = new System.Drawing.Size(135, 22);
+            this._miFileExit.Text = "E&xit";
             // 
             // productToolStripMenuItem
             // 
-            productToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { _miProductAdd, _miProductEdit, toolStripSeparator1, _miProductDelete });
-            productToolStripMenuItem.Name = "productToolStripMenuItem";
-            productToolStripMenuItem.Size = new Size(61, 20);
-            productToolStripMenuItem.Text = "&Product";
+            this.productToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._miProductAdd,
+            this._miProductEdit,
+            this.toolStripSeparator1,
+            this._miProductDelete});
+            this.productToolStripMenuItem.Name = "productToolStripMenuItem";
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.productToolStripMenuItem.Text = "&Product";
             // 
             // _miProductAdd
             // 
-            _miProductAdd.Name = "_miProductAdd";
-            _miProductAdd.ShortcutKeys = Keys.Insert;
-            _miProductAdd.Size = new Size(131, 22);
-            _miProductAdd.Text = "&Add";
-            _miProductAdd.Click += OnProductAdd;
+            this._miProductAdd.Name = "_miProductAdd";
+            this._miProductAdd.ShortcutKeys = System.Windows.Forms.Keys.Insert;
+            this._miProductAdd.Size = new System.Drawing.Size(131, 22);
+            this._miProductAdd.Text = "&Add";
             // 
             // _miProductEdit
             // 
-            _miProductEdit.Name = "_miProductEdit";
-            _miProductEdit.Size = new Size(131, 22);
-            _miProductEdit.Text = "&Edit";
-            _miProductEdit.Click += OnProductEdit;
+            this._miProductEdit.Name = "_miProductEdit";
+            this._miProductEdit.Size = new System.Drawing.Size(131, 22);
+            this._miProductEdit.Text = "&Edit";
             // 
             // toolStripSeparator1
             // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(128, 6);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(128, 6);
             // 
             // _miProductDelete
             // 
-            _miProductDelete.Name = "_miProductDelete";
-            _miProductDelete.ShortcutKeys = Keys.Delete;
-            _miProductDelete.Size = new Size(131, 22);
-            _miProductDelete.Text = "&Delete";
-            _miProductDelete.Click += OnProductDelete;
+            this._miProductDelete.Name = "_miProductDelete";
+            this._miProductDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this._miProductDelete.Size = new System.Drawing.Size(131, 22);
+            this._miProductDelete.Text = "&Delete";
             // 
             // _gridProducts
             // 
-            _gridProducts.AllowUserToAddRows = false;
-            _gridProducts.AllowUserToDeleteRows = false;
-            _gridProducts.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(224, 224, 224);
-            _gridProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            _gridProducts.AutoGenerateColumns = false;
-            _gridProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            _gridProducts.Columns.AddRange(new DataGridViewColumn[] { colId, colName, colDescription, colPrice, colDiscontinued });
-            _gridProducts.DataSource = _bsProducts;
-            _gridProducts.Dock = DockStyle.Fill;
-            _gridProducts.Location = new Point(0, 24);
-            _gridProducts.Margin = new Padding(4, 3, 4, 3);
-            _gridProducts.Name = "_gridProducts";
-            _gridProducts.ReadOnly = true;
-            _gridProducts.RowHeadersVisible = false;
-            _gridProducts.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            _gridProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            _gridProducts.Size = new Size(965, 412);
-            _gridProducts.TabIndex = 1;
-            _gridProducts.CellDoubleClick += OnEditRow;
-            _gridProducts.KeyDown += OnKeyDownGrid;
-            // 
-            // _bsProducts
-            // 
-            _bsProducts.AllowNew = false;
+            this._gridProducts.AllowUserToAddRows = false;
+            this._gridProducts.AllowUserToDeleteRows = false;
+            this._gridProducts.AllowUserToResizeRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this._gridProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this._gridProducts.AutoGenerateColumns = false;
+            this._gridProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._gridProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colId,
+            this.colName,
+            this.colDescription,
+            this.colPrice,
+            this.colDiscontinued});
+            this._gridProducts.DataSource = this._bsProducts;
+            this._gridProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._gridProducts.Location = new System.Drawing.Point(0, 24);
+            this._gridProducts.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this._gridProducts.Name = "_gridProducts";
+            this._gridProducts.ReadOnly = true;
+            this._gridProducts.RowHeadersVisible = false;
+            this._gridProducts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this._gridProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this._gridProducts.Size = new System.Drawing.Size(965, 412);
+            this._gridProducts.TabIndex = 1;
             // 
             // colId
             // 
-            colId.DataPropertyName = "Id";
-            colId.HeaderText = "Id";
-            colId.Name = "colId";
-            colId.ReadOnly = true;
-            colId.Visible = false;
+            this.colId.DataPropertyName = "Id";
+            this.colId.HeaderText = "Id";
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            this.colId.Visible = false;
             // 
             // colName
             // 
-            colName.DataPropertyName = "Name";
-            colName.HeaderText = "Name";
-            colName.Name = "colName";
-            colName.ReadOnly = true;
-            colName.Width = 200;
+            this.colName.DataPropertyName = "Name";
+            this.colName.HeaderText = "Name";
+            this.colName.Name = "colName";
+            this.colName.ReadOnly = true;
+            this.colName.Width = 200;
             // 
             // colDescription
             // 
-            colDescription.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colDescription.DataPropertyName = "Description";
-            colDescription.HeaderText = "Description";
-            colDescription.Name = "colDescription";
-            colDescription.ReadOnly = true;
+            this.colDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescription.DataPropertyName = "Description";
+            this.colDescription.HeaderText = "Description";
+            this.colDescription.Name = "colDescription";
+            this.colDescription.ReadOnly = true;
             // 
             // colPrice
             // 
-            colPrice.DataPropertyName = "Price";
-            colPrice.HeaderText = "Price";
-            colPrice.Name = "colPrice";
-            colPrice.ReadOnly = true;
+            this.colPrice.DataPropertyName = "Price";
+            this.colPrice.HeaderText = "Price";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
             // 
             // colDiscontinued
             // 
-            colDiscontinued.DataPropertyName = "IsDiscontinued";
-            colDiscontinued.HeaderText = "Discontinued";
-            colDiscontinued.Name = "colDiscontinued";
-            colDiscontinued.ReadOnly = true;
+            this.colDiscontinued.DataPropertyName = "IsDiscontinued";
+            this.colDiscontinued.HeaderText = "Discontinued";
+            this.colDiscontinued.Name = "colDiscontinued";
+            this.colDiscontinued.ReadOnly = true;
+            // 
+            // _bsProducts
+            // 
+            this._bsProducts.AllowNew = false;
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "About";
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(965, 436);
-            Controls.Add(_gridProducts);
-            Controls.Add(_mainMenu);
-            MainMenuStrip = _mainMenu;
-            Margin = new Padding(4, 3, 4, 3);
-            MaximizeBox = false;
-            Name = "MainForm";
-            Text = "Nile";
-            _mainMenu.ResumeLayout(false);
-            _mainMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)_gridProducts).EndInit();
-            ((System.ComponentModel.ISupportInitialize)_bsProducts).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(965, 436);
+            this.Controls.Add(this._gridProducts);
+            this.Controls.Add(this._mainMenu);
+            this.MainMenuStrip = this._mainMenu;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.MaximizeBox = false;
+            this.Name = "MainForm";
+            this.Text = "Nile";
+            this._mainMenu.ResumeLayout(false);
+            this._mainMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._gridProducts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._bsProducts)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
@@ -218,6 +243,8 @@ namespace Nile.Windows
         private DataGridViewTextBoxColumn colDescription;
         private DataGridViewTextBoxColumn colPrice;
         private DataGridViewCheckBoxColumn colDiscontinued;
+        private ToolStripMenuItem helpToolStripMenuItem;
+        private ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 
