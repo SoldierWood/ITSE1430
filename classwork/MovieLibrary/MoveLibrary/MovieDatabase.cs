@@ -1,64 +1,13 @@
-﻿﻿using System;
-
+﻿/*
+* ITSE 1430 
+* Fall 2023
+*/
 namespace MovieLibrary;
 
 /// <summary>Represents a database of movies.</summary>
 public abstract class MovieDatabase : IMovieDatabase
 {
-    //public MemoryMovieDatabase ()
-    //{
-    //    //Object initializer - replaces need for creating an object (expression) and then assigning values to properties (statements)
-    //    // object-initializer ::= new T() { property-assignment+ }
-    //    // property-assignment ::= id = Et,
-    //    //var movie = new Movie();
-    //    //movie.Id = _id++;
-    //    //movie.Title = "Jaws";
-    //    //movie.ReleaseYear = 1977;
-    //    //movie.Rating = Rating.PG;
-    //    //movie.RunLength = 120;
-    //    //_movies[0] = movie;
-    //    //_movies[0] = new Movie() {
-    //    //    Id = _id++,
-    //    //    Title = "Jaws",
-    //    //    ReleaseYear = 1977,
-    //    //    Rating = Rating.PG,
-    //    //    RunLength = 120,
-    //    //};
-
-    //    //Collection initializer syntax
-    //    // new T[] { E, E, E }
-    //    //Set up movies
-    //    var movies = new[] {
-    //                new Movie() {
-    //                    Title = "Jaws",
-    //                    ReleaseYear = 1977,
-    //                    Rating = Rating.PG,
-    //                    RunLength = 120,
-    //                },
-    //                new Movie() {
-    //                    Title = "Dune",
-    //                    ReleaseYear = 1983,
-    //                    Rating = Rating.PG13,
-    //                    RunLength = 210,
-    //                },
-    //                new Movie() {
-    //                    Title = "Star Wars",
-    //                    ReleaseYear = 1977,
-    //                    Rating = Rating.PG,
-    //                    RunLength = 150,
-    //                },
-    //            };
-
-    //    //Enumeration - use foreach
-    //    // foreach-statement ::= foreach (T id in array) S;
-    //    // 1. variant is readonly
-    //    // 2. array must be immutable while enumerating
-    //    //for (int index = 0; index < movies.Length; ++index)
-    //    //   Add(movies[index]);
-    //    foreach (var movie in movies)
-    //        Add(movie);
-    //}
-
+    /// <inheritdoc />
     public virtual string Add ( Movie movie )
     {
         //Validate: null, invalid movie
@@ -78,6 +27,14 @@ public abstract class MovieDatabase : IMovieDatabase
         return "";
     }
 
+    /// <inheritdoc />
+    public virtual void Delete ( int id )
+    {
+        //TODO:Id > 0
+        DeleteCore(id);
+    }
+
+    /// <inheritdoc />
     public virtual Movie Get ( int id )
     {
         if (id <= 0)
@@ -85,16 +42,23 @@ public abstract class MovieDatabase : IMovieDatabase
 
         return GetCore(id);
     }
-    protected abstract Movie GetCore ( int id );
 
-    protected abstract Movie AddCore ( Movie movie );
+    /// <inheritdoc />
+    //public virtual IEnumerable<Movie> GetAll ()
+    //{
+    //    return GetAllCore() ?? Enumerable.Empty<Movie>(); // new Movie[0];
+    //}
+    //Expression body ::= member who uses lambda syntax
+    public virtual IEnumerable<Movie> GetAll () => GetAllCore() ?? Enumerable.Empty<Movie>();
 
-
-    public string Update ( int id, Movie movie )
+    /// <inheritdoc />
+    public virtual string Update ( int id, Movie movie )
     {
         //Validate: null, invalid movie
         if (id <= 0)
             return "ID is invalid";
+
+        //var whatever = new ObjectValidator();
 
         if (movie == null)
             return "Movie is null";
@@ -111,36 +75,43 @@ public abstract class MovieDatabase : IMovieDatabase
         if (existing == null)
             return "Movie not found";
 
-        //Update
         UpdateCore(id, movie);
         return "";
     }
 
-    protected abstract void UpdateCore ( int id, Movie movie );
+    #region Protected Members
 
-    public virtual void Delete ( int id )
-    {
-        //TODO:Id > 0
+    /// <summary>Adds a movie to the database.</summary>
+    /// <param name="movie">Movie to add.</param>
+    /// <returns>Updated movie.</returns>
+    protected abstract Movie AddCore ( Movie movie );
 
-        DeleteCore(id);
-    }
-
+    /// <summary>Deletes a movie.</summary>
+    /// <param name="id">ID of the movie.</param>
     protected abstract void DeleteCore ( int id );
 
-    public virtual IEnumerable<Movie> GetAll ()
-    {
-        return GetAllCore() ?? Enumerable.Empty<Movie>();
+    /// <summary>Gets a movie.</summary>
+    /// <param name="id">ID of the movie.</param>
+    /// <returns>The movie, if found.</returns>
+    protected abstract Movie GetCore ( int id );
 
-    }
+    /// <summary>Gets the movies in the database.</summary>
+    /// <returns>The list of movies.</returns>
     protected abstract IEnumerable<Movie> GetAllCore ();
 
+    /// <summary>Updates a movie in the database.</summary>
+    /// <param name="id">ID of the movie to update.</param>
+    /// <param name="movie">The updated movie information.</param>
+    protected abstract void UpdateCore ( int id, Movie movie );
+
+    /// <summary>Finds a movie by its ID.</summary>
+    /// <param name="id">ID of the movie.</param>
+    /// <returns>The movie, if any.</returns>
     protected abstract Movie FindById ( int id );
 
+    /// <summary>Finds a movie by its title.</summary>
+    /// <param name="title">Title of the movie.</param>
+    /// <returns>The movie, if any.</returns>
     protected abstract Movie FindByTitle ( string title );
-    
-    //private readonly Movie[] _movies = new Movie[100];
-
-    //List<T> generic type, resizable array of type T
-    //private readonly List<Movie> _movies = new List<Movie>();
-    //private int _id = 1;
+    #endregion
 }

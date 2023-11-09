@@ -60,12 +60,8 @@ public partial class MovieForm : Form
 
         movie.IsBlackAndWhite = _chkIsBlackAndWhite.Checked;
 
-        //var context = new ValidationContext(movie);
-        //var results = new System.Collections.ObjectModel.Collection<ValidationResult>();
-        //if (!Validator.TryValidateObject(movie, context, results, true))
-
-//        if (!movie.TryValidate(out var error))
-
+        //Validate        
+        //if (!movie.TryValidate(out var error))
         if (!ObjectValidator.TryValidate(movie, out var results))
         {
             var error = results.First();
@@ -77,8 +73,6 @@ public partial class MovieForm : Form
         };
 
         Movie = movie;
-        //DialogResult = DialogResult.OK;
-        //Close();
     }
 
     private void OnCancel ( object sender, EventArgs e )

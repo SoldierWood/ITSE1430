@@ -39,22 +39,24 @@ public class Movie : IValidatableObject
     /// <summary>Gets or sets the title of movie.</summary>
     public string Title
     {
-        get { return _title ?? ""; }
-        set { _title = value?.Trim() ?? ""; }
+        get => _title ?? "";
+        set => _title = value?.Trim() ?? "";
+        //get { return _title ?? ""; }
+        //set { _title = value?.Trim() ?? ""; }
     }
 
     /// <summary>Gets or sets the optional description.</summary>
     public string Description
     {
-        get { return _description ?? ""; }
-        set { _description = value; }
+        get => _description ?? "";
+        set => _description = value;
     }
 
     /// <summary>Gets or sets the genre.</summary>
     public string Genre
     {
-        get { return _genre ?? ""; }
-        set { _genre = value; }
+        get => _genre ?? "";
+        set => _genre = value;
     }
 
     /// <summary>Gets or sets the MPAA rating.</summary>
@@ -73,10 +75,12 @@ public class Movie : IValidatableObject
 
     /// <summary>Determines if the movie needs an intermission.</summary>
     /// <value>Any movie that is at least 2 and a half hours needs an intermission.</value>
-    public bool NeedsIntermission
-    {
-        get { return RunLength >= 150; }
-    }
+    //public bool NeedsIntermission
+    //{
+    //    get { return RunLength >= 150; }
+    //}
+    //public bool NeedsIntermission = RunLength >= 150;
+    public bool NeedsIntermission => RunLength >= 150;
 
     /// <summary>Minimum release year.</summary>
     public const int MinimumReleaseYear = 1900;
@@ -84,79 +88,31 @@ public class Movie : IValidatableObject
     /// <summary>Gets the default rating.</summary>
     public readonly string DefaultRating = "PG";
 
-    /// <summary>Validates the movie instance.</summary>
-    /// <returns>Error message if invalid or empty string otherwise.</returns>
-    public bool TryValidate ( out string message ) /* Movie this */
-    {
-        //TODO replace with IValidatableObject call
-        //Title is required
-        if (String.IsNullOrEmpty(_title))
-        {
-            message = "Title is required";
-            return false;
-        };
+    /// <inheritdoc />
+    public override string ToString () => $"{Title} [{ReleaseYear}]";
 
-        //Release Year >= 1900
-        if (ReleaseYear < MinimumReleaseYear)
-        {
-            message = $"Release Year must be >= {MinimumReleaseYear}";
-            return false;
-        };
-
-        //Length >= 0
-        if (RunLength < 0)
-        {
-            message = "Length must be at least 0";
-            return false;
-        };
-
-        if (ReleaseYear < 1940 && !IsBlackAndWhite)
-        {
-            message = "Movies before 1940 must be black and white";
-            return false;
-        };
-
-        message = "";
-        return false;
-        //return base.TryValidate(out message);
-    }
-
-    public override string ToString ()
-    {
-        return $"{Title} [{ReleaseYear}]";
-    }
-
+    /// <inheritdoc />
     public IEnumerable<ValidationResult> Validate ( ValidationContext validationContext )
     {
         //Title is required
         if (String.IsNullOrEmpty(_title))
-        {
             yield return new ValidationResult("Title is required");
-        }
 
         //Release Year >= 1900
-        if (ReleaseYear<MinimumReleaseYear)
-        {
+        if (ReleaseYear < MinimumReleaseYear)
             yield return new ValidationResult($"Release Year must be >= {MinimumReleaseYear}");
-        }
+
         //Length >= 0
         if (RunLength < 0)
-        {
             yield return new ValidationResult("Length must be at least 0");
-            
-        }
 
         if (ReleaseYear < 1940 && !IsBlackAndWhite)
-        {
             yield return new ValidationResult("Movies before 1940 must be black and white");
-
-        }
-
     }
-//return base.TryValidate(out message);
-#region Private Members
 
-private string _title;
+    #region Private Members
+
+    private string _title;
     private string _description = "";
     private string _genre = "";
 

@@ -1,67 +1,23 @@
-﻿using System;
-
+﻿/*
+* ITSE 1430 
+* Fall 2023
+*/
 
 namespace MovieLibrary.Memory;
 
 /// <summary>Represents a database of movies.</summary>
 public class MemoryMovieDatabase : MovieDatabase
 {
-    
+    /// <inheritdoc />
     protected override Movie AddCore ( Movie movie )
     {
-        //Validate: null, invalid movie
-        //if (movie == null)
-        //    return "Movie is null";
-        //if (!new ObjectValidator().TryValidate(movie, out var error))
-        //    return error.First().ErrorMessage;
-
-        ////Title must be unique
-        //var existing = FindByTitle(movie.Title);
-        //if (existing != null)
-        //    return "Movie title must be unique";
-
-        ////Find an empty slot
-        //for (var index = 0; index < _movies.Length; ++index)
-        //{
-        //    if (_movies[index] == null)
-        //    {
-        //        movie.Id = _id++;
-        //        _movies[index] = Clone(movie);
-        //        return "";
-        //    };
-        //};
         movie.Id = _id++;
         _movies.Add(Clone(movie));
-        
+
         return movie;
     }
 
-    public string Update ( int id, Movie movie )
-    {
-        //Validate: null, invalid movie
-        if (id <= 0)
-            return "ID is invalid";
-
-        if (movie == null)
-            return "Movie is null";
-        if (!ObjectValidator.TryValidate(movie, out var error))
-            return error.First().ErrorMessage;
-
-        //Title must be unique (and not self)
-        var existing = FindByTitle(movie.Title);
-        if (existing != null && existing.Id != id)
-            return "Movie title must be unique";
-
-        //Movie must exist
-        existing = FindById(id);
-        if (existing == null)
-            return "Movie not found";
-
-        //Update
-        Copy(existing, movie);
-        return "";
-    }
-
+    /// <inheritdoc />
     protected override void DeleteCore ( int id )
     {
         var movie = FindById(id);
@@ -69,50 +25,44 @@ public class MemoryMovieDatabase : MovieDatabase
             _movies.Remove(movie);  //Reference equality applies
     }
 
+    /// <inheritdoc />
     protected override Movie GetCore ( int id )
     {
-        if (id <= 0)
-            return null;
-
         var movie = FindById(id);
-
         if (movie == null)
             return null;
 
         return Clone(movie);
     }
+
+    /// <inheritdoc />
     protected override IEnumerable<Movie> GetAllCore ()
     {
-        //var count = _movies.Count;
-
-        //////How many are not null
-        ////var count = 0;
-        ////for (var index = 0; index < _movies.Length; ++index)
-        ////    if (_movies[index] != null)
-        ////        ++count;        
-
-        ////Clone array
-        //var items = new Movie[_movies.Count];
-        //var itemIndex = 0;
+        //1. Foreach - rarely needed with LINQ
         //foreach (var movie in _movies)
-        //    items[itemIndex++] = Clone(movie);
+        //    yield return Clone(movie);
 
-        ////for (var index = 0; index < _movies.Length; ++index)
-        ////    if (_movies[index] != null)
-        ////        items[itemIndex++] = Clone(_movies[index]);
+        //2. LINQ syntax return IEnumerable<S>
+        //     from id in enumerable-T
+        //     [where condition]                    //where movie.Id == 0
+        //     [orderby property [, property]]  //orderby movie.Title descending, movie.ReleaseYear
+        //     select S
+        return from movie in _movies
+               select Clone(movie);
 
-
-        ///IIf return type is IEnumberable<T> then you may use iterator to implement
-
-        foreach (var movie in _movies)
-            yield return Clone(movie);
-
-        //var items = new List<Movie>();
-        //foreach (var movie in _movies)
-        //    items.Add(Clone(movie));
-
-        //return items;
+        //3. Extension method
+        //return _movies.Select();
     }
+
+    /// <inheritdoc />
+    protected override void UpdateCore ( int id, Movie movie )
+    {
+        var existing = FindById(id);
+
+        Copy(existing, movie);
+    }
+
+    #region Private Members
 
     private Movie Clone ( Movie movie )
     {
@@ -136,38 +86,52 @@ public class MemoryMovieDatabase : MovieDatabase
 
     protected override Movie FindById ( int id )
     {
-        //for (var index = 0; index < _movies.Length; ++index)
-        //    if (_movies[index]?.Id == id)
-        //        return index;
-        foreach (var movie in _movies)
-            if (movie.Id == id)
-                return movie;
+        //foreach (var movie in _movies)
+        //    if (movie.Id == id)
+        //        return movie;
 
-        return null;
+        //return null;
+
+        //1. LINQ syntax /w extension methods
+        //return (from movie in _movies
+        //        where movie.Id == id
+        //        select movie).FirstOrDefault();
+
+        //lambda - anonymous method, only callable in one place
+
+        //2. Extension method version
+        //Func<Movie, bool>
+        //return _movies.Where(x => x.Id == id)
+        //              .Select(x => x)
+        //              .FirstOrDefault();
+        //return _movies.Where(MatchMovie)
+        //              .Select(SelectMovie)
+        //              .FirstOrDefault();
+
+        // 3. Simple
+        return _movies.FirstOrDefault(x => x.Id == id);
     }
+    //private bool MatchMovie ( Movie movie )
+    //{
+    //    return movie.Id == id;
+    //}
+    //private Movie SelectMovie ( Movie movie )
+    //{
+    //    return movie;
+    //}
 
     protected override Movie FindByTitle ( string title )
     {
-        //for (var index = 0; index < _movies.Length; ++index)
-        //    if (String.Equals(title, _movies[index]?.Title, StringComparison.OrdinalIgnoreCase))
-        //        return _movies[index];
-        foreach (var movie in _movies)
-            if (String.Equals(title, movie.Title, StringComparison.OrdinalIgnoreCase))
-                return movie;
+        return _movies.FirstOrDefault(x => String.Equals(title, x.Title, StringComparison.OrdinalIgnoreCase));
 
-        return null;
+        //foreach (var movie in _movies)
+        //    if (String.Equals(title, movie.Title, StringComparison.OrdinalIgnoreCase))
+        //        return movie;
+
+        //return null;
     }
 
-    protected override void UpdateCore ( int id, Movie movie)
-    {
-        var existing = FindById(id);
-
-        Copy(existing, movie);
-    }
-
-    //private readonly Movie[] _movies = new Movie[100];
-
-    //List<T> generic type, resizable array of type T
     private readonly List<Movie> _movies = new List<Movie>();
     private int _id = 1;
+    #endregion
 }
