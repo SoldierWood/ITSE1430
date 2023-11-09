@@ -138,5 +138,11 @@ namespace Nile.Windows
 
         private readonly IProductDatabase _database = new Nile.Stores.MemoryProductDatabase();
         #endregion
+
+        private void OnHelpAbout ( object sender, EventArgs e )
+        {
+            var about = new AboutBox1();
+            about.ShowDialog(this);
+        }
     }
 }

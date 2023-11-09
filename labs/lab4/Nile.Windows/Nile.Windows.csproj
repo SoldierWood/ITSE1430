@@ -6,6 +6,9 @@
     <Nullable>disable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Company>Chris Wood</Company>
+    <Product>ITSE 1430-2023</Product>
+    <Description>Fall 2023</Description>
   </PropertyGroup>
 
   <ItemGroup>
