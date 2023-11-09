@@ -4,7 +4,7 @@ namespace MovieLibrary.WinHost;
 
 public partial class MainForm : Form
 {
-    public MainForm()
+    public MainForm ()
     {
         InitializeComponent();
     }
@@ -43,14 +43,10 @@ public partial class MainForm : Form
 
         do
         {
-            //ShowDialog - modal
-            //Show - modeless
-            //dlg.Show();
             if (dlg.ShowDialog(this) != DialogResult.OK)
                 return;
 
-            //Add movie to library
-            //_movie = dlg.Movie;
+            //Add movie to library         
             var error = _database.Add(dlg.Movie);
             if (String.IsNullOrEmpty(error))
                 break;
@@ -61,7 +57,7 @@ public partial class MainForm : Form
     }
 
     private void OnEditMovie ( object sender, EventArgs e )
-    {        
+    {
         var movie = GetSelectedMovie();
         if (movie == null)
             return;
@@ -75,7 +71,6 @@ public partial class MainForm : Form
                 return;
 
             //Edit movie in library
-            //_movie = dlg.Movie;
             var error = _database.Update(movie.Id, dlg.Movie);
             if (String.IsNullOrEmpty(error))
                 break;
@@ -84,7 +79,7 @@ public partial class MainForm : Form
 
         RefreshMovies();
     }
-    
+
     private void OnDeleteMovie ( object sender, EventArgs e )
     {
         var movie = GetSelectedMovie();
@@ -113,39 +108,38 @@ public partial class MainForm : Form
         return MessageBox.Show(this, message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
     }
 
-    private Movie GetSelectedMovie()
+    private Movie GetSelectedMovie ()
     {
         return _lstMovies.SelectedItem as Movie;
     }
 
-    private void RefreshMovies( bool initial = false )
+    private void RefreshMovies ( bool initial = false )
     {
         _lstMovies.DataSource = null;
 
-        //var movies = _database.GetAll().ToList();
+        IEnumerable<Movie> movies = _database.GetAll();
 
-        var movies = _database.GetAll();
-
-        //Seed databse if desired
+        //Seed database if desired
         if (initial && !movies.Any() && Confirm("Seed", "Do you want to seed the database with movies?"))
         {
-            //_database.Seed()
             //DatabaseSeeder.Seed(_database);
             _database.Seed();
 
             movies = _database.GetAll();
-        }
+        };
+
+        //var typedMovies = movies.OfType<Movie>();
+        //movies = movies.OrderBy();
+        movies = from m in movies
+                 orderby m.Title, m.ReleaseYear descending
+                 select m;
+        //movies.OrderBy(x => x.Title)
+        //        .ThenByDescending(x => x.ReleaseYear);
 
         //var source = new BindingSource() {
         //    DataSource = movies
         //};
-
         _lstMovies.DataSource = movies.ToArray();
-
-        //movies[0].Title = "None";
-        ////movies[2] = new Movie() { Title = "Bob" };
-
-        //var movies2 = _database.GetAll();
     }
 
     private IMovieDatabase _database = new MemoryMovieDatabase();
