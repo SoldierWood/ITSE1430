@@ -69,6 +69,12 @@ namespace Nile.Windows
 
             //TODO: Validate product
 
+            //Validate: null, invalid product
+            if (product == null)
+                throw new ArgumentNullException(nameof(product));
+
+            ObjectValidator.Validate(product);
+
             Product = product;
             DialogResult = DialogResult.OK;
             Close();
