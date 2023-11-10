@@ -43,6 +43,14 @@ namespace Nile
             // Id must be greater than or equal to 0
             if (Id < 0)
                 yield return new ValidationResult("Length must be at least 0");
+
+            // Name is required & cannot be empty
+            if (String.IsNullOrEmpty(_name))
+                yield return new ValidationResult("Name is required");
+
+            // Price must be greater than or equal to 0
+            if (Price < 0)
+                yield return new ValidationResult("Price must be at least 0");
         }
         #region Private Members
 
