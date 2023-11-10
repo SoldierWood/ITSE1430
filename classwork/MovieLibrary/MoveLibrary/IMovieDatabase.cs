@@ -10,13 +10,13 @@ public interface IMovieDatabase
 {
     /// <summary>Adds a movie to the database.</summary>
     /// <param name="movie">The movie to add.</param>
-    /// <returns>Empty string if successful or an error message otherwise.</returns>
+    /// <returns>The new movie.</returns>
     /// <remarks>
     /// Movie cannot be null.
     /// Movie must be valid.
     /// Movie title must be unique.
     /// </remarks>
-    string Add ( Movie movie );
+    Movie Add ( Movie movie );
 
     /// <summary>Deletes a movie from the database.</summary>
     /// <param name="id">ID of the movie to delete.</param>
@@ -49,5 +49,5 @@ public interface IMovieDatabase
     /// Movie must exist.
     /// Movie title must be unique.
     /// </remarks>
-    string Update ( int id, Movie movie );
+    void Update ( int id, Movie movie );
 }

@@ -47,10 +47,9 @@ public partial class MainForm : Form
                 return;
 
             //Add movie to library         
-            var error = _database.Add(dlg.Movie);
-            if (String.IsNullOrEmpty(error))
-                break;
-            MessageBox.Show(this, error, "Add Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            _database.Add(dlg.Movie);
+            break;
+            //MessageBox.Show(this, error, "Add Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
         } while (true);
 
         RefreshMovies();
@@ -70,11 +69,11 @@ public partial class MainForm : Form
             if (dlg.ShowDialog(this) != DialogResult.OK)
                 return;
 
-            //Edit movie in library
-            var error = _database.Update(movie.Id, dlg.Movie);
-            if (String.IsNullOrEmpty(error))
-                break;
-            MessageBox.Show(this, error, "Updated Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //TODO: movie in library
+            _database.Update(movie.Id, dlg.Movie);
+            break;
+            
+            //MessageBox.Show(this, error, "Updated Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
         } while (true);
 
         RefreshMovies();
