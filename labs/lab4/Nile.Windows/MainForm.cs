@@ -36,15 +36,17 @@ namespace Nile.Windows
             if (child.ShowDialog(this) != DialogResult.OK)
                 return;
 
-            //TODO: Handle errors
+            //TODO: Done 11-11 Handle errors
             if (child.Product.Id <= 0)
                 throw new ArgumentOutOfRangeException(nameof(child.Product.Id), "ID must be greater than 0");
 
-            //if IsNullOrEmpty
-            //    child.Product.Name
+            if (String.IsNullOrEmpty(child.Product.Name))
+                throw new ArgumentException(nameof(child.Product.Name), "Name is required");        
 
+            if (child.Product.Price <= 0)
+                throw new ArgumentOutOfRangeException(nameof(child.Product.Price), "Price must be greater than 0");
 
-
+            
             //Save product
             _database.Add(child.Product);
             UpdateList();
@@ -110,7 +112,10 @@ namespace Nile.Windows
                                 "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
-            //TODO: Handle errors
+            //TODO: Done 11-11 Handle errors
+            if (product.Id <= 0)
+                throw new ArgumentOutOfRangeException(nameof(product.Id), "ID must be greater than 0");
+
             //Delete product
             _database.Remove(product.Id);
             UpdateList();
@@ -123,7 +128,17 @@ namespace Nile.Windows
             if (child.ShowDialog(this) != DialogResult.OK)
                 return;
 
-            //TODO: Handle errors
+            //TODO: Done 11-11 Handle errors
+            if (child.Product.Id <= 0)
+                throw new ArgumentOutOfRangeException(nameof(child.Product.Id), "ID must be greater than 0");
+
+            if (String.IsNullOrEmpty(child.Product.Name))
+                throw new ArgumentException(nameof(child.Product.Name), "Name is required");
+
+            if (child.Product.Price <= 0)
+                throw new ArgumentOutOfRangeException(nameof(child.Product.Price), "Price must be greater than 0");
+
+
             //Save product
             _database.Update(child.Product);
             UpdateList();
@@ -140,6 +155,7 @@ namespace Nile.Windows
         private void UpdateList()
         {
             //TODO: Handle errors
+
 
             _bsProducts.DataSource = _database.GetAll();
         }
