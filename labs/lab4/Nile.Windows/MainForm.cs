@@ -1,6 +1,9 @@
 /*
  * ITSE 1430
  */
+
+using Nile.Stores;
+
 namespace Nile.Windows
 {
     public partial class MainForm : Form
@@ -156,7 +159,7 @@ namespace Nile.Windows
         {
             IEnumerable<Product> Items = _database.GetAll();
 
-            //TODO: Done 11-11 Handle errors
+            //TODO: Needs more 11-11 Handle errors
             foreach (var item in Items)
             {
                 if (item.Id <= 0)
@@ -172,19 +175,13 @@ namespace Nile.Windows
                     throw new ArgumentNullException(nameof(item));
 
                 //Product must exist
-                //var existing = FindByID(item.Id);
+                //var existing = _database.FindProduct (item.Id);
                
-               // if (existing == null)
-                    //throw new ArgumentException("Movie not found", nameof(id));
+                //if (existing == null)
+                //    throw new ArgumentException("Product not found", nameof(item.Id));
 
                 ObjectValidator.Validate(item);
             }
-
-            //Product must exist
-            var existing = FindByID(item.Title);
-            existing = FindById(id);
-            if (existing == null)
-                throw new ArgumentException("Movie not found", nameof(id));
 
             _bsProducts.DataSource = _database.GetAll();
         }
