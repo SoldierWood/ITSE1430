@@ -9,9 +9,14 @@ namespace Nile.Stores
         /// <inheritdoc />
         public Product Add ( Product product )
         {
-            //TODO: Check arguments
+            //TODO: Done 11-11 Check arguments
+            if (product.Id <= 0)
+                throw new ArgumentOutOfRangeException(nameof(product.Id), "ID must be greater than 0");
 
-            //TODO: Validate product
+            if (product.Price <= 0)
+                throw new ArgumentOutOfRangeException(nameof(product.Price), "Price must be greater than 0");
+
+            //TODO: Done 11-11 Validate product
             //Validate: null, invalid product
             if (product == null)
                 throw new ArgumentNullException ( nameof (product) );
@@ -25,7 +30,10 @@ namespace Nile.Stores
         /// <inheritdoc />
         public Product Get ( int id )
         {
-            //TODO: Check arguments
+            //TODO: Done 11-11 Check arguments
+            if (id <= 0)
+                throw new ArgumentOutOfRangeException(nameof(id)), "ID must be greater than 0");
+
 
             return GetCore(id);
         }
@@ -39,7 +47,9 @@ namespace Nile.Stores
         /// <inheritdoc />
         public void Remove ( int id )
         {
-            //TODO: Check arguments
+            //TODO: Done 11-11 Check arguments
+            if (id <= 0)
+                throw new ArgumentOutOfRangeException(nameof(id), "ID must be greater than 0");
 
             RemoveCore(id);
         }
@@ -47,9 +57,11 @@ namespace Nile.Stores
         /// <inheritdoc />
         public Product Update ( Product product )
         {
-            //TODO: Check arguments
+            //TODO: Done 11-11 Check arguments
+            if (product.Id <= 0)
+                throw new ArgumentOutOfRangeException(nameof(product.Id), "ID must be greater than 0");
 
-            //TODO: Validate product
+            //TODO: Done 11-11 Validate product
             //Validate: null, invalid product
             if (product == null)
                 throw new ArgumentNullException(nameof(product));

@@ -37,6 +37,14 @@ namespace Nile.Windows
                 return;
 
             //TODO: Handle errors
+            if (child.Product.Id <= 0)
+                throw new ArgumentOutOfRangeException(nameof(child.Product.Id), "ID must be greater than 0");
+
+            //if IsNullOrEmpty
+            //    child.Product.Name
+
+
+
             //Save product
             _database.Add(child.Product);
             UpdateList();
