@@ -155,7 +155,10 @@ namespace Nile.Windows
         private void UpdateList()
         {
             //TODO: Handle errors
+            //if (_Id <= 0)
+            //    throw new ArgumentOutOfRangeException(nameof(child.Product.Id), "ID must be greater than 0");
 
+           
 
             _bsProducts.DataSource = _database.GetAll();
         }
