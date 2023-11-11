@@ -156,7 +156,6 @@ namespace Nile.Windows
         {
             IEnumerable<Product> Items = _database.GetAll();
 
-
             //TODO: Done 11-11 Handle errors
             foreach (var item in Items)
             {
