@@ -171,8 +171,20 @@ namespace Nile.Windows
                 if (item == null)
                     throw new ArgumentNullException(nameof(item));
 
+                //Product must exist
+                //var existing = FindByID(item.Id);
+               
+               // if (existing == null)
+                    //throw new ArgumentException("Movie not found", nameof(id));
+
                 ObjectValidator.Validate(item);
             }
+
+            //Product must exist
+            var existing = FindByID(item.Title);
+            existing = FindById(id);
+            if (existing == null)
+                throw new ArgumentException("Movie not found", nameof(id));
 
             _bsProducts.DataSource = _database.GetAll();
         }
