@@ -10,11 +10,10 @@ public abstract class MovieDatabase : IMovieDatabase
     /// <inheritdoc />
     public virtual Movie Add ( Movie movie )
     {
-        movie = null;
+        //movie = null;
         //Validate: null, invalid movie
         if (movie == null)
             throw new ArgumentNullException(nameof(movie));
-
 
         ObjectValidator.Validate(movie);
             
