@@ -154,11 +154,26 @@ namespace Nile.Windows
 
         private void UpdateList()
         {
-            //TODO: Handle errors
-            //if (_Id <= 0)
-            //    throw new ArgumentOutOfRangeException(nameof(child.Product.Id), "ID must be greater than 0");
+            IEnumerable<Product> Items = _database.GetAll();
 
-           
+
+            //TODO: Done 11-11 Handle errors
+            foreach (var item in Items)
+            {
+                if (item.Id <= 0)
+                    throw new ArgumentOutOfRangeException(nameof(item.Id), "ID must be greater than 0");
+
+                if (String.IsNullOrEmpty(item.Name))
+                    throw new ArgumentException(nameof(item.Name), "Name is required");
+
+                if (item.Price <= 0)
+                    throw new ArgumentOutOfRangeException(nameof(item.Price), "Price must be greater than 0");
+                
+                if (item == null)
+                    throw new ArgumentNullException(nameof(item));
+
+                ObjectValidator.Validate(item);
+            }
 
             _bsProducts.DataSource = _database.GetAll();
         }

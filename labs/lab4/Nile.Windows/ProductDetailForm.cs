@@ -67,7 +67,16 @@ namespace Nile.Windows
                 IsDiscontinued = _chkDiscontinued.Checked,
             };
 
-            //TODO: Validate product
+            //TODO: Done 11-11 Validate product
+            if (Product.Id <= 0)
+                throw new ArgumentOutOfRangeException(nameof(Product.Id), "ID must be greater than 0");
+
+            if (String.IsNullOrEmpty(Product.Name))
+                throw new ArgumentException(nameof(Product.Name), "Name is required");
+
+            if (Product.Price <= 0)
+                throw new ArgumentOutOfRangeException(nameof(Product.Price), "Price must be greater than 0");
+
 
             //Validate: null, invalid product
             if (product == null)
