@@ -46,10 +46,16 @@ public partial class MainForm : Form
             if (dlg.ShowDialog(this) != DialogResult.OK)
                 return;
 
-            //Add movie to library         
-            _database.Add(dlg.Movie);
-            break;
-            //MessageBox.Show(this, error, "Add Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            try
+            {
+                //Add movie to library         
+                _database.Add(dlg.Movie);
+                break;
+            } catch (Exception ex)
+            {
+                //Error handling
+                MessageBox.Show(this, ex.Message, "Add Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            };                                
         } while (true);
 
         RefreshMovies();
@@ -68,10 +74,13 @@ public partial class MainForm : Form
         {
             if (dlg.ShowDialog(this) != DialogResult.OK)
                 return;
+            try
+            {
+                //TODO: movie in library
+                _database.Update(movie.Id, dlg.Movie);
+                break;
+            } catch (InvalidOperationException)
 
-            //TODO: movie in library
-            _database.Update(movie.Id, dlg.Movie);
-            break;
             
             //MessageBox.Show(this, error, "Updated Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
         } while (true);
@@ -141,6 +150,6 @@ public partial class MainForm : Form
         _lstMovies.DataSource = movies.ToArray();
     }
 
-    private IMovieDatabase _database = new MemoryMovieDatabase();
+    private readonly IMovieDatabase _database = new IO.CsvMovieDatabase("movies.csv");
     #endregion
 }

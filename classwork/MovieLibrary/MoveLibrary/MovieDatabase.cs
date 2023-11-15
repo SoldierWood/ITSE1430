@@ -10,6 +10,8 @@ public abstract class MovieDatabase : IMovieDatabase
     /// <inheritdoc />
     public virtual Movie Add ( Movie movie )
     {
+        throw new NotImplementedException();
+
         //movie = null;
         //Validate: null, invalid movie
         if (movie == null)
