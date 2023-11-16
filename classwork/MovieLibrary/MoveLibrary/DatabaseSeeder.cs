@@ -1,11 +1,18 @@
-﻿namespace MovieLibrary
+﻿/*
+* ITSE 1430 
+* Fall 2023
+*/
+namespace MovieLibrary;
 
+/// <summary>Provides extension methods for <see cref="IMovieDatabase"/>.</summary>
+public static class DatabaseSeeder
 {
-    public static class DatabaseSeeder
+    /// <summary>Seeds a database with movies.</summary>
+    /// <param name="database">Database to seed.</param>
+    public static void Seed ( this IMovieDatabase database )
     {
-        public static void Seed ( this IMovieDatabase database )    // extension method
-        {
-            var movies = new[] {
+        //Set up movies
+        var movies = new[] {
                     new Movie() {
                         Title = "Jaws",
                         ReleaseYear = 1977,
@@ -26,16 +33,7 @@
                     },
                 };
 
-            //Enumeration - use foreach
-            // foreach-statement ::= foreach (T id in array) S;
-            // 1. variant is readonly
-            // 2. array must be immutable while enumerating
-            //for (int index = 0; index < movies.Length; ++index)
-            //   Add(movies[index]);
-            foreach (var movie in movies)
-                database.Add(movie);
-        }
+        foreach (var movie in movies)
+            database.Add(movie);
     }
 }
-
-

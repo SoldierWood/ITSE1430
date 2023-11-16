@@ -10,30 +10,42 @@ public abstract class MovieDatabase : IMovieDatabase
     /// <inheritdoc />
     public virtual Movie Add ( Movie movie )
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
 
-        //movie = null;
         //Validate: null, invalid movie
         if (movie == null)
             throw new ArgumentNullException(nameof(movie));
 
         ObjectValidator.Validate(movie);
-            
+
         //Title must be unique
         var existing = FindByTitle(movie.Title);
         if (existing != null)
             throw new InvalidOperationException("Movie title must be unique");
 
-        return AddCore(movie);
+        //TODO: Could also fail
+        try
+        {
+            return AddCore(movie);
+        } catch (Exception e)
+        {
+            throw new InvalidOperationException("Add failed", e);
+        };
     }
 
     /// <inheritdoc />
     public virtual void Delete ( int id )
     {
-        if (id <=0)
+        if (id <= 0)
             throw new ArgumentOutOfRangeException(nameof(id), "ID must be greater than 0");
 
-        DeleteCore(id);
+        try
+        {
+            DeleteCore(id);
+        } catch (Exception e)
+        {
+            throw new InvalidOperationException("Delete failed", e);
+        };
     }
 
     /// <inheritdoc />
@@ -42,8 +54,13 @@ public abstract class MovieDatabase : IMovieDatabase
         if (id <= 0)
             throw new ArgumentOutOfRangeException(nameof(id), "ID must be greater than 0");
 
-
-        return GetCore(id);
+        try
+        {
+            return GetCore(id);
+        } catch (Exception e)
+        {
+            throw new InvalidOperationException("Get failed", e);
+        };
     }
 
     /// <inheritdoc />
@@ -59,10 +76,7 @@ public abstract class MovieDatabase : IMovieDatabase
     {
         //Validate: null, invalid movie
         if (id <= 0)
-            if (id <=0)
-                throw new ArgumentOutOfRangeException(nameof(id), "ID must be greater than 0");
-
-        //var whatever = new ObjectValidator();
+            throw new ArgumentOutOfRangeException(nameof(id), "ID must be greater than 0");
 
         if (movie == null)
             throw new ArgumentNullException(nameof(movie));
@@ -73,15 +87,20 @@ public abstract class MovieDatabase : IMovieDatabase
         var existing = FindByTitle(movie.Title);
         if (existing != null && existing.Id != id)
             throw new InvalidOperationException("Movie title must be unique");
-        
 
         //Movie must exist
         existing = FindById(id);
         if (existing == null)
             throw new ArgumentException("Movie not found", nameof(id));
 
-        UpdateCore(id, movie);
-       
+        //TODO: Could still fails
+        try
+        {
+            UpdateCore(id, movie);
+        } catch (Exception e)
+        {
+            throw new InvalidOperationException("Update failed", e);
+        };
     }
 
     #region Protected Members
