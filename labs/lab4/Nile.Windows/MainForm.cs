@@ -36,22 +36,43 @@ namespace Nile.Windows
         private void OnProductAdd(object sender, EventArgs e)
         {
             var child = new ProductDetailForm("Product Details");
-            if (child.ShowDialog(this) != DialogResult.OK)
-                return;
 
-            //TODO: Done 11-11 Handle errors
-            if (child.Product.Id <= 0)
-                throw new ArgumentOutOfRangeException(nameof(child.Product.Id), "ID must be greater than 0");
+            do
+            {
+                if (child.ShowDialog(this) != DialogResult.OK)
+                    return;
 
-            if (String.IsNullOrEmpty(child.Product.Name))
-                throw new ArgumentException(nameof(child.Product.Name), "Name is required");        
+                ////TODO: Done 11-18 Handle errors ***REMOVE PRIOR CODE OF MINE
+                //if (child.Product.Id <= 0)
+                //    throw new ArgumentOutOfRangeException(nameof(child.Product.Id), "ID must be greater than 0");
 
-            if (child.Product.Price <= 0)
-                throw new ArgumentOutOfRangeException(nameof(child.Product.Price), "Price must be greater than 0");
+                //if (String.IsNullOrEmpty(child.Product.Name))
+                //    throw new ArgumentException(nameof(child.Product.Name), "Name is required");        
 
-            
-            //Save product
-            _database.Add(child.Product);
+                //if (child.Product.Price <= 0)
+                //    throw new ArgumentOutOfRangeException(nameof(child.Product.Price), "Price must be greater than 0");
+
+                //Save product
+                try
+                {
+                    _database.Add(child.Product);
+                    break;
+                }
+                catch (InvalidOperationException)
+                {
+                    MessageBox.Show(this, "Product already exists", "Add Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (ArgumentException)
+                {
+                    MessageBox.Show(this, "Error occurred", "Add Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    //Error handling
+                    MessageBox.Show(this, ex.Message, "Add Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                };
+            } while (true);
+
             UpdateList();
         }
 

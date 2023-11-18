@@ -9,17 +9,19 @@ namespace Nile.Stores
         /// <inheritdoc />
         public Product Add ( Product product )
         {
-            //TODO: Done 11-11 Check arguments
-            if (product.Id <= 0)
-                throw new ArgumentOutOfRangeException(nameof(product.Id), "ID must be greater than 0");
+            //TODO: Done 11-18 Check arguments **REMOVE PRIOR CODE OF MINE
+            if (product == null)
+                throw new ArgumentNullException(nameof(product));
 
-            if (product.Price <= 0)
-                throw new ArgumentOutOfRangeException(nameof(product.Price), "Price must be greater than 0");
+            //if (product.Id <= 0)
+            //    throw new ArgumentOutOfRangeException(nameof(product.Id), "ID must be greater than 0");
+
+            //if (product.Price <= 0)
+            //    throw new ArgumentOutOfRangeException(nameof(product.Price), "Price must be greater than 0");
 
             //TODO: Done 11-11 Validate product
             //Validate: null, invalid product
-            if (product == null)
-                throw new ArgumentNullException ( nameof (product) );
+           
 
             ObjectValidator.Validate(product);
 
