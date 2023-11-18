@@ -49,16 +49,16 @@ namespace Nile.Stores
         /// <inheritdoc />
         public void Remove ( int id )
         {
-            //TODO: Done 11-11 Check arguments
+            //TODO: Done 11-11 Check arguments **CHECK CODE REMOVED
             if (id <= 0)
                 throw new ArgumentOutOfRangeException(nameof(id), "ID must be greater than 0");
-            try
-            {
-                RemoveCore(id);
-            } catch (Exception e)
-            {
-                throw new InvalidOperationException("Delete failed", e);
-            };
+            //try
+            //{
+            RemoveCore(id);
+            //} catch (Exception e)
+            //{
+            //    throw new InvalidOperationException("Delete failed", e);
+            //};
 
         }
 
