@@ -207,7 +207,7 @@ namespace Nile.Windows
         {
             IEnumerable<Product> Items = _database.GetAll();
 
-            //TODO: Done 11-13 Handle errors
+            //TODO: Done 11-18 Handle errors
             foreach (var item in Items)
             {
                 if (item.Id <= 0)
@@ -218,20 +218,27 @@ namespace Nile.Windows
 
                 if (item.Price <= 0)
                     throw new ArgumentOutOfRangeException(nameof(item.Price), "Price must be greater than 0");
-                
+
                 if (item == null)
                     throw new ArgumentNullException(nameof(item));
 
                 //Product must exist
                 var existing = _database.Get(item.Id);
 
-               if (existing == null)
+                if (existing == null)
                     throw new ArgumentException("Product not found", nameof(item.Id));
 
                 ObjectValidator.Validate(item);
             }
+                
+            try
+            { 
+                _bsProducts.DataSource = _database.GetAll();
+            } catch (Exception e)
+            {
+                throw new InvalidOperationException("Update failed", e);
+            };
 
-            _bsProducts.DataSource = _database.GetAll();
         }
 
         private readonly IProductDatabase _database = new Nile.Stores.MemoryProductDatabase();

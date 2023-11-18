@@ -74,12 +74,21 @@ namespace Nile.Stores
             if (product == null)
                 throw new ArgumentNullException(nameof(product));
 
+            // Prevent duplicate products
+            //var existing = _products.Get(product.Id);
+
+            //var existing = _database.Get(product.Id);
+            //var existingName = product.FindProduct(product.Id);
+            //if (existingName != null && existingName != product.Name)
+            //     throw new InvalidOperationException("Product name must be unique");
+
             ObjectValidator.Validate(product);
 
             //Get existing product
-            var existing = GetCore(product.Id);
+            var existingId = GetCore(product.Id);
 
-            return UpdateCore(existing, product);
+
+            return UpdateCore(existingId, product);
         }
 
         #region Protected Members
