@@ -136,13 +136,22 @@ namespace Nile.Windows
                                 "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
-            //TODO: Done 11-11 Handle errors
-            if (product.Id <= 0)
-                throw new ArgumentOutOfRangeException(nameof(product.Id), "ID must be greater than 0");
+            //TODO: Done 11-11 Handle errors **REMOVE PRIOR CODE
+            //if (product.Id <= 0)
+            //    throw new ArgumentOutOfRangeException(nameof(product.Id), "ID must be greater than 0");
 
             //Delete product
-            _database.Remove(product.Id);
+
+            try
+            {
+                _database.Remove(product.Id);
+            } catch(Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "Delete Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            };
+
             UpdateList();
+
         }
 
         private void EditProduct(Product product)
