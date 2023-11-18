@@ -158,22 +158,40 @@ namespace Nile.Windows
         {
             var child = new ProductDetailForm("Product Details");
             child.Product = product;
-            if (child.ShowDialog(this) != DialogResult.OK)
-                return;
+            
 
-            //TODO: Done 11-11 Handle errors
-            if (child.Product.Id <= 0)
-                throw new ArgumentOutOfRangeException(nameof(child.Product.Id), "ID must be greater than 0");
+            //TODO: Done 11-18 Handle errors DELETE PRIOR CODE OF MINE
+            //if (child.Product.Id <= 0)
+            //    throw new ArgumentOutOfRangeException(nameof(child.Product.Id), "ID must be greater than 0");
 
-            if (String.IsNullOrEmpty(child.Product.Name))
-                throw new ArgumentException(nameof(child.Product.Name), "Name is required");
+            //if (String.IsNullOrEmpty(child.Product.Name))
+            //    throw new ArgumentException(nameof(child.Product.Name), "Name is required");
 
-            if (child.Product.Price <= 0)
-                throw new ArgumentOutOfRangeException(nameof(child.Product.Price), "Price must be greater than 0");
+            //if (child.Product.Price <= 0)
+            //    throw new ArgumentOutOfRangeException(nameof(child.Product.Price), "Price must be greater than 0");
+            do
+            {
+                if (child.ShowDialog(this) != DialogResult.OK)
+                    return;
 
+                try
+                {
+                    _database.Update(child.Product);
+                    break;
+                } catch (InvalidOperationException)
+                {
+                    MessageBox.Show(this, "Product already exists", "Updated Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } catch (ArgumentException)
+                {
+                    MessageBox.Show(this, "Error occurred", "Updated Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } catch (Exception ex)
+                {
+                    //Error handling
+                    MessageBox.Show(this, ex.Message, "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                };
+            } while (true);
 
             //Save product
-            _database.Update(child.Product);
             UpdateList();
         }
 
