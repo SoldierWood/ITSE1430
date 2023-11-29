@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieLibrary", "MoveLibrary
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieLibrary.WInHost", "MovieLibrary.WInHost\MovieLibrary.WInHost.csproj", "{81C9B17D-2127-4CD5-BA70-A8591ABDAD75}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MovieDb", "..\..\..\ITSE1430-2023\classwork\MovieLibrary\MovieDb\MovieDb.sqlproj", "{BDE72751-B36A-499E-81E4-7FB8951B67F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieLibrary.Sql", "MovieLibrary.Sql\MovieLibrary.Sql.csproj", "{081A7983-3F88-4A4D-B2F3-2C9B2C7CF2CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,16 @@ Global
 		{81C9B17D-2127-4CD5-BA70-A8591ABDAD75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81C9B17D-2127-4CD5-BA70-A8591ABDAD75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81C9B17D-2127-4CD5-BA70-A8591ABDAD75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDE72751-B36A-499E-81E4-7FB8951B67F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDE72751-B36A-499E-81E4-7FB8951B67F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDE72751-B36A-499E-81E4-7FB8951B67F5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BDE72751-B36A-499E-81E4-7FB8951B67F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDE72751-B36A-499E-81E4-7FB8951B67F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDE72751-B36A-499E-81E4-7FB8951B67F5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{081A7983-3F88-4A4D-B2F3-2C9B2C7CF2CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{081A7983-3F88-4A4D-B2F3-2C9B2C7CF2CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{081A7983-3F88-4A4D-B2F3-2C9B2C7CF2CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{081A7983-3F88-4A4D-B2F3-2C9B2C7CF2CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
