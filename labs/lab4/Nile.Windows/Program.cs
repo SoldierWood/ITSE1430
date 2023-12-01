@@ -29,6 +29,7 @@ namespace Nile.Windows
         public static string GetConnectionString ( string connectionStringName )
         {
             var connString = s_configuration.GetConnectionString(connectionStringName);
+            
             if (!String.IsNullOrEmpty(connString))
                 return connString;
 
