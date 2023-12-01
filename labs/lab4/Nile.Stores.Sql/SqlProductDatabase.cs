@@ -6,7 +6,10 @@
 
         protected override IEnumerable<Product> GetAllCore ();
 
-        protected override void RemoveCore ( int id );
+        protected override void RemoveCore ( int id )
+        {
+
+        }
 
         protected override Product UpdateCore ( Product existing, Product newItem );
 
