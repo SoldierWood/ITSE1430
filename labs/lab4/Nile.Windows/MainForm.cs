@@ -3,7 +3,7 @@
  */
 
 using Nile.Stores;
-using Nile.Stores.Sql;
+
 
 namespace Nile.Windows
 {
