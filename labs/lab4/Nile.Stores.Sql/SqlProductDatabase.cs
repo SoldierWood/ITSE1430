@@ -6,6 +6,11 @@ namespace Nile.Stores.Sql
 {
     public class SqlProductDatabase : ProductDatabase
     {
+
+        public SqlProductDatabase (string connectionString){
+            _connectionString = connectionString;
+        }
+        
         protected override Product GetCore ( int id );
 
         protected override IEnumerable<Product> GetAllCore ();
@@ -21,14 +26,10 @@ namespace Nile.Stores.Sql
 
         private SqlConnection OpenConnection()
         {
-
-            System.Data.SqlClient.SqlConnection con;
-
             var conn = new SqlConnection(_connectionString);
             conn.Open ();
 
             return conn;
-
         }
 
         private readonly string _connectionString;

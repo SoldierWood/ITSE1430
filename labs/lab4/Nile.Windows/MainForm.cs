@@ -3,6 +3,7 @@
  */
 
 using Nile.Stores;
+using Nile.Stores.Sql;
 
 namespace Nile.Windows
 {
@@ -241,7 +242,9 @@ namespace Nile.Windows
 
         }
 
-        private readonly IProductDatabase _database = new Nile.Stores.MemoryProductDatabase();
+        private readonly IProductDatabase _database = new Stores.Sql.SqlProductDatabase(Program.GetConnectionString("ProductDatabase"));
+
+        //Nile.Stores.MemoryProductDatabase();
         #endregion
 
         private void OnHelpAbout ( object sender, EventArgs e )
