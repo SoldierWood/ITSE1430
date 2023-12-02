@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 
+
 namespace Nile.Stores.Sql
 {
     public class SqlProductDatabase : ProductDatabase
@@ -20,6 +21,9 @@ namespace Nile.Stores.Sql
 
         private SqlConnection OpenConnection()
         {
+
+            System.Data.SqlClient.SqlConnection con;
+
             var conn = new SqlConnection(_connectionString);
             conn.Open ();
 

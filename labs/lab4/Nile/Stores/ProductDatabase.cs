@@ -1,6 +1,8 @@
 /*
  * ITSE 1430
  */
+
+
 namespace Nile.Stores
 {
     /// <summary>Base class for product database.</summary>
