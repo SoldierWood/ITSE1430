@@ -68,7 +68,21 @@ namespace Nile.Stores.Sql
 
         }
 
-        protected override Product AddCore ( Product product );
+        protected override Product AddCore ( Product product )
+        {
+            using var conn = OpenConnection ( );
+
+            var cmd = new SqlCommand("AddProduct", conn) { CommandTYpe = CommandType.StoredProcedure };
+
+            cmd.Parameters.AddWithValue("@name", product.Name);
+            cmd.Parameters.AddWithValue("@price", product.Price);
+            cmd.Parameters.AddWithValue("@description", product.Description);
+            cmd.Parameters.AddWithValue("@isDiscontinued", product.IsDiscontinued);
+
+            product.Id = Convert.ToInt32(cmd.ExecuteScalar());
+
+            return product;
+        }
 
         private SqlConnection OpenConnection()
         {
