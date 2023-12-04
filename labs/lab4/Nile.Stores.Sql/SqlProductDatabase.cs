@@ -32,13 +32,26 @@ namespace Nile.Stores.Sql
                 foreach ( var row in table.Rows.OfType<DataRow>())
                 {
                     products.Add(new Product() {
-
+                        id = Convert.ToInt32(row["id"]),
+                        row.Field<string>("name"),
+                        row.Field<decimal>("price"),
+                        description = row.IsNull("description") ? "" : row.Field<string>("description"),
+                        isDiscontinued = row.Field<bool>("isDiscontinued"),
                     }); ; ;
                 };
             };
+
+            return products;
         }
 
-        protected override void RemoveCore ( int id );
+        protected override void RemoveCore ( int id )
+        {
+            using var conn = OpenConnection ();
+            var cmd = new SqlCommand("RemoveProduct", conn) { CommandType = CommandType.StoredProcedure };
+            cmd.Parameters.AddWithValue("@id", id);
+
+            cmd.ExecuteNonQuery();
+        }
         
         protected override Product UpdateCore ( Product existing, Product newItem );
 
