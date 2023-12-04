@@ -95,26 +95,29 @@ namespace Nile.Windows
             // 
             this._miProductAdd.Name = "_miProductAdd";
             this._miProductAdd.ShortcutKeys = System.Windows.Forms.Keys.Insert;
-            this._miProductAdd.Size = new System.Drawing.Size(131, 22);
+            this._miProductAdd.Size = new System.Drawing.Size(180, 22);
             this._miProductAdd.Text = "&Add";
+            this._miProductAdd.Click += new System.EventHandler(this.OnProductAdd);
             // 
             // _miProductEdit
             // 
             this._miProductEdit.Name = "_miProductEdit";
-            this._miProductEdit.Size = new System.Drawing.Size(131, 22);
+            this._miProductEdit.Size = new System.Drawing.Size(180, 22);
             this._miProductEdit.Text = "&Edit";
+            this._miProductEdit.Click += new System.EventHandler(this.OnProductEdit);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(128, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // _miProductDelete
             // 
             this._miProductDelete.Name = "_miProductDelete";
             this._miProductDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this._miProductDelete.Size = new System.Drawing.Size(131, 22);
+            this._miProductDelete.Size = new System.Drawing.Size(180, 22);
             this._miProductDelete.Text = "&Delete";
+            this._miProductDelete.Click += new System.EventHandler(this.OnProductDelete);
             // 
             // helpToolStripMenuItem
             // 
@@ -128,7 +131,7 @@ namespace Nile.Windows
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnHelpAbout);
             // 
