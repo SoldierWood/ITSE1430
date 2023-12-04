@@ -53,10 +53,10 @@ namespace Nile.Stores.Sql
                 {
                     products.Add(new Product() {
                         Id = Convert.ToInt32(row["id"]),
-                        row.Field<string>("name"),
-                        row.Field<decimal>("price"),
-                        description = row.IsNull("description") ? "" : row.Field<string>("description"),
-                        isDiscontinued = row.Field<bool>("isDiscontinued"),
+                        Name = row.Field<string>("name"),
+                        Price = row.Field<decimal>("price"),
+                        Description = row.IsNull("description") ? "" : row.Field<string>("description"),
+                        IsDiscontinued = row.Field<bool>("isDiscontinued"),
                     }); ; ;
                 };
             };
@@ -84,7 +84,9 @@ namespace Nile.Stores.Sql
             cmd.Parameters.AddWithValue("@description", newItem.Description);
             cmd.Parameters.AddWithValue("@isDiscontinued", newItem.IsDiscontinued);
 
-            cmd.ExecuteNonQuery();
+            cmd.ExecuteScalar();
+            
+            return newItem;
 
         }
 
@@ -92,7 +94,7 @@ namespace Nile.Stores.Sql
         {
             using var conn = OpenConnection ( );
 
-            var cmd = new SqlCommand("AddProduct", conn) { CommandTYpe = CommandType.StoredProcedure };
+            var cmd = new SqlCommand("AddProduct", conn) { CommandType = CommandType.StoredProcedure };
 
             cmd.Parameters.AddWithValue("@name", product.Name);
             cmd.Parameters.AddWithValue("@price", product.Price);
