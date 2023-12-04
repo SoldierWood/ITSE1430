@@ -11,7 +11,27 @@ namespace Nile.Stores.Sql
             _connectionString = connectionString;
         }
         
-        protected override Product GetCore ( int id );
+        protected override Product GetCore ( int id )
+        {
+            using var conn = OpenConnection ();
+
+            var cmd = new SqlCommand("GetProduct", conn) { CommandType = CommandType.StoredProcedure };
+            cmd.Parameters.AddWithValue("@id", id);
+
+            using var reader = cmd.ExecuteReader ();
+            while (reader.Read ())
+            {
+                return new Product() {
+                    Id = reader.GetInt32("id"),
+                    Name = reader.GetString("name"),
+                    Description = reader.GetString("description"),
+                    IsDiscontinued = reader.GetBoolean("isDiscontinued"),
+
+                };
+            };
+
+            return null;
+        }
 
         protected override IEnumerable<Product> GetAllCore ()
         {
@@ -32,7 +52,7 @@ namespace Nile.Stores.Sql
                 foreach ( var row in table.Rows.OfType<DataRow>())
                 {
                     products.Add(new Product() {
-                        id = Convert.ToInt32(row["id"]),
+                        Id = Convert.ToInt32(row["id"]),
                         row.Field<string>("name"),
                         row.Field<decimal>("price"),
                         description = row.IsNull("description") ? "" : row.Field<string>("description"),
@@ -59,10 +79,10 @@ namespace Nile.Stores.Sql
 
             var cmd = new SqlCommand("UpdateProduct", conn) { CommandType = CommandType.StoredProcedure };
             cmd.Parameters.AddWithValue("@id", newItem.Id);
-            cmd.Parameters.AddWithValue("@name", newItem.Name),
-            cmd.Parameters.AddWithValue("@price", newItem.Price),
-            cmd.Parameters.AddWithValue("@description", newItem.Description),
-            cmd.Parameters.AddWithValue("@isDiscontinued", newItem.IsDiscontinued),
+            cmd.Parameters.AddWithValue("@name", newItem.Name);
+            cmd.Parameters.AddWithValue("@price", newItem.Price);
+            cmd.Parameters.AddWithValue("@description", newItem.Description);
+            cmd.Parameters.AddWithValue("@isDiscontinued", newItem.IsDiscontinued);
 
             cmd.ExecuteNonQuery();
 
