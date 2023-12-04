@@ -13,7 +13,30 @@ namespace Nile.Stores.Sql
         
         protected override Product GetCore ( int id );
 
-        protected override IEnumerable<Product> GetAllCore ();
+        protected override IEnumerable<Product> GetAllCore ()
+        {
+            using var conn = OpenConnection();
+
+            var ds = new DataSet();
+            var da = new SqlDataAdapter() {
+                SelectCommand = new SqlCommand("GetAllProducts", conn) {  CommandType = CommandType.StoredProcedure }
+            };
+
+            da.Fill(ds);
+
+            var products = new List<Product>();
+
+            var table = ds.Tables.OfType<DataTable>().FirstOrDefault();
+            if (table != null)
+            {
+                foreach ( var row in table.Rows.OfType<DataRow>())
+                {
+                    products.Add(new Product() {
+
+                    }); ; ;
+                };
+            };
+        }
 
         protected override void RemoveCore ( int id );
         
