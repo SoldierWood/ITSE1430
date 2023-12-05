@@ -58,33 +58,33 @@ namespace Nile.Windows
                 return;
             };
 
-            var product = new Product()
-            {
-                Id = Product?.Id ?? 0,
+            var product = new Product() {
+                //Id = Product?.Id ?? 0,
+                Id = 999,
                 Name = _txtName.Text,
                 Description = _txtDescription.Text,
                 Price = GetPrice(_txtPrice),
                 IsDiscontinued = _chkDiscontinued.Checked,
             };
 
-            ObjectValidator.Validate(product);
+            
 
             //TODO: Done 11-11 Validate product
-            if (Product.Id <= 0)
-                throw new ArgumentOutOfRangeException(nameof(Product.Id), "ID must be greater than 0");
+            if (product.Id <= 0)
+                throw new ArgumentOutOfRangeException(nameof(product.Id), "ID must be greater than 0");
 
-            if (String.IsNullOrEmpty(Product.Name))
-                throw new ArgumentException(nameof(Product.Name), "Name is required");
+            if (String.IsNullOrEmpty(product.Name))
+                throw new ArgumentException(nameof(product.Name), "Name is required");
 
-            if (Product.Price <= 0)
-                throw new ArgumentOutOfRangeException(nameof(Product.Price), "Price must be greater than 0");
+            if (product.Price <= 0)
+                throw new ArgumentOutOfRangeException(nameof(product.Price), "Price must be greater than 0");
 
 
             //Validate: null, invalid product
             if (product == null)
                 throw new ArgumentNullException(nameof(product));
 
-            //ObjectValidator.Validate(product);
+            ObjectValidator.Validate(product);
 
             Product = product;
             DialogResult = DialogResult.OK;
