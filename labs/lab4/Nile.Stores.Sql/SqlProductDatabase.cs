@@ -105,8 +105,7 @@ namespace Nile.Stores.Sql
 
             return product;
         }
-
-        public override Product FindByName ( string name )
+        protected override Product FindByName ( string name )
         {
             using var conn = OpenConnection();
             var cmd = new SqlCommand("FindProductByName", conn) { CommandType = CommandType.StoredProcedure };
