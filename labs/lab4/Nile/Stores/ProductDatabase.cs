@@ -80,11 +80,10 @@ namespace Nile.Stores
 
             //Get existing product
 
-            var existingName = FindByName(product.Name);
-            
-            
             var existingId = GetCore(product.Id);
 
+            var existingName = FindByName(product.Name);
+            
             // Prevent duplicate products
             if (existingName != null)
                 throw new InvalidOperationException("Product name must be unique");

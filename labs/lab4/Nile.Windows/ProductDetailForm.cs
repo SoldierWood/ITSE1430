@@ -59,8 +59,8 @@ namespace Nile.Windows
             };
 
             var product = new Product() {
-                //Id = Product?.Id ?? 0,
-                Id = 999,
+                Id = Product?.Id ?? 0,
+                //Id = 999,
                 Name = _txtName.Text,
                 Description = _txtDescription.Text,
                 Price = GetPrice(_txtPrice),

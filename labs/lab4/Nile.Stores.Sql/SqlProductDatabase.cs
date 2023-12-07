@@ -24,6 +24,7 @@ namespace Nile.Stores.Sql
                 return new Product() {
                     Id = reader.GetInt32("id"),
                     Name = reader.GetString("name"),
+                    Price = reader.GetDecimal("price"),
                     Description = reader.GetString("description"),
                     IsDiscontinued = reader.GetBoolean("isDiscontinued"),
 
