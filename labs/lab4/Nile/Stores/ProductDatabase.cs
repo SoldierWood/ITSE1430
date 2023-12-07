@@ -105,6 +105,7 @@ namespace Nile.Stores
 
         protected abstract Product FindByName ( string name );
 
+        
         #endregion
     }
 }

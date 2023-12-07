@@ -3,6 +3,8 @@
  */
 using System.ComponentModel;
 
+using Nile.Stores.Sql;
+
 namespace Nile.Windows
 {
     public partial class ProductDetailForm : Form
@@ -67,7 +69,8 @@ namespace Nile.Windows
                 IsDiscontinued = _chkDiscontinued.Checked,
             };
 
-            
+            product.Id = AddCore(product);
+
 
             //TODO: Done 11-11 Validate product
             if (product.Id <= 0)

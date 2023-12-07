@@ -128,6 +128,7 @@ namespace Nile.Stores.Sql
             return null;
         }
 
+        
         private SqlConnection OpenConnection()
         {
             var conn = new SqlConnection(_connectionString);
