@@ -79,8 +79,15 @@ namespace Nile.Stores
             ObjectValidator.Validate(product);
 
             //Get existing product
+
+            var existing = FindByName(product.Name);
+            
+            
             var existingId = GetCore(product.Id);
 
+            
+            
+            
             var existingName = product.Name;
 
             // Prevent duplicate products
@@ -101,6 +108,8 @@ namespace Nile.Stores
         protected abstract Product UpdateCore( Product existing, Product newItem );
 
         protected abstract Product AddCore( Product product );
+
+        protected abstract Product FindByName ( string name );
 
         #endregion
     }

@@ -106,6 +106,28 @@ namespace Nile.Stores.Sql
             return product;
         }
 
+        public override Product FindByName ( string name )
+        {
+            using var conn = OpenConnection();
+            var cmd = new SqlCommand("FindProductByName", conn) { CommandType = CommandType.StoredProcedure };
+            cmd.Parameters.AddWithValue("@name", name);
+
+            using var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                return new Product() {
+                    Id = reader.GetInt32("id"),
+                    Name = reader.GetString("name"),
+                    Price = reader.GetFieldValue<decimal>("price"),
+                    Description = reader.GetFieldValue<string>("description"),
+                    IsDiscontinued = reader.GetBoolean("isDiscontinued"),
+                };
+            };
+            
+            return null;
+        }
+
         private SqlConnection OpenConnection()
         {
             var conn = new SqlConnection(_connectionString);
