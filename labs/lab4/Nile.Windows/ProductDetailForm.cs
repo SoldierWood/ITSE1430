@@ -69,8 +69,7 @@ namespace Nile.Windows
                 IsDiscontinued = _chkDiscontinued.Checked,
             };
 
-            product.Id = AddCore(product);
-
+            product = _database.Add(product);
 
             //TODO: Done 11-11 Validate product
             if (product.Id <= 0)
@@ -125,7 +124,11 @@ namespace Nile.Windows
 
             //Validate price            
             return -1;
-        }                      
+        }
+
+        private readonly IProductDatabase _database = new SqlProductDatabase(Program.GetConnectionString("ProductDatabase"));
+
+
         #endregion
     }
 }
