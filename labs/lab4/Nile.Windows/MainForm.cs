@@ -25,6 +25,9 @@ namespace Nile.Windows
 
             var connString = Program.GetConnectionString("ProductDatabase");
             UpdateList();
+
+//            _gridProducts.Sort(_gridProducts.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
+           
         }
 
         #region Event Handlers
