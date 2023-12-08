@@ -59,7 +59,11 @@ namespace Nile.Windows
                     _database.Add(child.Product);
                     break;
                 }
-                catch (InvalidOperationException)
+                catch (ArgumentOutOfRangeException)
+                {
+                    MessageBox.Show(this, "ID must be greater than 0", "Add Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                } catch (InvalidOperationException)
                 {
                     MessageBox.Show(this, "Product already exists", "Add Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

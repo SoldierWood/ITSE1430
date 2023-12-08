@@ -69,11 +69,11 @@ namespace Nile.Windows
                 IsDiscontinued = _chkDiscontinued.Checked,
             };
 
-            product = _database.Add(product);
+            //product = _database.Add(product);
 
             //TODO: Done 11-11 Validate product
-            if (product.Id <= 0)
-                throw new ArgumentOutOfRangeException(nameof(product.Id), "ID must be greater than 0");
+           // if (product.Id <= 0)
+           //     throw new ArgumentOutOfRangeException(nameof(product.Id), "ID must be greater than 0");
 
             if (String.IsNullOrEmpty(product.Name))
                 throw new ArgumentException(nameof(product.Name), "Name is required");
